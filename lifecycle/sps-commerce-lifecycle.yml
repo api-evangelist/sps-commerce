@@ -1,0 +1,25 @@
+generated: '2026-10-09'
+method: searched
+source: https://developercenter.spscommerce.com/#/docs/new-authentication-docs/client-updates-for-enhanced-security
+versioning:
+  scheme: major version in URL path
+  evidence: "Contract paths are versioned in the URL (/inventory/v1/..., /v1/trading-partners); the Inventory API contract is published at a semver-pinned CDN path (inventory-api-docs/1.30.0)."
+  style_guide: https://spscommerce.github.io/sps-api-standards/
+  note: The Transaction API documentation has a "Migration from Older Versions" section; migration "is not mandatory".
+deprecation:
+  policy: none published as a general policy
+  sunset_headers: not documented
+  notices:
+  - item: OAuth implicit flow for Single Page Applications
+    text: "SPA apps using the implicit flow are being deprecated due to the insecure nature of the implicit flow. Existing SPAs must migrate to the Authorization Code Flow with PKCE by July 1st, 2026."
+    deadline: '2026-07-01'
+  - item: Token audience api://api.spscommerce.com/
+    text: "By July 1st, 2026: All applications must switch to the new audience format."
+    announced_available: '2025-06-01'
+    deadline: '2026-07-01'
+    replacement: https://spscommerce.com
+  - item: Access token lifetime
+    text: "The expires_in value on access tokens will be reduced for added security."
+deprecated_operations: []
+status_page: https://status.spscommerce.com/
+sla: none published in developer docs

@@ -1,0 +1,145 @@
+generated: '2026-10-09'
+method: derived
+generator: derive-data-model.py
+source:
+- openapi/sps-commerce-inventory-api-openapi.yml
+- openapi/sps-commerce-submission-api-openapi.yml
+notation: has_one = property $ref; has_many = array of $ref; belongs_to = <entity>_id field
+summary:
+  entities: 25
+  entities_in_spec: 25
+  relationships: 17
+entities:
+- name: AgreementContactDetails
+  fields: 5
+  description: Detailed information about agreement contact
+- name: AvailableSubmissionFormFields
+  fields: 61
+  description: Details to define the availability of different fields
+- name: Error
+  fields: 0
+- name: ErrorContext
+  fields: 2
+  description: List of objects providing additional context and detail on sub-reasons for the validation issue or
+    error.
+- name: ErrorContextFields
+  fields: 3
+  description: List of objects providing additional context and detail on sub-reasons for the validation issue or
+    error.
+- name: ErrorFieldValidation
+  fields: 0
+- name: ErrorResponse
+  fields: 5
+- name: FulfillmentModels
+  fields: 25
+  description: Describes all of the documents for the chosen order management options. It should include only options
+    and docs from the chosen Submission Form!
+- name: IncludedDataExchanges
+  fields: 4
+  description: Provides information about included trading partner's data exchanges. It should include only data
+    exchanges from the chosen Submission Form!
+- name: InventoryImportRequest
+  fields: 2
+- name: InventoryItem
+  fields: 9
+- name: Item
+  fields: 9
+- name: Pagination
+  fields: 3
+- name: PagingOffset
+  fields: 3
+  description: Offset Paging result schema for all collection responses.
+- name: ProblemDetails
+  fields: 6
+  description: Extended Problem Details error model for SPS Commerce, based upon Problem Details for HTTP APIs (https://datatracker.ietf.org/doc/html/rfc7807))
+- name: ProjectedQuantity
+  fields: 2
+- name: SubmissionFormOutput
+  fields: 29
+- name: SubmissionFormsResponse
+  fields: 2
+- name: ThirdPartyInvolvementContact
+  fields: 6
+  description: Detailed information about 3rd party involvement contact
+- name: TradingPartnerDetails
+  fields: 2
+- name: TradingPartnerInput
+  fields: 34
+  description: Model for the trading partner input payload
+- name: TradingPartnerLocation
+  fields: 4
+- name: TradingPartnerResponse
+  fields: 2
+- name: WarehouseLocation
+  fields: 8
+- name: inline_response_200
+  fields: 2
+relationships:
+- from: InventoryItem
+  to: ProjectedQuantity
+  type: has_many
+  via: projectedQuantities
+- from: InventoryItem
+  to: Item
+  type: has_one
+  via: item
+- from: InventoryItem
+  to: WarehouseLocation
+  type: has_one
+  via: warehouseLocation
+- from: ErrorFieldValidation
+  to: ErrorContext
+  type: has_many
+  via: context
+- from: ErrorFieldValidation
+  to: ErrorContextFields
+  type: has_many
+  via: context
+- from: Error
+  to: ErrorContext
+  type: has_many
+  via: context
+- from: inline_response_200
+  to: InventoryItem
+  type: has_many
+  via: results
+- from: inline_response_200
+  to: PagingOffset
+  type: has_one
+  via: paging
+- from: SubmissionFormOutput
+  to: AvailableSubmissionFormFields
+  type: has_one
+  via: availableFields
+- from: SubmissionFormsResponse
+  to: SubmissionFormOutput
+  type: has_many
+  via: results
+- from: SubmissionFormsResponse
+  to: Pagination
+  type: has_one
+  via: paging
+- from: TradingPartnerInput
+  to: AgreementContactDetails
+  type: has_one
+  via: businessContact
+- from: TradingPartnerInput
+  to: ThirdPartyInvolvementContact
+  type: has_one
+  via: tpInvolvementContact
+- from: TradingPartnerInput
+  to: TradingPartnerLocation
+  type: has_one
+  via: tradingPartnerLocation
+- from: TradingPartnerInput
+  to: IncludedDataExchanges
+  type: has_one
+  via: includedDataExchanges
+- from: TradingPartnerInput
+  to: FulfillmentModels
+  type: has_one
+  via: fulfillmentModels
+- from: TradingPartnerResponse
+  to: TradingPartnerDetails
+  type: has_many
+  via: createdTradingPartners

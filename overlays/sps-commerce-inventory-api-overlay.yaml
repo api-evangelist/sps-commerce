@@ -1,0 +1,33 @@
+overlay: 1.0.0
+info:
+  title: SPS Commerce Inventory API — API Evangelist overlay
+  version: 1.0.0
+  x-generated: '2026-10-09'
+  x-method: generated
+extends: ../openapi/_original/sps-commerce-inventory-api-openapi.json
+actions:
+- target: $.info
+  update:
+    x-api-evangelist:
+      provider: sps-commerce
+      llms: llms/sps-commerce-llms.txt
+      mcp: mcp/sps-commerce-mcp.yml
+      mcp_status: candidate (no official MCP server found)
+- target: $.paths['/inventory/v1/items/{spsItemId}'].get
+  update:
+    summary: Get Inventory Items by spsItemId
+    x-internal: true
+    x-api-evangelist-note: Original summary carries an "|internal" suffix; split into x-internal.
+- target: $.paths['/inventory/v1/imports'].post
+  update:
+    summary: Import Inventory Data
+    x-internal: true
+    x-api-evangelist-note: Original summary carries an "|internal" suffix; split into x-internal.
+- target: $.paths['/inventory/v1/items'].get
+  update:
+    x-agent-tool: list_inventory_items
+    x-pagination:
+      style: offset
+      parameters:
+      - offset
+      - limit

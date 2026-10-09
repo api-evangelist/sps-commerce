@@ -1,0 +1,10 @@
+generated: '2026-10-09'
+method: generated
+source: openapi/
+skills:
+  - name: sps-commerce-inventory-lookup
+    path: skills/sps-commerce-inventory-lookup.md
+    api: openapi/sps-commerce-inventory-api-openapi.yml
+  - name: sps-commerce-community-vendor-submission
+    path: skills/sps-commerce-community-vendor-submission.md
+    api: openapi/sps-commerce-submission-api-openapi.yml

@@ -1,0 +1,50 @@
+name: SPS Commerce MCP Server (candidate)
+type: MCPServer
+status: candidate
+generated: '2026-10-09'
+method: derived
+source:
+  - openapi/sps-commerce-inventory-api-openapi.yml
+  - openapi/sps-commerce-submission-api-openapi.yml
+description: >-
+  No official SPS Commerce MCP server was found. Web searches (2026-10-09) returned no
+  SPS Commerce-published MCP server; the provider llms.txt (https://www.spscommerce.com/llms.txt)
+  does not mention MCP; pre-flight probes of https://developercenter.spscommerce.com/mcp and
+  https://trust.spscommerce.com/api/mcp returned 403 with a 403 control (opaque, proves nothing).
+  A third-party connector exists (StackOne, https://www.stackone.com/connectors/spscommerce/) and
+  is NOT an SPS Commerce product. The tools below are a candidate list derived one-to-one from
+  the public OpenAPI operations.
+deployment:
+  mode: none
+  auth: unknown
+  verified: derived
+third_party:
+  - name: StackOne SPS Commerce connector
+    url: https://www.stackone.com/connectors/spscommerce/
+    official: false
+    note: Third-party listing found via search; not probed, not an SPS Commerce surface.
+tools:
+  - name: list_inventory_items
+    description: Get inventory items, filterable by partnerId, part numbers, UPC/GTIN/SKU/EAN/NDC and quantityUpdatedSince.
+    operationId: v1-items-get
+    api: openapi/sps-commerce-inventory-api-openapi.yml
+  - name: get_inventory_item
+    description: Get inventory item by spsItemId (marked internal in the spec summary).
+    operationId: v1-items-get-by-id
+    api: openapi/sps-commerce-inventory-api-openapi.yml
+  - name: import_inventory
+    description: Import inventory data (marked internal in the spec summary).
+    operationId: v1-imports-create
+    api: openapi/sps-commerce-inventory-api-openapi.yml
+  - name: list_submission_forms
+    description: List all available Community submission forms.
+    operationId: get_forms_v1_forms_get
+    api: openapi/sps-commerce-submission-api-openapi.yml
+  - name: get_submission_form
+    description: Get a specific submission form by id.
+    operationId: get_form_v1_forms__id__get
+    api: openapi/sps-commerce-submission-api-openapi.yml
+  - name: submit_trading_partner
+    description: Submit a new trading partner (vendor) to a Community program.
+    operationId: create_lead_v1_trading_partners_post
+    api: openapi/sps-commerce-submission-api-openapi.yml

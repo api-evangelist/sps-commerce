@@ -1,0 +1,1411 @@
+openapi: 3.2.0
+info:
+  title: Community Submission API
+  description: The Submission API allows Community Buying Organizations to access if they would like to automate the submission process of new vendors to their Community program with SPS Commerce.
+  version: 1.0.0
+servers:
+- url: https://api.spscommerce.com/submissions
+  description: prod environment
+tags:
+- name: Submission
+  description: Operations with Submission Form entities. Require `Bearer` token authentication
+paths:
+  /v1/trading-partners:
+    post:
+      tags:
+      - Submission
+      summary: Trading Partner Submission
+      description: Allows Buying Organizations to submit suppliers to SPS Commerce for onboarding.
+      operationId: create_lead_v1_trading_partners_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TradingPartnerInput'
+        required: true
+      responses:
+        '201':
+          description: Trading Partners were created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TradingPartnerResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Submission Form isn't found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '400':
+          description: Validation Error
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+      - HTTPBearer: []
+  /v1/forms:
+    get:
+      tags:
+      - Submission
+      summary: List of all available Submission Forms
+      description: 'Provides a list of available submission forms based on the
+
+        Buying Organization''s relationship with that supplier
+
+        based on the business requirements.'
+      operationId: get_forms_v1_forms_get
+      security:
+      - HTTPBearer: []
+      parameters:
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          maximum: 50
+          minimum: 1
+          default: 1
+          title: Limit
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          minimum: 0
+          default: 0
+          title: Offset
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubmissionFormsResponse'
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error
+        '403':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Forbidden
+        '400':
+          description: Validation Error
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /v1/forms/{id}:
+    get:
+      tags:
+      - Submission
+      summary: Get a specific Submission Form
+      description: 'Provides a requested submission form.
+
+        User can retrieve only submission form under their organization
+
+
+        There will be shown only forms, available and enabled in the
+
+        Community UI preferences'
+      operationId: get_form_v1_forms__id__get
+      security:
+      - HTTPBearer: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubmissionFormOutput'
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error
+        '403':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Forbidden
+        '404':
+          description: Submission Form isn't found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    SfOrderManagementEnum:
+      type: string
+      enum:
+      - Consignment
+      - Direct Store Delivery
+      - Imports
+      - Scan-Based Trading
+      - Scan Based Trading/Concessions
+      - Ship Direct to Business
+      - Ship Direct to Customer
+      - Ship to DC
+      - Ship to DC - Cross Dock
+      - Ship to DC/Store
+      - Ship to DC/Store - Blanket and Release
+      - Ship to Multiple Stores
+      - Ship to Store
+      - Ship to Facility
+      - Ship to Facility - Blanket and Release
+      - Supplier Direct to Business
+      - Supplier Direct to Customer (Dropship)
+      - Third Party Marketplace
+      - Transportation - North America Collect
+      - Transportation - North America Prepaid
+      - Vendor Managed Inventory
+      - Vendor Managed Inventory (VMI)
+      - Ship to 3PL
+      title: SfOrderManagementEnum
+    SubmissionFormOutput:
+      properties:
+        id:
+          type: string
+          title: Id
+          description: Identifier of the chosen Submission Form
+        name:
+          type: string
+          title: Name
+          description: Submission Form name in the Community database
+        description:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Description
+          description: Detailed description of the Submission Form
+        retailerInstructions:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Instruction for retailer
+        createdDateTime:
+          type: string
+          format: date-time
+          title: Created DateTime
+          description: DateTime of the Submission Form creation
+        modifiedDateTime:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Modified DateTime
+          description: DateTime of the Submission Form modification
+        availableFields:
+          $ref: '#/components/schemas/AvailableSubmissionFormFields'
+        includedSalesDataDataExchange:
+          type: boolean
+          title: Sales Data Data Exchange
+          description: Defines if the sales data data exchange is supported by a Submission Form
+        salesDataCampaignId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Sales Data Campaign ID
+          description: SalesForce identifier of the campaign, which will be used for sales data Trading Partners creation
+        salesDataCampaignName:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Sales Data Campaign Name
+        salesDataTradingPartnerSource:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Sales Data Trading Partner Source
+          description: Type of the lead source for sales data
+        salesDataDefaultSelection:
+          type: boolean
+          title: Sales Data Default To Selected
+          description: Defines if the sales data campaign will be selected by default
+        includedItemDataExchange:
+          type: boolean
+          title: Item Data Exchange
+          description: Defines if the item data exchange is supported by a Submission Form
+        itemCampaignId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Item Campaign ID
+          description: SalesForce identifier of the campaign, which will be used for item Trading Partners creation
+        itemCampaignName:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Item Campaign Name
+        itemTradingPartnerSource:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Item Trading Partner Source
+          description: Type of the lead source for item
+        itemDefaultSelection:
+          type: boolean
+          title: Item Default To Selected
+          description: Defines if the item campaign will be selected by default
+        includedOrderDataExchange:
+          type: boolean
+          title: Order Data Exchange
+          description: Defines if the order data exchange is supported by a Submission Form
+        orderCampaignId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Order Campaign ID
+          description: SalesForce identifier of the campaign, which will be used for order Trading Partners creation
+        orderCampaignName:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Order Campaign Name
+        orderTradingPartnerSource:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Order Trading Partner Source
+          description: Type of the lead source for order
+        orderDefaultSelection:
+          type: boolean
+          title: Order Default To Selected
+          description: Defines if the order campaign will be selected by default
+        includedItemAndOrderDataExchange:
+          type: boolean
+          title: Item and Order Data Exchange
+          description: Defines if the item and order data exchange is supported by a Submission Form
+        itemAndOrderCampaignId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Item and Order Campaign ID
+          description: SalesForce identifier of the campaign, which will be used for item and order Trading Partners creation
+        itemAndOrderCampaignName:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Item and Order Campaign Name
+        itemAndOrderTradingPartnerSource:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Item and Order Trading Partner Source
+          description: Type of the lead source for item and order
+        itemAndOrderDefaultSelection:
+          type: boolean
+          title: Item and Order Default To Selected
+          description: Defines if the item and order campaign will be selected by default
+        sponsoredSolution:
+          type: boolean
+          title: Sponsored Solution
+          description: Defines if the lead source type is Retailer Sponsored
+        sponsoredSolutionDefaultSelection:
+          type: boolean
+          title: Sponsored Solution Default To Selected
+          description: Defines if the sponsored solution will be selected by default
+      type: object
+      required:
+      - id
+      - name
+      - description
+      - retailerInstructions
+      - createdDateTime
+      - modifiedDateTime
+      - availableFields
+      - includedSalesDataDataExchange
+      - salesDataCampaignId
+      - salesDataCampaignName
+      - salesDataTradingPartnerSource
+      - salesDataDefaultSelection
+      - includedItemDataExchange
+      - itemCampaignId
+      - itemCampaignName
+      - itemTradingPartnerSource
+      - itemDefaultSelection
+      - includedOrderDataExchange
+      - orderCampaignId
+      - orderCampaignName
+      - orderTradingPartnerSource
+      - orderDefaultSelection
+      - includedItemAndOrderDataExchange
+      - itemAndOrderCampaignId
+      - itemAndOrderCampaignName
+      - itemAndOrderTradingPartnerSource
+      - itemAndOrderDefaultSelection
+      - sponsoredSolution
+      - sponsoredSolutionDefaultSelection
+      title: SubmissionFormOutput
+    IncludedDataExchanges:
+      properties:
+        salesData:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Sales Data
+          description: Select `Sales Data` as trading partner's data exchange. At least one data exchange should be included!
+        item:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Item
+          description: Select `Item` as trading partner's data exchange. At least one data exchange should be included!
+        order:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Order
+          description: Select `Order` as trading partner's data exchange. At least one data exchange should be included!
+        itemAndOrder:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Item and Order
+          description: Select `Item and Order` as trading partner's data exchange. At least one data exchange should be included!
+      additionalProperties: false
+      type: object
+      title: IncludedDataExchanges
+      description: Provides information about included trading partner's data exchanges. It should include only data exchanges from the chosen Submission Form!
+    SubmissionFormsResponse:
+      properties:
+        results:
+          items:
+            $ref: '#/components/schemas/SubmissionFormOutput'
+          type: array
+          title: Results
+        paging:
+          $ref: '#/components/schemas/Pagination'
+      additionalProperties: false
+      type: object
+      required:
+      - results
+      - paging
+      title: SubmissionFormsResponse
+    ThirdPartyInvolvementContact:
+      properties:
+        tpInvolvementType:
+          anyOf:
+          - $ref: '#/components/schemas/ThirdPartyInvolvementTypes'
+          - type: 'null'
+          title: Third Party Involvement Type
+          description: Type of the third party involvement
+        tpInvolvementFirstName:
+          anyOf:
+          - type: string
+            maxLength: 50
+            minLength: 1
+          - type: 'null'
+          title: First Name
+          description: Third Party Involvement first name
+        tpInvolvementLastName:
+          type: string
+          maxLength: 75
+          minLength: 1
+          title: Last Name
+          description: Third Party Involvement last name
+        tpInvolvementEmail:
+          anyOf:
+          - type: string
+            maxLength: 254
+            minLength: 5
+            pattern: (^[a-zA-Z0-9+._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+$)
+          - type: 'null'
+          title: Email Address
+          description: Third Party Involvement email
+          examples:
+          - correct@gmail.com
+        tpInvolvementPhone:
+          anyOf:
+          - type: string
+            maxLength: 40
+            minLength: 1
+          - type: 'null'
+          title: Phone Number
+          description: Third Party Involvement phone number
+        tpInvolvementCompanyName:
+          anyOf:
+          - type: string
+            maxLength: 75
+            minLength: 1
+          - type: 'null'
+          title: Company Name
+          description: Third Party Involvement company name
+      additionalProperties: false
+      type: object
+      required:
+      - tpInvolvementFirstName
+      - tpInvolvementLastName
+      title: ThirdPartyInvolvementContact
+      description: Detailed information about 3rd party involvement contact
+    TradingPartnerInput:
+      properties:
+        submissionFormId:
+          type: string
+          maxLength: 15
+          minLength: 1
+          title: Submission Form ID
+          description: Mandatory identifier of the chosen Submission Form
+        tradingPartnerName:
+          type: string
+          maxLength: 75
+          minLength: 1
+          title: Trading Partner Name
+          description: Full title of the Trading Partner
+        tradingPartnerId:
+          type: string
+          maxLength: 75
+          minLength: 1
+          title: Trading Partner ID
+          description: Primary trading partner identifier
+        country:
+          type: string
+          maxLength: 3
+          minLength: 3
+          title: Country
+          description: Country code according to ISO-3166-alpha-3
+        businessContact:
+          $ref: '#/components/schemas/AgreementContactDetails'
+        tpInvolvementContact:
+          anyOf:
+          - $ref: '#/components/schemas/ThirdPartyInvolvementContact'
+          - type: 'null'
+        tradingPartnerId2:
+          anyOf:
+          - type: string
+            maxLength: 75
+            minLength: 1
+          - type: 'null'
+          title: Trading Partner ID 2
+          description: Optional trading partner identifier
+        tradingPartnerId3:
+          anyOf:
+          - type: string
+            maxLength: 75
+            minLength: 1
+          - type: 'null'
+          title: Trading Partner ID 3
+          description: Optional trading partner identifier
+        tradingPartnerId4:
+          anyOf:
+          - type: string
+            minLength: 1
+          - type: 'null'
+          title: Trading Partner ID 4
+          description: Optional trading partner identifier
+        tradingPartnerId5:
+          anyOf:
+          - type: string
+            maxLength: 75
+            minLength: 1
+          - type: 'null'
+          title: Trading Partner ID 5
+          description: Optional trading partner identifier
+        tradingPartnerId6:
+          anyOf:
+          - type: string
+            maxLength: 75
+            minLength: 1
+          - type: 'null'
+          title: Trading Partner ID 6
+          description: Optional trading partner identifier
+        tradingPartnerId7:
+          anyOf:
+          - type: string
+            maxLength: 75
+            minLength: 1
+          - type: 'null'
+          title: Trading Partner ID 7
+          description: Optional trading partner identifier
+        tradingPartnerId8:
+          anyOf:
+          - type: string
+            maxLength: 75
+            minLength: 1
+          - type: 'null'
+          title: Trading Partner ID 8
+          description: Optional trading partner identifier
+        tradingPartnerId9:
+          anyOf:
+          - type: string
+            maxLength: 75
+            minLength: 1
+          - type: 'null'
+          title: Trading Partner ID 9
+          description: Optional trading partner identifier
+        tradingPartnerId10:
+          anyOf:
+          - type: string
+            maxLength: 75
+            minLength: 1
+          - type: 'null'
+          title: Trading Partner ID 10
+          description: Optional trading partner identifier
+        purchaseOrderDollars:
+          anyOf:
+          - type: number
+            minimum: 0.0
+          - type: 'null'
+          title: Annual Purchase Order Volume - Dollars
+          description: Annual volume of purchase orders
+        purchaseOrderCount:
+          anyOf:
+          - type: integer
+            minimum: 0.0
+          - type: 'null'
+          title: Annual Purchase Order Volume - Count
+          description: Annual total count of purchase orders
+        existingActiveItemSkuCount:
+          anyOf:
+          - type: integer
+            minimum: 0.0
+          - type: 'null'
+          title: Existing Active Item (SKU) Count
+          description: Annual total count of stock keeping units
+        newItemSetupSkuCount:
+          anyOf:
+          - type: integer
+            minimum: 0.0
+          - type: 'null'
+          title: New Item Setup SKU Count
+          description: Annual total count of new item setup stock keeping units
+        buyerName:
+          anyOf:
+          - type: string
+            maxLength: 75
+            minLength: 1
+          - type: 'null'
+          title: Buyer Name
+          description: Full name of the buyer person
+        buyerEmail:
+          anyOf:
+          - type: string
+            maxLength: 254
+            minLength: 5
+            pattern: (^[a-zA-Z0-9+._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+$)
+          - type: 'null'
+          title: Buyer Email
+          description: Email address of the buyer person
+          examples:
+          - correct@gmail.com
+        brandDivision:
+          anyOf:
+          - type: string
+            maxLength: 255
+            minLength: 1
+          - type: 'null'
+          title: Brand / Division
+          description: Descriptive field of the trading partner's brand / division
+        tradingPartnerLocation:
+          anyOf:
+          - $ref: '#/components/schemas/TradingPartnerLocation'
+          - type: 'null'
+        anticipatedFirstOrderDate:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: Anticipated First Order Date
+          description: Enablement detail of the first anticipated order date
+        commitmentDeadlineDate:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: Commitment Deadline Date
+          description: Enablement detail of the commitment deadline date
+        productionReadyDeadlineDate:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: Production Ready Deadline Date
+          description: Enablement detail of the production ready deadline date
+        carrierService:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Carrier Service
+          description: Defines if the additional service is required
+        implementationNotes:
+          anyOf:
+          - type: string
+            maxLength: 32000
+            minLength: 1
+          - type: 'null'
+          title: Implementation Notes
+          description: Plain-text implementation notes related to the Trading Partner
+        generalNotes:
+          anyOf:
+          - type: string
+            maxLength: 32000
+            minLength: 1
+          - type: 'null'
+          title: General Notes
+          description: Plain-text general notes related to the Trading Partner
+        includedDataExchanges:
+          $ref: '#/components/schemas/IncludedDataExchanges'
+        fulfillmentModels:
+          $ref: '#/components/schemas/FulfillmentModels'
+          title: Fulfillment Models
+        vendorSourcedBySps:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Vendor Sourced by SPS
+          description: Defines if trading partner should be marked as sourced by SPS
+        uniqueSupplierGroups:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Unique Supplier Groups
+          description: List of unique supplier groups values
+        sponsoredSolution:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Sponsored Solution
+          description: Defines if the lead source type is Retailer Sponsored
+      additionalProperties: false
+      type: object
+      required:
+      - submissionFormId
+      - tradingPartnerName
+      - tradingPartnerId
+      - country
+      - businessContact
+      - includedDataExchanges
+      title: TradingPartnerInput
+      description: 'Model for the trading partner input payload
+
+        It includes various validators and processors for fields'
+    AgreementContactDetails:
+      properties:
+        firstName:
+          type: string
+          maxLength: 50
+          minLength: 1
+          title: Business Contact - First Name
+          description: Business Contact's first name
+        lastName:
+          type: string
+          maxLength: 75
+          minLength: 1
+          title: Business Contact - Last Name
+          description: Business Contact's last name
+        email:
+          type: string
+          maxLength: 254
+          minLength: 5
+          pattern: (^[a-zA-Z0-9+._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+$)
+          title: Business Contact - Email Address
+          description: Primary business contact's email address.
+          examples:
+          - correct@gmail.com
+        phone:
+          anyOf:
+          - type: string
+            maxLength: 40
+            minLength: 1
+          - type: 'null'
+          title: Business Contact - Phone Number
+          description: Primary business contact's phone number.
+        title:
+          anyOf:
+          - type: string
+            maxLength: 254
+            minLength: 1
+          - type: 'null'
+          title: Business Contact - Title
+          description: Business Contact's title
+      additionalProperties: false
+      type: object
+      required:
+      - firstName
+      - lastName
+      - email
+      title: AgreementContactDetails
+      description: Detailed information about agreement contact
+    TradingPartnerLocation:
+      properties:
+        address:
+          anyOf:
+          - type: string
+            maxLength: 255
+            minLength: 1
+          - type: 'null'
+          title: Address
+          description: Address[1-4] information
+        city:
+          anyOf:
+          - type: string
+            maxLength: 40
+            minLength: 1
+          - type: 'null'
+          title: City
+          description: Free-form text for city name
+        state:
+          anyOf:
+          - type: string
+            maxLength: 50
+            minLength: 1
+          - type: 'null'
+          title: State
+          description: Code[Standard State/Province] as defined by appropriate government agency
+        zipCode:
+          anyOf:
+          - type: string
+            maxLength: 25
+            minLength: 4
+          - type: 'null'
+          title: ZIP Code
+          description: International postal zone excluding punctuation and blanks[Zip Code for United States]
+      additionalProperties: false
+      type: object
+      title: TradingPartnerLocation
+    FulfillmentModels:
+      properties:
+        consignmentDocs:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Consignment Documents
+          description: Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!
+        directStoreDeliveryDocs:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Direct Store Delivery Documents
+          description: Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!
+        importsDocs:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Imports Documents
+          description: Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!
+        scanBasedTradingDocs:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Scan-Based Trading Documents
+          description: Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!
+        scanBasedTradingConcessionsDocs:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Scan Based Trading/Concessions Documents
+          description: Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!
+        shipDirectToBusinessDocs:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Ship Direct to Business Documents
+          description: Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!
+        shipDirectToConsumerDocs:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Ship Direct to Consumer Documents
+          description: Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!
+        shipToDcDocs:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Ship to DC Documents
+          description: Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!
+        shipToDcCrossDockDocs:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Ship To DC - Cross Dock Documents
+          description: Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!
+        shipToDcStoreDocs:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Ship to DC/Store Documents
+          description: Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!
+        shipToDcStoreBlanketAndReleaseDocs:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Ship to DC/Store - Blanket and Release Documents
+          description: Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!
+        shipToFacilityDocs:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Ship to Facility Documents
+          description: Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!
+        shipToFacilityBlanketAndReleaseDocs:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Ship to Facility - Blanket and Release Documents
+          description: Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!
+        shipToMultipleStoresDocs:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Ship to Multiple Stores Documents
+          description: Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!
+        shipToStoreDocs:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Ship To Store Documents
+          description: Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!
+        supplierDirectToBusinessDocs:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Supplier Direct to Business Documents
+          description: Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!
+        supplierDirectToCustomerDropshipDocs:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Supplier Direct to Customer (Dropship) Documents
+          description: Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!
+        thirdPartyMarketplaceDocs:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Third Party Marketplace Documents
+          description: Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!
+        transportationNorthAmericaCollectDocs:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Transportation - North America Collect Documents
+          description: Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!
+        transportationNorthAmericaPrepaidDocs:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Transportation - North America Prepaid Documents
+          description: Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!
+        vendorManagementInventoryDocs:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Vendor Managed Inventory Documents
+          description: Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!
+        vendorManagementInventoryVmiDocs:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Vendor Managed Inventory (VMI) Documents
+          description: Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!
+        shipTo3PLDocs:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Ship to 3PL Documents
+          description: Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!
+        exemptDocuments:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Exempt Documents
+          description: Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!
+        exemptedFulfillmentModels:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/SfOrderManagementEnum'
+            type: array
+          - type: 'null'
+          title: Exempted Fulfillment Models
+          description: 'List of next possible models: [''Consignment'', ''Direct Store Delivery'', ''Imports'', ''Scan-Based Trading'', ''Scan Based Trading/Concessions'', ''Ship Direct to Business'', ''Ship Direct to Customer'', ''Ship to DC'', ''Ship to DC - Cross Dock'', ''Ship to DC/Store'', ''Ship to DC/Store - Blanket and Release'', ''Ship to Multiple Stores'', ''Ship to Store'', ''Ship to Facility'', ''Ship to Facility - Blanket and Release'', ''Supplier Direct to Business'', ''Supplier Direct to Customer (Dropship)'', ''Third Party Marketplace'', ''Transportation - North America Collect'', ''Transportation - North America Prepaid'', ''Vendor Managed Inventory'', ''Vendor Managed Inventory (VMI)'', ''Ship to 3PL'']'
+      additionalProperties: false
+      type: object
+      title: FulfillmentModels
+      description: Describes all of the documents for the chosen order management options. It should include only options and docs from the chosen Submission Form!
+    TradingPartnerDetails:
+      properties:
+        solution:
+          type: string
+          title: Solution
+        id:
+          type: string
+          title: Id
+      additionalProperties: false
+      type: object
+      required:
+      - solution
+      - id
+      title: TradingPartnerDetails
+    Pagination:
+      properties:
+        totalCount:
+          type: integer
+          title: Total Count
+          description: The total count of all unique available records (results) across all paginated queries of the endpoint.
+        limit:
+          type: integer
+          title: Limit
+          description: Number of results requested to be returned.
+        offset:
+          type: integer
+          title: Offset
+          description: Number of items to skip before including the number of limit results in the request.
+      additionalProperties: false
+      type: object
+      required:
+      - totalCount
+      - limit
+      - offset
+      title: Pagination
+    ErrorContext:
+      properties:
+        code:
+          type: string
+          title: Code
+          default: Error code of the specific error
+        message:
+          type: string
+          title: Message
+          default: Message with detailed error description
+        location:
+          items:
+            type: string
+          type: array
+          title: Location
+          description: Collection of paths to the error location
+      additionalProperties: false
+      type: object
+      title: ErrorContext
+    TradingPartnerResponse:
+      properties:
+        tradingPartnerName:
+          type: string
+          title: Trading Partner Name
+          description: Name of all created partners
+        createdTradingPartners:
+          items:
+            $ref: '#/components/schemas/TradingPartnerDetails'
+          type: array
+          title: Created Trading Partners
+          description: List of identifiers for created entities
+      additionalProperties: false
+      type: object
+      required:
+      - tradingPartnerName
+      - createdTradingPartners
+      title: TradingPartnerResponse
+    ThirdPartyInvolvementTypes:
+      type: string
+      enum:
+      - Broker
+      - Agent/Manufacturer's Rep
+      title: ThirdPartyInvolvementTypes
+    ErrorResponse:
+      properties:
+        title:
+          type: string
+          title: Title
+          description: General title of the error
+        status:
+          type: integer
+          title: Status
+          description: HTTP status code of the error
+        detail:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Detail
+          description: Optional error description
+        requestId:
+          type: string
+          title: Request ID
+          description: Unique request identifier
+        context:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/ErrorContext'
+            type: array
+          - type: 'null'
+          title: Context
+          description: Optional list of detailed errors descriptions. Applicable for validation errors
+      additionalProperties: false
+      type: object
+      required:
+      - title
+      - status
+      - requestId
+      title: ErrorResponse
+    AvailableSubmissionFormFields:
+      properties:
+        purchaseOrderDollars:
+          type: boolean
+          title: Annual Purchase Order Volume - Dollars
+        purchaseOrderCount:
+          type: boolean
+          title: Annual Purchase Order Volume - Count
+        existingActiveItemSkuCount:
+          type: boolean
+          title: Existing Active Item (SKU) Count
+        newItemSetupSkuCount:
+          type: boolean
+          title: New Item Setup (SKU) Count
+        brandDivision:
+          type: boolean
+          title: Brand / Division
+        anticipatedFirstOrderDate:
+          type: boolean
+          title: Anticipated First Order Date
+        commitmentDeadlineDate:
+          type: boolean
+          title: Commitment Deadline Date
+        productionReadyDeadlineDate:
+          type: boolean
+          title: Production Ready Deadline Date
+        carrierService:
+          type: boolean
+          title: Carrier Service
+        implementationNotes:
+          type: boolean
+          title: Implementation Notes
+        generalNotes:
+          type: boolean
+          title: General Notes
+        vendorSourcedBySps:
+          type: boolean
+          title: Vendor Sourced by SPS
+        consignment:
+          type: boolean
+          title: Consignment Option
+        consignmentDocs:
+          items:
+            type: string
+          type: array
+          title: Consignment Documents
+        directStoreDelivery:
+          type: boolean
+          title: Direct Store Delivery Option
+        directStoreDeliveryDocs:
+          items:
+            type: string
+          type: array
+          title: Direct Store Delivery Documents
+        imports:
+          type: boolean
+          title: Imports Option
+        importsDocs:
+          items:
+            type: string
+          type: array
+          title: Imports Documents
+        scanBasedTrading:
+          type: boolean
+          title: Scan-Based Trading Option
+        scanBasedTradingDocs:
+          items:
+            type: string
+          type: array
+          title: Scan-Based Trading Documents
+        scanBasedTradingConcessions:
+          type: boolean
+          title: Scan Based Trading/Concessions Option
+        scanBasedTradingConcessionsDocs:
+          items:
+            type: string
+          type: array
+          title: Scan Based Trading/Concessions Documents
+        shipDirectToBusiness:
+          type: boolean
+          title: Ship Direct to Business Option
+        shipDirectToBusinessDocs:
+          items:
+            type: string
+          type: array
+          title: Ship Direct to Business Documents
+        shipDirectToConsumer:
+          type: boolean
+          title: Ship Direct to Consumer Option
+        shipDirectToConsumerDocs:
+          items:
+            type: string
+          type: array
+          title: Ship Direct to Consumer Documents
+        shipToDc:
+          type: boolean
+          title: Ship To DC Option
+        shipToDcDocs:
+          items:
+            type: string
+          type: array
+          title: Ship To DC Documents
+        shipToDcCrossDock:
+          type: boolean
+          title: Ship To DC - Cross Dock Option
+        shipToDcCrossDockDocs:
+          items:
+            type: string
+          type: array
+          title: Ship To DC - Cross Dock Documents
+        shipToDcStore:
+          type: boolean
+          title: Ship to DC/Store Option
+        shipToDcStoreDocs:
+          items:
+            type: string
+          type: array
+          title: Ship to DC/Store Documents
+        shipToDcStoreBlanketAndRelease:
+          type: boolean
+          title: Ship to DC/Store - Blanket and Release Option
+        shipToDcStoreBlanketAndReleaseDocs:
+          items:
+            type: string
+          type: array
+          title: Ship to DC/Store - Blanket and Release Documents
+        shipToFacility:
+          type: boolean
+          title: Ship to Facility Option
+        shipToFacilityDocs:
+          items:
+            type: string
+          type: array
+          title: Ship to Facility Documents
+        shipToFacilityBlanketAndRelease:
+          type: boolean
+          title: Ship to Facility - Blanket and Release Option
+        shipToFacilityBlanketAndReleaseDocs:
+          items:
+            type: string
+          type: array
+          title: Ship to Facility - Blanket and Release Documents
+        shipToMultipleStores:
+          type: boolean
+          title: Ship to Multiple Stores Option
+        shipToMultipleStoresDocs:
+          items:
+            type: string
+          type: array
+          title: Ship to Multiple Stores Documents
+        shipToStore:
+          type: boolean
+          title: Ship To Store Option
+        shipToStoreDocs:
+          items:
+            type: string
+          type: array
+          title: Ship To Store Documents
+        supplierDirectToBusiness:
+          type: boolean
+          title: Supplier Direct to Business Option
+        supplierDirectToBusinessDocs:
+          items:
+            type: string
+          type: array
+          title: Supplier Direct to Business Documents
+        supplierDirectToCustomerDropship:
+          type: boolean
+          title: Supplier Direct to Consumer (Dropship) Option
+        supplierDirectToCustomerDropshipDocs:
+          items:
+            type: string
+          type: array
+          title: Supplier Direct to Consumer (Dropship) Documents
+        thirdPartyMarketplace:
+          type: boolean
+          title: Third Party Marketplace Option
+        thirdPartyMarketplaceDocs:
+          items:
+            type: string
+          type: array
+          title: Third Party Marketplace Documents
+        transportationNorthAmericaCollect:
+          type: boolean
+          title: Transportation - North America Collect Option
+        transportationNorthAmericaCollectDocs:
+          items:
+            type: string
+          type: array
+          title: Transportation - North America Collect Documents
+        transportationNorthAmericaPrepaid:
+          type: boolean
+          title: Transportation - North America Prepaid Option
+        transportationNorthAmericaPrepaidDocs:
+          items:
+            type: string
+          type: array
+          title: Transportation - North America Prepaid Documents
+        vendorManagementInventory:
+          type: boolean
+          title: Vendor Managed Inventory Option
+        vendorManagementInventoryDocs:
+          items:
+            type: string
+          type: array
+          title: Vendor Managed Inventory Documents
+        vendorManagementInventoryVmi:
+          type: boolean
+          title: Vendor Managed Inventory (VMI) Option
+        vendorManagementInventoryVmiDocs:
+          items:
+            type: string
+          type: array
+          title: Vendor Managed Inventory (VMI) Documents
+        shipTo3PL:
+          type: boolean
+          title: Ship to 3PL Option
+        shipTo3PLDocs:
+          items:
+            type: string
+          type: array
+          title: Ship to 3PL Documents
+        exemptedDocuments:
+          type: boolean
+          title: Exempted Documents
+        exemptedFulfillmentModels:
+          type: boolean
+          title: Exempted Fulfillment Models
+        uniqueSupplierGroups:
+          type: boolean
+          title: Unique Supplier Groups
+      type: object
+      required:
+      - purchaseOrderDollars
+      - purchaseOrderCount
+      - existingActiveItemSkuCount
+      - newItemSetupSkuCount
+      - brandDivision
+      - anticipatedFirstOrderDate
+      - commitmentDeadlineDate
+      - productionReadyDeadlineDate
+      - carrierService
+      - implementationNotes
+      - generalNotes
+      - vendorSourcedBySps
+      - consignment
+      - consignmentDocs
+      - directStoreDelivery
+      - directStoreDeliveryDocs
+      - imports
+      - importsDocs
+      - scanBasedTrading
+      - scanBasedTradingDocs
+      - scanBasedTradingConcessions
+      - scanBasedTradingConcessionsDocs
+      - shipDirectToBusiness
+      - shipDirectToBusinessDocs
+      - shipDirectToConsumer
+      - shipDirectToConsumerDocs
+      - shipToDc
+      - shipToDcDocs
+      - shipToDcCrossDock
+      - shipToDcCrossDockDocs
+      - shipToDcStore
+      - shipToDcStoreDocs
+      - shipToDcStoreBlanketAndRelease
+      - shipToDcStoreBlanketAndReleaseDocs
+      - shipToFacility
+      - shipToFacilityDocs
+      - shipToFacilityBlanketAndRelease
+      - shipToFacilityBlanketAndReleaseDocs
+      - shipToMultipleStores
+      - shipToMultipleStoresDocs
+      - shipToStore
+      - shipToStoreDocs
+      - supplierDirectToBusiness
+      - supplierDirectToBusinessDocs
+      - supplierDirectToCustomerDropship
+      - supplierDirectToCustomerDropshipDocs
+      - thirdPartyMarketplace
+      - thirdPartyMarketplaceDocs
+      - transportationNorthAmericaCollect
+      - transportationNorthAmericaCollectDocs
+      - transportationNorthAmericaPrepaid
+      - transportationNorthAmericaPrepaidDocs
+      - vendorManagementInventory
+      - vendorManagementInventoryDocs
+      - vendorManagementInventoryVmi
+      - vendorManagementInventoryVmiDocs
+      - shipTo3PL
+      - shipTo3PLDocs
+      - exemptedDocuments
+      - exemptedFulfillmentModels
+      - uniqueSupplierGroups
+      title: AvailableSubmissionFormFields
+      description: Details to define the availability of different fields
+  securitySchemes:
+    HTTPBearer:
+      type: http
+      scheme: bearer

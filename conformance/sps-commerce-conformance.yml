@@ -1,0 +1,38 @@
+generated: '2026-10-09'
+method: searched
+source: https://developercenter.spscommerce.com/#/docs/getting-started
+standards:
+- id: oauth2
+  conforms: true
+  evidence: 'Dev Center docs: "The SPS Dev Center follows the OAuth 2.0 industry standard to allow secure authorization" (links RFC 6749); client_credentials
+    grant at POST /oauth/token.'
+  source: https://developercenter.spscommerce.com/#/docs/getting-started
+- id: pkce
+  conforms: true
+  evidence: Native apps use Code Verifier/Code Challenge; SPAs "must migrate to the Authorization Code Flow with PKCE by July 1st, 2026."
+  source: https://developercenter.spscommerce.com/#/docs/new-authentication-docs/client-updates-for-enhanced-security
+- id: rfc7807
+  conforms: true
+  evidence: Both contracts return application/problem+json error bodies (inventory ProblemDetails/ErrorFieldValidation; submission ErrorResponse);
+    the published style guide cites RFC 7807.
+  source: https://spscommerce.github.io/sps-api-standards/standards/errors.html
+- id: pagination
+  conforms: true
+  evidence: offset/limit query params on v1-items-get, v1-items-get-by-id and get_forms_v1_forms_get.
+- id: gs1-128
+  conforms: claimed
+  evidence: 'Shipping Doc API docs: "This shipping label is often referred to as either a GS1-128 or UCC-128 label ... delivered as ready-for-print
+    Shipping Labels in PDF or ZPL format." Not in a saved contract.'
+  source: https://developercenter.spscommerce.com/#/docs/shipping-doc-api
+- id: openapi-3.0
+  conforms: true
+  evidence: the document declares 3.0.2
+- id: openapi-3.1
+  conforms: true
+  evidence: the document declares 3.1.0
+- id: rfc9457
+  conforms: true
+  evidence: application/problem+json on 17 response(s), e.g. GET /inventory/v1/items 400
+- id: idempotency
+  conforms: false
+  evidence: no idempotency key parameter on mutating operations

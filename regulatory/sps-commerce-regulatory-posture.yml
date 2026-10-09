@@ -1,0 +1,76 @@
+generated: '2026-10-09'
+method: searched
+source:
+- https://www.spscommerce.com/about/privacy-policy/
+- https://trust.spscommerce.com/
+signals:
+  data_subject_request:
+    url: https://www.spscommerce.com/about/privacy-policy/
+    section: Your Rights Under Applicable Data Protection Laws
+    channel: privacy@spscommerce.com
+    stated_sla: Requests will be addressed within the timeframes required by applicable law.
+    rights_named: [access, rectification, erasure, restriction, portability, objection, withdrawal of consent, complaint to supervisory authority]
+    evidence:
+    - source: https://www.spscommerce.com/about/privacy-policy/
+      http_status: 200
+      fetched: '2026-10-09'
+      quote: "You may exercise your data rights under applicable privacy laws by submitting a request to privacy@spscommerce.com . Please include your full name, contact information, and a detailed description of your request to help us verify your identity and process your inquiry. Requests will be addressed within the timeframes required by applicable law."
+    - source: https://www.spscommerce.com/about/privacy-policy/
+      http_status: 200
+      fetched: '2026-10-09'
+      quote: "As a data subject, you may have specific rights regarding your Personal Information under applicable data protection laws."
+    note: A named email channel for data-subject requests and an enumerated list of GDPR-style rights; no fixed response time is stated beyond "timeframes required by applicable law".
+  exit_assistance:
+    url: https://www.spscommerce.com/about/privacy-policy/
+    section: Your Rights Under Applicable Data Protection Laws
+    evidence:
+    - source: https://www.spscommerce.com/about/privacy-policy/
+      http_status: 200
+      fetched: '2026-10-09'
+      quote: "Right to Data Portability: You have the right to request the transfer of your Personal Information to another controller, where technically feasible."
+    note: A data-subject portability right in the privacy notice only. It is not a customer-data export or offboarding commitment for the EDI service; no such clause was found in the Terms of Use.
+  subprocessors:
+    url: https://www.spscommerce.com/about/privacy-policy/
+    section: Sub-Processor Information
+    evidence:
+    - source: https://www.spscommerce.com/about/privacy-policy/
+      http_status: 200
+      fetched: '2026-10-09'
+      quote: "Sub-Processor Information: We work with trusted third-party service providers to assist with our operations, such as hosting, analytics, and marketing. For more information about these service providers, please contact us. The list is subject to change and will be updated as needed."
+    note: No public subprocessor list. The privacy notice says the list is available on request; the SafeBase trust center (https://trust.spscommerce.com/) has a "Subprocessors" item under Legal, but its link carries loginRequest=true, i.e. it is gated behind trust-center access.
+  incident_notification:
+    url: https://www.spscommerce.com/about/privacy-policy/
+    section: Data Breach Notification
+    evidence:
+    - source: https://www.spscommerce.com/about/privacy-policy/
+      http_status: 200
+      fetched: '2026-10-09'
+      quote: "Data Breach Notification: In the event of a data breach involving your Personal Information, SPS will notify affected individuals promptly and in accordance with applicable laws. Notifications will include details about the breach, steps taken to mitigate risks, and recommendations for protecting your information."
+    note: Commits to notifying affected individuals "promptly" with no stated hour count. The trust center lists a "Security Incident Notifications" item that is gated (loginRequest=true), so any customer-facing SLA there was not readable.
+  data_retention:
+    url: https://www.spscommerce.com/about/privacy-policy/
+    section: Data Retention
+    evidence:
+    - source: https://www.spscommerce.com/about/privacy-policy/
+      http_status: 200
+      fetched: '2026-10-09'
+      quote: "Data Retention: Personal data is retained only for as long as necessary to fulfill the purposes outlined in this Privacy Notice or to comply with legal obligations. Retention periods may vary based on the type of data and applicable regulations."
+    note: Purpose-limited retention statement with no concrete periods published.
+  data_residency:
+    url: https://www.spscommerce.com/about/privacy-policy/
+    section: International Data Transfers
+    evidence:
+    - source: https://www.spscommerce.com/about/privacy-policy/
+      http_status: 200
+      fetched: '2026-10-09'
+      quote: "International Data Transfers: If your Personal Information is transferred outside of your country of residence, SPS ensures compliance with applicable data transfer mechanisms, such as Standard Contractual Clauses (SCCs) or adequacy decisions under the General Data Protection Regulation (GDPR)."
+    note: A cross-border transfer mechanism (SCCs / adequacy), NOT a data-residency or region-pinning commitment; no hosting-region choice is offered on the pages read.
+  age_assurance:
+    url: https://www.spscommerce.com/about/privacy-policy/
+    section: "Children’s Privacy"
+    evidence:
+    - source: https://www.spscommerce.com/about/privacy-policy/
+      http_status: 200
+      fetched: '2026-10-09'
+      quote: "SPS does not knowingly collect Personal Information from children under the age of 13. If we become aware that we have inadvertently collected such information, we will take steps to delete it promptly."
+    note: A "does not knowingly collect" under-13 statement with deletion on discovery; no age-verification mechanism is described (consistent with a B2B service).

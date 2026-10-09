@@ -1,0 +1,690 @@
+{
+  "@context": {
+    "@vocab": "https://spscommerce.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "sps": "https://spscommerce.com/schema#",
+    "ProjectedQuantity": "sps:ProjectedQuantity",
+    "date": {
+      "@id": "sps:date",
+      "@type": "xsd:dateTime"
+    },
+    "quantity": {
+      "@id": "sps:quantity",
+      "@type": "xsd:integer"
+    },
+    "InventoryItem": "sps:InventoryItem",
+    "spsBuyerOrgId": {
+      "@id": "sps:spsBuyerOrgId",
+      "@type": "xsd:string"
+    },
+    "spsSellerOrgId": {
+      "@id": "sps:spsSellerOrgId",
+      "@type": "xsd:string"
+    },
+    "partnerId": {
+      "@id": "sps:partnerId",
+      "@type": "xsd:string"
+    },
+    "availableQuantity": {
+      "@id": "sps:availableQuantity",
+      "@type": "xsd:integer"
+    },
+    "availableDate": {
+      "@id": "sps:availableDate",
+      "@type": "xsd:dateTime"
+    },
+    "projectedQuantities": {
+      "@id": "sps:projectedQuantities",
+      "@container": "@list"
+    },
+    "quantityLastUpdated": {
+      "@id": "sps:quantityLastUpdated",
+      "@type": "xsd:dateTime"
+    },
+    "item": {
+      "@id": "sps:item",
+      "@type": "@id"
+    },
+    "warehouseLocation": {
+      "@id": "sps:warehouseLocation",
+      "@type": "@id"
+    },
+    "Item": "sps:Item",
+    "spsItemId": {
+      "@id": "sps:spsItemId",
+      "@type": "@id"
+    },
+    "buyerPartNumber": {
+      "@id": "sps:buyerPartNumber",
+      "@type": "xsd:string"
+    },
+    "vendorPartNumber": {
+      "@id": "sps:vendorPartNumber",
+      "@type": "xsd:string"
+    },
+    "manufacturerPartNumber": {
+      "@id": "sps:manufacturerPartNumber",
+      "@type": "xsd:string"
+    },
+    "upc": {
+      "@id": "sps:upc",
+      "@type": "xsd:string"
+    },
+    "gtin": {
+      "@id": "sps:gtin",
+      "@type": "xsd:string"
+    },
+    "sku": {
+      "@id": "sps:sku",
+      "@type": "xsd:string"
+    },
+    "ean": {
+      "@id": "sps:ean",
+      "@type": "xsd:string"
+    },
+    "ndc": {
+      "@id": "sps:ndc",
+      "@type": "xsd:string"
+    },
+    "WarehouseLocation": "sps:WarehouseLocation",
+    "spsLocationId": {
+      "@id": "sps:spsLocationId",
+      "@type": "@id"
+    },
+    "locationId": {
+      "@id": "sps:locationId",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "sps:name",
+      "@type": "xsd:string"
+    },
+    "address": {
+      "@id": "sps:address",
+      "@container": "@list"
+    },
+    "city": {
+      "@id": "sps:city",
+      "@type": "xsd:string"
+    },
+    "state": {
+      "@id": "sps:state",
+      "@type": "xsd:string"
+    },
+    "postalCode": {
+      "@id": "sps:postalCode",
+      "@type": "xsd:string"
+    },
+    "country": {
+      "@id": "sps:country",
+      "@type": "xsd:string"
+    },
+    "InventoryImportRequest": "sps:InventoryImportRequest",
+    "parcelUid": {
+      "@id": "sps:parcelUid",
+      "@type": "xsd:integer"
+    },
+    "fingerprint": {
+      "@id": "sps:fingerprint",
+      "@type": "xsd:string"
+    },
+    "PagingOffset": "sps:PagingOffset",
+    "totalCount": {
+      "@id": "sps:totalCount",
+      "@type": "@id"
+    },
+    "limit": {
+      "@id": "sps:limit",
+      "@type": "@id"
+    },
+    "offset": {
+      "@id": "sps:offset",
+      "@type": "@id"
+    },
+    "ProblemDetails": "sps:ProblemDetails",
+    "title": {
+      "@id": "sps:title",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "sps:status",
+      "@type": "xsd:integer"
+    },
+    "requestId": {
+      "@id": "sps:requestId",
+      "@type": "xsd:string"
+    },
+    "detail": {
+      "@id": "sps:detail",
+      "@type": "xsd:string"
+    },
+    "instance": {
+      "@id": "sps:instance",
+      "@type": "@id"
+    },
+    "type": {
+      "@id": "sps:type",
+      "@type": "@id"
+    },
+    "ErrorContext": "sps:ErrorContext",
+    "code": {
+      "@id": "sps:code",
+      "@type": "xsd:string"
+    },
+    "message": {
+      "@id": "sps:message",
+      "@type": "xsd:string"
+    },
+    "ErrorContextFields": "sps:ErrorContextFields",
+    "field": {
+      "@id": "sps:field",
+      "@type": "xsd:string"
+    },
+    "source": {
+      "@id": "sps:source",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "sps:value",
+      "@type": "xsd:string"
+    },
+    "inline_response_200": "sps:inline_response_200",
+    "results": {
+      "@id": "sps:results",
+      "@container": "@list"
+    },
+    "paging": {
+      "@id": "sps:paging",
+      "@type": "@id"
+    },
+    "AgreementContactDetails": "sps:AgreementContactDetails",
+    "firstName": {
+      "@id": "sps:firstName",
+      "@type": "xsd:string"
+    },
+    "lastName": {
+      "@id": "sps:lastName",
+      "@type": "xsd:string"
+    },
+    "email": {
+      "@id": "sps:email",
+      "@type": "xsd:string"
+    },
+    "phone": {
+      "@id": "sps:phone"
+    },
+    "AvailableSubmissionFormFields": "sps:AvailableSubmissionFormFields",
+    "purchaseOrderDollars": {
+      "@id": "sps:purchaseOrderDollars",
+      "@type": "xsd:boolean"
+    },
+    "purchaseOrderCount": {
+      "@id": "sps:purchaseOrderCount",
+      "@type": "xsd:boolean"
+    },
+    "existingActiveItemSkuCount": {
+      "@id": "sps:existingActiveItemSkuCount",
+      "@type": "xsd:boolean"
+    },
+    "newItemSetupSkuCount": {
+      "@id": "sps:newItemSetupSkuCount",
+      "@type": "xsd:boolean"
+    },
+    "brandDivision": {
+      "@id": "sps:brandDivision",
+      "@type": "xsd:boolean"
+    },
+    "anticipatedFirstOrderDate": {
+      "@id": "sps:anticipatedFirstOrderDate",
+      "@type": "xsd:boolean"
+    },
+    "commitmentDeadlineDate": {
+      "@id": "sps:commitmentDeadlineDate",
+      "@type": "xsd:boolean"
+    },
+    "productionReadyDeadlineDate": {
+      "@id": "sps:productionReadyDeadlineDate",
+      "@type": "xsd:boolean"
+    },
+    "carrierService": {
+      "@id": "sps:carrierService",
+      "@type": "xsd:boolean"
+    },
+    "implementationNotes": {
+      "@id": "sps:implementationNotes",
+      "@type": "xsd:boolean"
+    },
+    "generalNotes": {
+      "@id": "sps:generalNotes",
+      "@type": "xsd:boolean"
+    },
+    "vendorSourcedBySps": {
+      "@id": "sps:vendorSourcedBySps",
+      "@type": "xsd:boolean"
+    },
+    "consignment": {
+      "@id": "sps:consignment",
+      "@type": "xsd:boolean"
+    },
+    "consignmentDocs": {
+      "@id": "sps:consignmentDocs",
+      "@container": "@list"
+    },
+    "directStoreDelivery": {
+      "@id": "sps:directStoreDelivery",
+      "@type": "xsd:boolean"
+    },
+    "directStoreDeliveryDocs": {
+      "@id": "sps:directStoreDeliveryDocs",
+      "@container": "@list"
+    },
+    "imports": {
+      "@id": "sps:imports",
+      "@type": "xsd:boolean"
+    },
+    "importsDocs": {
+      "@id": "sps:importsDocs",
+      "@container": "@list"
+    },
+    "scanBasedTrading": {
+      "@id": "sps:scanBasedTrading",
+      "@type": "xsd:boolean"
+    },
+    "scanBasedTradingDocs": {
+      "@id": "sps:scanBasedTradingDocs",
+      "@container": "@list"
+    },
+    "scanBasedTradingConcessions": {
+      "@id": "sps:scanBasedTradingConcessions",
+      "@type": "xsd:boolean"
+    },
+    "scanBasedTradingConcessionsDocs": {
+      "@id": "sps:scanBasedTradingConcessionsDocs",
+      "@container": "@list"
+    },
+    "shipDirectToBusiness": {
+      "@id": "sps:shipDirectToBusiness",
+      "@type": "xsd:boolean"
+    },
+    "shipDirectToBusinessDocs": {
+      "@id": "sps:shipDirectToBusinessDocs",
+      "@container": "@list"
+    },
+    "shipDirectToConsumer": {
+      "@id": "sps:shipDirectToConsumer",
+      "@type": "xsd:boolean"
+    },
+    "shipDirectToConsumerDocs": {
+      "@id": "sps:shipDirectToConsumerDocs",
+      "@container": "@list"
+    },
+    "shipToDc": {
+      "@id": "sps:shipToDc",
+      "@type": "xsd:boolean"
+    },
+    "shipToDcDocs": {
+      "@id": "sps:shipToDcDocs",
+      "@container": "@list"
+    },
+    "shipToDcCrossDock": {
+      "@id": "sps:shipToDcCrossDock",
+      "@type": "xsd:boolean"
+    },
+    "shipToDcCrossDockDocs": {
+      "@id": "sps:shipToDcCrossDockDocs",
+      "@container": "@list"
+    },
+    "shipToDcStore": {
+      "@id": "sps:shipToDcStore",
+      "@type": "xsd:boolean"
+    },
+    "shipToDcStoreDocs": {
+      "@id": "sps:shipToDcStoreDocs",
+      "@container": "@list"
+    },
+    "shipToDcStoreBlanketAndRelease": {
+      "@id": "sps:shipToDcStoreBlanketAndRelease",
+      "@type": "xsd:boolean"
+    },
+    "shipToDcStoreBlanketAndReleaseDocs": {
+      "@id": "sps:shipToDcStoreBlanketAndReleaseDocs",
+      "@container": "@list"
+    },
+    "shipToFacility": {
+      "@id": "sps:shipToFacility",
+      "@type": "xsd:boolean"
+    },
+    "shipToFacilityDocs": {
+      "@id": "sps:shipToFacilityDocs",
+      "@container": "@list"
+    },
+    "shipToFacilityBlanketAndRelease": {
+      "@id": "sps:shipToFacilityBlanketAndRelease",
+      "@type": "xsd:boolean"
+    },
+    "shipToFacilityBlanketAndReleaseDocs": {
+      "@id": "sps:shipToFacilityBlanketAndReleaseDocs",
+      "@container": "@list"
+    },
+    "shipToMultipleStores": {
+      "@id": "sps:shipToMultipleStores",
+      "@type": "xsd:boolean"
+    },
+    "shipToMultipleStoresDocs": {
+      "@id": "sps:shipToMultipleStoresDocs",
+      "@container": "@list"
+    },
+    "shipToStore": {
+      "@id": "sps:shipToStore",
+      "@type": "xsd:boolean"
+    },
+    "shipToStoreDocs": {
+      "@id": "sps:shipToStoreDocs",
+      "@container": "@list"
+    },
+    "supplierDirectToBusiness": {
+      "@id": "sps:supplierDirectToBusiness",
+      "@type": "xsd:boolean"
+    },
+    "supplierDirectToBusinessDocs": {
+      "@id": "sps:supplierDirectToBusinessDocs",
+      "@container": "@list"
+    },
+    "supplierDirectToCustomerDropship": {
+      "@id": "sps:supplierDirectToCustomerDropship",
+      "@type": "xsd:boolean"
+    },
+    "supplierDirectToCustomerDropshipDocs": {
+      "@id": "sps:supplierDirectToCustomerDropshipDocs",
+      "@container": "@list"
+    },
+    "thirdPartyMarketplace": {
+      "@id": "sps:thirdPartyMarketplace",
+      "@type": "xsd:boolean"
+    },
+    "thirdPartyMarketplaceDocs": {
+      "@id": "sps:thirdPartyMarketplaceDocs",
+      "@container": "@list"
+    },
+    "transportationNorthAmericaCollect": {
+      "@id": "sps:transportationNorthAmericaCollect",
+      "@type": "xsd:boolean"
+    },
+    "transportationNorthAmericaCollectDocs": {
+      "@id": "sps:transportationNorthAmericaCollectDocs",
+      "@container": "@list"
+    },
+    "transportationNorthAmericaPrepaid": {
+      "@id": "sps:transportationNorthAmericaPrepaid",
+      "@type": "xsd:boolean"
+    },
+    "transportationNorthAmericaPrepaidDocs": {
+      "@id": "sps:transportationNorthAmericaPrepaidDocs",
+      "@container": "@list"
+    },
+    "vendorManagementInventory": {
+      "@id": "sps:vendorManagementInventory",
+      "@type": "xsd:boolean"
+    },
+    "vendorManagementInventoryDocs": {
+      "@id": "sps:vendorManagementInventoryDocs",
+      "@container": "@list"
+    },
+    "vendorManagementInventoryVmi": {
+      "@id": "sps:vendorManagementInventoryVmi",
+      "@type": "xsd:boolean"
+    },
+    "vendorManagementInventoryVmiDocs": {
+      "@id": "sps:vendorManagementInventoryVmiDocs",
+      "@container": "@list"
+    },
+    "shipTo3PL": {
+      "@id": "sps:shipTo3PL",
+      "@type": "xsd:boolean"
+    },
+    "shipTo3PLDocs": {
+      "@id": "sps:shipTo3PLDocs",
+      "@container": "@list"
+    },
+    "exemptedDocuments": {
+      "@id": "sps:exemptedDocuments",
+      "@type": "xsd:boolean"
+    },
+    "exemptedFulfillmentModels": {
+      "@id": "sps:exemptedFulfillmentModels",
+      "@type": "xsd:boolean"
+    },
+    "uniqueSupplierGroups": {
+      "@id": "sps:uniqueSupplierGroups",
+      "@type": "xsd:boolean"
+    },
+    "ErrorResponse": "sps:ErrorResponse",
+    "context": {
+      "@id": "sps:context"
+    },
+    "FulfillmentModels": "sps:FulfillmentModels",
+    "exemptDocuments": {
+      "@id": "sps:exemptDocuments"
+    },
+    "IncludedDataExchanges": "sps:IncludedDataExchanges",
+    "salesData": {
+      "@id": "sps:salesData"
+    },
+    "order": {
+      "@id": "sps:order"
+    },
+    "itemAndOrder": {
+      "@id": "sps:itemAndOrder"
+    },
+    "Pagination": "sps:Pagination",
+    "SfOrderManagementEnum": "sps:SfOrderManagementEnum",
+    "SubmissionFormOutput": "sps:SubmissionFormOutput",
+    "id": {
+      "@id": "sps:id",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id": "sps:description"
+    },
+    "retailerInstructions": {
+      "@id": "sps:retailerInstructions"
+    },
+    "createdDateTime": {
+      "@id": "sps:createdDateTime",
+      "@type": "xsd:dateTime"
+    },
+    "modifiedDateTime": {
+      "@id": "sps:modifiedDateTime"
+    },
+    "availableFields": {
+      "@id": "sps:availableFields",
+      "@type": "@id"
+    },
+    "includedSalesDataDataExchange": {
+      "@id": "sps:includedSalesDataDataExchange",
+      "@type": "xsd:boolean"
+    },
+    "salesDataCampaignId": {
+      "@id": "sps:salesDataCampaignId"
+    },
+    "salesDataCampaignName": {
+      "@id": "sps:salesDataCampaignName"
+    },
+    "salesDataTradingPartnerSource": {
+      "@id": "sps:salesDataTradingPartnerSource"
+    },
+    "salesDataDefaultSelection": {
+      "@id": "sps:salesDataDefaultSelection",
+      "@type": "xsd:boolean"
+    },
+    "includedItemDataExchange": {
+      "@id": "sps:includedItemDataExchange",
+      "@type": "xsd:boolean"
+    },
+    "itemCampaignId": {
+      "@id": "sps:itemCampaignId"
+    },
+    "itemCampaignName": {
+      "@id": "sps:itemCampaignName"
+    },
+    "itemTradingPartnerSource": {
+      "@id": "sps:itemTradingPartnerSource"
+    },
+    "itemDefaultSelection": {
+      "@id": "sps:itemDefaultSelection",
+      "@type": "xsd:boolean"
+    },
+    "includedOrderDataExchange": {
+      "@id": "sps:includedOrderDataExchange",
+      "@type": "xsd:boolean"
+    },
+    "orderCampaignId": {
+      "@id": "sps:orderCampaignId"
+    },
+    "orderCampaignName": {
+      "@id": "sps:orderCampaignName"
+    },
+    "orderTradingPartnerSource": {
+      "@id": "sps:orderTradingPartnerSource"
+    },
+    "orderDefaultSelection": {
+      "@id": "sps:orderDefaultSelection",
+      "@type": "xsd:boolean"
+    },
+    "includedItemAndOrderDataExchange": {
+      "@id": "sps:includedItemAndOrderDataExchange",
+      "@type": "xsd:boolean"
+    },
+    "itemAndOrderCampaignId": {
+      "@id": "sps:itemAndOrderCampaignId"
+    },
+    "itemAndOrderCampaignName": {
+      "@id": "sps:itemAndOrderCampaignName"
+    },
+    "itemAndOrderTradingPartnerSource": {
+      "@id": "sps:itemAndOrderTradingPartnerSource"
+    },
+    "itemAndOrderDefaultSelection": {
+      "@id": "sps:itemAndOrderDefaultSelection",
+      "@type": "xsd:boolean"
+    },
+    "sponsoredSolution": {
+      "@id": "sps:sponsoredSolution",
+      "@type": "xsd:boolean"
+    },
+    "sponsoredSolutionDefaultSelection": {
+      "@id": "sps:sponsoredSolutionDefaultSelection",
+      "@type": "xsd:boolean"
+    },
+    "SubmissionFormsResponse": "sps:SubmissionFormsResponse",
+    "ThirdPartyInvolvementContact": "sps:ThirdPartyInvolvementContact",
+    "tpInvolvementType": {
+      "@id": "sps:tpInvolvementType"
+    },
+    "tpInvolvementFirstName": {
+      "@id": "sps:tpInvolvementFirstName"
+    },
+    "tpInvolvementLastName": {
+      "@id": "sps:tpInvolvementLastName",
+      "@type": "xsd:string"
+    },
+    "tpInvolvementEmail": {
+      "@id": "sps:tpInvolvementEmail"
+    },
+    "tpInvolvementPhone": {
+      "@id": "sps:tpInvolvementPhone"
+    },
+    "tpInvolvementCompanyName": {
+      "@id": "sps:tpInvolvementCompanyName"
+    },
+    "ThirdPartyInvolvementTypes": "sps:ThirdPartyInvolvementTypes",
+    "TradingPartnerDetails": "sps:TradingPartnerDetails",
+    "solution": {
+      "@id": "sps:solution",
+      "@type": "xsd:string"
+    },
+    "TradingPartnerInput": "sps:TradingPartnerInput",
+    "submissionFormId": {
+      "@id": "sps:submissionFormId",
+      "@type": "xsd:string"
+    },
+    "tradingPartnerName": {
+      "@id": "sps:tradingPartnerName",
+      "@type": "xsd:string"
+    },
+    "tradingPartnerId": {
+      "@id": "sps:tradingPartnerId",
+      "@type": "xsd:string"
+    },
+    "businessContact": {
+      "@id": "sps:businessContact",
+      "@type": "@id"
+    },
+    "tpInvolvementContact": {
+      "@id": "sps:tpInvolvementContact"
+    },
+    "tradingPartnerId2": {
+      "@id": "sps:tradingPartnerId2"
+    },
+    "tradingPartnerId3": {
+      "@id": "sps:tradingPartnerId3"
+    },
+    "tradingPartnerId4": {
+      "@id": "sps:tradingPartnerId4"
+    },
+    "tradingPartnerId5": {
+      "@id": "sps:tradingPartnerId5"
+    },
+    "tradingPartnerId6": {
+      "@id": "sps:tradingPartnerId6"
+    },
+    "tradingPartnerId7": {
+      "@id": "sps:tradingPartnerId7"
+    },
+    "tradingPartnerId8": {
+      "@id": "sps:tradingPartnerId8"
+    },
+    "tradingPartnerId9": {
+      "@id": "sps:tradingPartnerId9"
+    },
+    "tradingPartnerId10": {
+      "@id": "sps:tradingPartnerId10"
+    },
+    "buyerName": {
+      "@id": "sps:buyerName"
+    },
+    "buyerEmail": {
+      "@id": "sps:buyerEmail"
+    },
+    "tradingPartnerLocation": {
+      "@id": "sps:tradingPartnerLocation"
+    },
+    "includedDataExchanges": {
+      "@id": "sps:includedDataExchanges",
+      "@type": "@id"
+    },
+    "fulfillmentModels": {
+      "@id": "sps:fulfillmentModels",
+      "@type": "@id"
+    },
+    "TradingPartnerLocation": "sps:TradingPartnerLocation",
+    "zipCode": {
+      "@id": "sps:zipCode"
+    },
+    "TradingPartnerResponse": "sps:TradingPartnerResponse",
+    "createdTradingPartners": {
+      "@id": "sps:createdTradingPartners",
+      "@container": "@list"
+    }
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "SPS Commerce API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects SPS Commerce's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-09) from openapi/sps-commerce-inventory-api-openapi.yml, openapi/sps-commerce-submission-api-openapi.yml.",
+  "dcterms:created": "2026-10-09",
+  "dcterms:source": [
+    "openapi/sps-commerce-inventory-api-openapi.yml",
+    "openapi/sps-commerce-submission-api-openapi.yml"
+  ]
+}

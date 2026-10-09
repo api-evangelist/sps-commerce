@@ -1,0 +1,721 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sps-commerce/main/json-schema/sps-commerce-submission-forms-response-schema.json",
+  "title": "SubmissionFormsResponse",
+  "x-generated": "2026-10-09",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sps-commerce-submission-api-openapi.yml#/components/schemas/SubmissionFormsResponse",
+  "properties": {
+    "results": {
+      "items": {
+        "$ref": "#/$defs/SubmissionFormOutput"
+      },
+      "type": "array",
+      "title": "Results"
+    },
+    "paging": {
+      "$ref": "#/$defs/Pagination"
+    }
+  },
+  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "results",
+    "paging"
+  ],
+  "$defs": {
+    "AvailableSubmissionFormFields": {
+      "properties": {
+        "purchaseOrderDollars": {
+          "type": "boolean",
+          "title": "Annual Purchase Order Volume - Dollars"
+        },
+        "purchaseOrderCount": {
+          "type": "boolean",
+          "title": "Annual Purchase Order Volume - Count"
+        },
+        "existingActiveItemSkuCount": {
+          "type": "boolean",
+          "title": "Existing Active Item (SKU) Count"
+        },
+        "newItemSetupSkuCount": {
+          "type": "boolean",
+          "title": "New Item Setup (SKU) Count"
+        },
+        "brandDivision": {
+          "type": "boolean",
+          "title": "Brand / Division"
+        },
+        "anticipatedFirstOrderDate": {
+          "type": "boolean",
+          "title": "Anticipated First Order Date"
+        },
+        "commitmentDeadlineDate": {
+          "type": "boolean",
+          "title": "Commitment Deadline Date"
+        },
+        "productionReadyDeadlineDate": {
+          "type": "boolean",
+          "title": "Production Ready Deadline Date"
+        },
+        "carrierService": {
+          "type": "boolean",
+          "title": "Carrier Service"
+        },
+        "implementationNotes": {
+          "type": "boolean",
+          "title": "Implementation Notes"
+        },
+        "generalNotes": {
+          "type": "boolean",
+          "title": "General Notes"
+        },
+        "vendorSourcedBySps": {
+          "type": "boolean",
+          "title": "Vendor Sourced by SPS"
+        },
+        "consignment": {
+          "type": "boolean",
+          "title": "Consignment Option"
+        },
+        "consignmentDocs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "title": "Consignment Documents"
+        },
+        "directStoreDelivery": {
+          "type": "boolean",
+          "title": "Direct Store Delivery Option"
+        },
+        "directStoreDeliveryDocs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "title": "Direct Store Delivery Documents"
+        },
+        "imports": {
+          "type": "boolean",
+          "title": "Imports Option"
+        },
+        "importsDocs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "title": "Imports Documents"
+        },
+        "scanBasedTrading": {
+          "type": "boolean",
+          "title": "Scan-Based Trading Option"
+        },
+        "scanBasedTradingDocs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "title": "Scan-Based Trading Documents"
+        },
+        "scanBasedTradingConcessions": {
+          "type": "boolean",
+          "title": "Scan Based Trading/Concessions Option"
+        },
+        "scanBasedTradingConcessionsDocs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "title": "Scan Based Trading/Concessions Documents"
+        },
+        "shipDirectToBusiness": {
+          "type": "boolean",
+          "title": "Ship Direct to Business Option"
+        },
+        "shipDirectToBusinessDocs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "title": "Ship Direct to Business Documents"
+        },
+        "shipDirectToConsumer": {
+          "type": "boolean",
+          "title": "Ship Direct to Consumer Option"
+        },
+        "shipDirectToConsumerDocs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "title": "Ship Direct to Consumer Documents"
+        },
+        "shipToDc": {
+          "type": "boolean",
+          "title": "Ship To DC Option"
+        },
+        "shipToDcDocs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "title": "Ship To DC Documents"
+        },
+        "shipToDcCrossDock": {
+          "type": "boolean",
+          "title": "Ship To DC - Cross Dock Option"
+        },
+        "shipToDcCrossDockDocs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "title": "Ship To DC - Cross Dock Documents"
+        },
+        "shipToDcStore": {
+          "type": "boolean",
+          "title": "Ship to DC/Store Option"
+        },
+        "shipToDcStoreDocs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "title": "Ship to DC/Store Documents"
+        },
+        "shipToDcStoreBlanketAndRelease": {
+          "type": "boolean",
+          "title": "Ship to DC/Store - Blanket and Release Option"
+        },
+        "shipToDcStoreBlanketAndReleaseDocs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "title": "Ship to DC/Store - Blanket and Release Documents"
+        },
+        "shipToFacility": {
+          "type": "boolean",
+          "title": "Ship to Facility Option"
+        },
+        "shipToFacilityDocs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "title": "Ship to Facility Documents"
+        },
+        "shipToFacilityBlanketAndRelease": {
+          "type": "boolean",
+          "title": "Ship to Facility - Blanket and Release Option"
+        },
+        "shipToFacilityBlanketAndReleaseDocs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "title": "Ship to Facility - Blanket and Release Documents"
+        },
+        "shipToMultipleStores": {
+          "type": "boolean",
+          "title": "Ship to Multiple Stores Option"
+        },
+        "shipToMultipleStoresDocs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "title": "Ship to Multiple Stores Documents"
+        },
+        "shipToStore": {
+          "type": "boolean",
+          "title": "Ship To Store Option"
+        },
+        "shipToStoreDocs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "title": "Ship To Store Documents"
+        },
+        "supplierDirectToBusiness": {
+          "type": "boolean",
+          "title": "Supplier Direct to Business Option"
+        },
+        "supplierDirectToBusinessDocs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "title": "Supplier Direct to Business Documents"
+        },
+        "supplierDirectToCustomerDropship": {
+          "type": "boolean",
+          "title": "Supplier Direct to Consumer (Dropship) Option"
+        },
+        "supplierDirectToCustomerDropshipDocs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "title": "Supplier Direct to Consumer (Dropship) Documents"
+        },
+        "thirdPartyMarketplace": {
+          "type": "boolean",
+          "title": "Third Party Marketplace Option"
+        },
+        "thirdPartyMarketplaceDocs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "title": "Third Party Marketplace Documents"
+        },
+        "transportationNorthAmericaCollect": {
+          "type": "boolean",
+          "title": "Transportation - North America Collect Option"
+        },
+        "transportationNorthAmericaCollectDocs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "title": "Transportation - North America Collect Documents"
+        },
+        "transportationNorthAmericaPrepaid": {
+          "type": "boolean",
+          "title": "Transportation - North America Prepaid Option"
+        },
+        "transportationNorthAmericaPrepaidDocs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "title": "Transportation - North America Prepaid Documents"
+        },
+        "vendorManagementInventory": {
+          "type": "boolean",
+          "title": "Vendor Managed Inventory Option"
+        },
+        "vendorManagementInventoryDocs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "title": "Vendor Managed Inventory Documents"
+        },
+        "vendorManagementInventoryVmi": {
+          "type": "boolean",
+          "title": "Vendor Managed Inventory (VMI) Option"
+        },
+        "vendorManagementInventoryVmiDocs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "title": "Vendor Managed Inventory (VMI) Documents"
+        },
+        "shipTo3PL": {
+          "type": "boolean",
+          "title": "Ship to 3PL Option"
+        },
+        "shipTo3PLDocs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "title": "Ship to 3PL Documents"
+        },
+        "exemptedDocuments": {
+          "type": "boolean",
+          "title": "Exempted Documents"
+        },
+        "exemptedFulfillmentModels": {
+          "type": "boolean",
+          "title": "Exempted Fulfillment Models"
+        },
+        "uniqueSupplierGroups": {
+          "type": "boolean",
+          "title": "Unique Supplier Groups"
+        }
+      },
+      "type": "object",
+      "required": [
+        "purchaseOrderDollars",
+        "purchaseOrderCount",
+        "existingActiveItemSkuCount",
+        "newItemSetupSkuCount",
+        "brandDivision",
+        "anticipatedFirstOrderDate",
+        "commitmentDeadlineDate",
+        "productionReadyDeadlineDate",
+        "carrierService",
+        "implementationNotes",
+        "generalNotes",
+        "vendorSourcedBySps",
+        "consignment",
+        "consignmentDocs",
+        "directStoreDelivery",
+        "directStoreDeliveryDocs",
+        "imports",
+        "importsDocs",
+        "scanBasedTrading",
+        "scanBasedTradingDocs",
+        "scanBasedTradingConcessions",
+        "scanBasedTradingConcessionsDocs",
+        "shipDirectToBusiness",
+        "shipDirectToBusinessDocs",
+        "shipDirectToConsumer",
+        "shipDirectToConsumerDocs",
+        "shipToDc",
+        "shipToDcDocs",
+        "shipToDcCrossDock",
+        "shipToDcCrossDockDocs",
+        "shipToDcStore",
+        "shipToDcStoreDocs",
+        "shipToDcStoreBlanketAndRelease",
+        "shipToDcStoreBlanketAndReleaseDocs",
+        "shipToFacility",
+        "shipToFacilityDocs",
+        "shipToFacilityBlanketAndRelease",
+        "shipToFacilityBlanketAndReleaseDocs",
+        "shipToMultipleStores",
+        "shipToMultipleStoresDocs",
+        "shipToStore",
+        "shipToStoreDocs",
+        "supplierDirectToBusiness",
+        "supplierDirectToBusinessDocs",
+        "supplierDirectToCustomerDropship",
+        "supplierDirectToCustomerDropshipDocs",
+        "thirdPartyMarketplace",
+        "thirdPartyMarketplaceDocs",
+        "transportationNorthAmericaCollect",
+        "transportationNorthAmericaCollectDocs",
+        "transportationNorthAmericaPrepaid",
+        "transportationNorthAmericaPrepaidDocs",
+        "vendorManagementInventory",
+        "vendorManagementInventoryDocs",
+        "vendorManagementInventoryVmi",
+        "vendorManagementInventoryVmiDocs",
+        "shipTo3PL",
+        "shipTo3PLDocs",
+        "exemptedDocuments",
+        "exemptedFulfillmentModels",
+        "uniqueSupplierGroups"
+      ],
+      "title": "AvailableSubmissionFormFields",
+      "description": "Details to define the availability of different fields"
+    },
+    "Pagination": {
+      "properties": {
+        "totalCount": {
+          "type": "integer",
+          "title": "Total Count",
+          "description": "The total count of all unique available records (results) across all paginated queries of the endpoint."
+        },
+        "limit": {
+          "type": "integer",
+          "title": "Limit",
+          "description": "Number of results requested to be returned."
+        },
+        "offset": {
+          "type": "integer",
+          "title": "Offset",
+          "description": "Number of items to skip before including the number of limit results in the request."
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "totalCount",
+        "limit",
+        "offset"
+      ],
+      "title": "Pagination"
+    },
+    "SubmissionFormOutput": {
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Id",
+          "description": "Identifier of the chosen Submission Form"
+        },
+        "name": {
+          "type": "string",
+          "title": "Name",
+          "description": "Submission Form name in the Community database"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Description",
+          "description": "Detailed description of the Submission Form"
+        },
+        "retailerInstructions": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Instruction for retailer"
+        },
+        "createdDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Created DateTime",
+          "description": "DateTime of the Submission Form creation"
+        },
+        "modifiedDateTime": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Modified DateTime",
+          "description": "DateTime of the Submission Form modification"
+        },
+        "availableFields": {
+          "$ref": "#/$defs/AvailableSubmissionFormFields"
+        },
+        "includedSalesDataDataExchange": {
+          "type": "boolean",
+          "title": "Sales Data Data Exchange",
+          "description": "Defines if the sales data data exchange is supported by a Submission Form"
+        },
+        "salesDataCampaignId": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Sales Data Campaign ID",
+          "description": "SalesForce identifier of the campaign, which will be used for sales data Trading Partners creation"
+        },
+        "salesDataCampaignName": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Sales Data Campaign Name"
+        },
+        "salesDataTradingPartnerSource": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Sales Data Trading Partner Source",
+          "description": "Type of the lead source for sales data"
+        },
+        "salesDataDefaultSelection": {
+          "type": "boolean",
+          "title": "Sales Data Default To Selected",
+          "description": "Defines if the sales data campaign will be selected by default"
+        },
+        "includedItemDataExchange": {
+          "type": "boolean",
+          "title": "Item Data Exchange",
+          "description": "Defines if the item data exchange is supported by a Submission Form"
+        },
+        "itemCampaignId": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Item Campaign ID",
+          "description": "SalesForce identifier of the campaign, which will be used for item Trading Partners creation"
+        },
+        "itemCampaignName": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Item Campaign Name"
+        },
+        "itemTradingPartnerSource": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Item Trading Partner Source",
+          "description": "Type of the lead source for item"
+        },
+        "itemDefaultSelection": {
+          "type": "boolean",
+          "title": "Item Default To Selected",
+          "description": "Defines if the item campaign will be selected by default"
+        },
+        "includedOrderDataExchange": {
+          "type": "boolean",
+          "title": "Order Data Exchange",
+          "description": "Defines if the order data exchange is supported by a Submission Form"
+        },
+        "orderCampaignId": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Order Campaign ID",
+          "description": "SalesForce identifier of the campaign, which will be used for order Trading Partners creation"
+        },
+        "orderCampaignName": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Order Campaign Name"
+        },
+        "orderTradingPartnerSource": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Order Trading Partner Source",
+          "description": "Type of the lead source for order"
+        },
+        "orderDefaultSelection": {
+          "type": "boolean",
+          "title": "Order Default To Selected",
+          "description": "Defines if the order campaign will be selected by default"
+        },
+        "includedItemAndOrderDataExchange": {
+          "type": "boolean",
+          "title": "Item and Order Data Exchange",
+          "description": "Defines if the item and order data exchange is supported by a Submission Form"
+        },
+        "itemAndOrderCampaignId": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Item and Order Campaign ID",
+          "description": "SalesForce identifier of the campaign, which will be used for item and order Trading Partners creation"
+        },
+        "itemAndOrderCampaignName": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Item and Order Campaign Name"
+        },
+        "itemAndOrderTradingPartnerSource": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Item and Order Trading Partner Source",
+          "description": "Type of the lead source for item and order"
+        },
+        "itemAndOrderDefaultSelection": {
+          "type": "boolean",
+          "title": "Item and Order Default To Selected",
+          "description": "Defines if the item and order campaign will be selected by default"
+        },
+        "sponsoredSolution": {
+          "type": "boolean",
+          "title": "Sponsored Solution",
+          "description": "Defines if the lead source type is Retailer Sponsored"
+        },
+        "sponsoredSolutionDefaultSelection": {
+          "type": "boolean",
+          "title": "Sponsored Solution Default To Selected",
+          "description": "Defines if the sponsored solution will be selected by default"
+        }
+      },
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "description",
+        "retailerInstructions",
+        "createdDateTime",
+        "modifiedDateTime",
+        "availableFields",
+        "includedSalesDataDataExchange",
+        "salesDataCampaignId",
+        "salesDataCampaignName",
+        "salesDataTradingPartnerSource",
+        "salesDataDefaultSelection",
+        "includedItemDataExchange",
+        "itemCampaignId",
+        "itemCampaignName",
+        "itemTradingPartnerSource",
+        "itemDefaultSelection",
+        "includedOrderDataExchange",
+        "orderCampaignId",
+        "orderCampaignName",
+        "orderTradingPartnerSource",
+        "orderDefaultSelection",
+        "includedItemAndOrderDataExchange",
+        "itemAndOrderCampaignId",
+        "itemAndOrderCampaignName",
+        "itemAndOrderTradingPartnerSource",
+        "itemAndOrderDefaultSelection",
+        "sponsoredSolution",
+        "sponsoredSolutionDefaultSelection"
+      ],
+      "title": "SubmissionFormOutput"
+    }
+  }
+}

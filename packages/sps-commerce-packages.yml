@@ -1,0 +1,5 @@
+generated: '2026-10-09'
+method: none
+source: https://registry.npmjs.org/-/v1/search?text=scope:spscommerce
+note: No first-party API client SDK found. The @spscommerce npm scope (e.g. @spscommerce/ds-react, @spscommerce/ds-web-components 8.56.3) publishes the Woodland UI design system and internal tooling, not API clients; PyPI has no spscommerce package (404); the SPSCommerce GitHub org holds no API SDK repo. The Dev Center shows cURL, JavaScript, Python, Java and C# code samples only.
+packages: []

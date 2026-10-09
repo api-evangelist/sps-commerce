@@ -1,0 +1,543 @@
+openapi: 3.2.0
+info:
+  title: Inventory API
+  description: Process inventory information
+  version: v1
+  x-sps-service-id: 34449785-9875-479a-8771-8dd1a99eb0a8
+servers:
+- url: https://integration.api.spscommerce.com
+  description: integration
+- url: https://api.spscommerce.com
+  description: prod
+security:
+- SpsBearer: []
+tags:
+- name: Inventory
+paths:
+  /inventory/v1/items:
+    get:
+      tags:
+      - Inventory
+      summary: Get Inventory Items
+      description: Retrieves inventory information shared by supplier partners.
+      operationId: v1-items-get
+      parameters:
+      - name: partnerId
+        in: query
+        description: Filter results by the provided partner ID.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: buyerPartNumber
+        in: query
+        description: Filter results by the provided buyer part number.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: vendorPartNumber
+        in: query
+        description: Filter results by the provided vendor part number.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: manufacturerPartNumber
+        in: query
+        description: Filter results by the provided manufacturer part number.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: upc
+        in: query
+        description: Filter results by the provided UPC.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: gtin
+        in: query
+        description: Filter results by the provided GTIN.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: sku
+        in: query
+        description: Filter results by the provided SKU.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: ean
+        in: query
+        description: Filter results by the provided EAN.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: ndc
+        in: query
+        description: Filter results by the provided NDC.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: quantityUpdatedSince
+        in: query
+        description: A filter to only retrieve results that have had any quantity value updated ator after the specified time.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+      - name: offset
+        in: query
+        description: Number of items to skip before including the number of limit results in the request.
+        required: false
+        schema:
+          $ref: '#/components/schemas/Offset'
+      - name: limit
+        in: query
+        description: Number of results requested to be returned.
+        required: false
+        schema:
+          $ref: '#/components/schemas/Limit'
+      responses:
+        '200':
+          description: Inventory Items Collection
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+        '400':
+          description: Invalid Data
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorFieldValidation'
+              example:
+                title: Invalid Data
+                status: 400
+                requestId: b6d9a290-9f20-465b-bcd3-4a5166eeb3d7
+                detail: Content missing or invalid for required fields.
+                instance: https://example.com/account/12345/resource/23
+                context:
+                - code: INPUT_INVALID
+                  message: Attribute 'email' must be a valid email address.
+                  field: email
+                  source: body
+                  value: testuser
+                - code: INPUT_NOT_NULL
+                  message: Attribute 'reason' must not be null.
+                  field: reason
+                  source: body
+        '500':
+          description: Internal Server Error
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                title: Internal Server Error
+                status: 500
+                requestId: b6d9a290-9f20-465b-bcd3-4a5166eeb3d7
+                detail: Request for resource failed unexpectedly.
+                instance: https://example.com/account/12345/resource/23
+                context:
+                - code: CONNECTION_TIMEOUT
+                  message: A downstream dependency connection timed out.
+  /inventory/v1/items/{spsItemId}:
+    get:
+      tags:
+      - Inventory
+      summary: Get Inventory Items by spsItemId|internal
+      description: Retrieves inventory information shared by supplier partners for a specific spsItemId.
+      operationId: v1-items-get-by-id
+      parameters:
+      - name: spsItemId
+        in: path
+        description: A unique identifier for an item within SPS Commerce.
+        required: true
+        style: simple
+        explode: false
+        schema:
+          $ref: '#/components/schemas/SpsItemId'
+      - name: partnerId
+        in: query
+        description: Filter results by the provided partner ID.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: quantityUpdatedSince
+        in: query
+        description: A filter to only retrieve results that have had any quantity value updated ator after the specified time.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date-time
+      - name: offset
+        in: query
+        description: Number of items to skip before including the number of limit results in the request.
+        required: false
+        schema:
+          $ref: '#/components/schemas/Offset'
+      - name: limit
+        in: query
+        description: Number of results requested to be returned.
+        required: false
+        schema:
+          $ref: '#/components/schemas/Limit'
+      responses:
+        '200':
+          description: Inventory Items Collection
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+        '400':
+          description: Invalid Data
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorFieldValidation'
+              example:
+                title: Invalid Data
+                status: 400
+                requestId: b6d9a290-9f20-465b-bcd3-4a5166eeb3d7
+                detail: Content missing or invalid for required fields.
+                instance: https://example.com/account/12345/resource/23
+                context:
+                - code: INPUT_INVALID
+                  message: Attribute 'email' must be a valid email address.
+                  field: email
+                  source: body
+                  value: testuser
+                - code: INPUT_NOT_NULL
+                  message: Attribute 'reason' must not be null.
+                  field: reason
+                  source: body
+        '404':
+          description: Not Found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                title: Not Found
+                status: 404
+                requestId: b6d9a290-9f20-465b-bcd3-4a5166eeb3d7
+                detail: Requested resource 'resource/23' not found.
+                instance: https://example.com/account/12345/resource/23
+        '500':
+          description: Internal Server Error
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                title: Internal Server Error
+                status: 500
+                requestId: b6d9a290-9f20-465b-bcd3-4a5166eeb3d7
+                detail: Request for resource failed unexpectedly.
+                instance: https://example.com/account/12345/resource/23
+                context:
+                - code: CONNECTION_TIMEOUT
+                  message: A downstream dependency connection timed out.
+      x-internal: true
+components:
+  schemas:
+    inline_response_200:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/InventoryItem'
+          default: []
+        paging:
+          $ref: '#/components/schemas/PagingOffset'
+    Error:
+      allOf:
+      - $ref: '#/components/schemas/ProblemDetails'
+      - type: object
+        properties:
+          context:
+            type: array
+            description: List of objects providing additional context and detail on sub-reasons for the validation issue or error.
+            items:
+              $ref: '#/components/schemas/ErrorContext'
+    WarehouseLocation:
+      title: WarehouseLocation
+      required:
+      - spsLocationId
+      type: object
+      properties:
+        spsLocationId:
+          $ref: '#/components/schemas/SpsLocationId'
+        locationId:
+          type: string
+          description: Unique value assigned to identify a location.
+        name:
+          type: string
+          description: Primary free-form textual description of a location.
+        address:
+          type: array
+          description: Address[1-4] information.
+          items:
+            type: string
+        city:
+          type: string
+          description: Free-form text for city name.
+        state:
+          type: string
+          description: Code[Standard State/Province] as defined by appropriate government agency
+        postalCode:
+          type: string
+          description: International postal zone excluding punctuation and blanks[Zip Code for United States].
+        country:
+          type: string
+          description: Human readable description identifying the country.
+    Limit:
+      maximum: 100
+      minimum: 1
+      type: integer
+      description: Number of results requested to be returned.
+      format: int32
+      example: 20
+      default: 20
+    PagingOffset:
+      type: object
+      properties:
+        totalCount:
+          $ref: '#/components/schemas/TotalCount'
+        limit:
+          $ref: '#/components/schemas/Limit'
+        offset:
+          $ref: '#/components/schemas/Offset'
+      description: Offset Paging result schema for all collection responses.
+      example:
+        totalCount: 100
+        limit: 20
+        offset: 0
+    TotalCount:
+      type: integer
+      description: The total count of all unique available records (results) across all paginated queries of the endpoint.
+      format: int32
+      example: 124
+    ProjectedQuantity:
+      type: object
+      properties:
+        date:
+          type: string
+          description: The date that the  projected quantity is expected to be available for immediate shipment or stocking.
+          format: date-time
+        quantity:
+          type: integer
+          description: Quantity that is currently being manufactured and/or shipped and is not available for immediate shipment or stocking.
+    SpsLocationId:
+      type: string
+      description: A unique identifier for a location within SPS Commerce.
+      format: number
+      example: '244302726407736595627334087646402585459'
+    ErrorContextFields:
+      type: object
+      properties:
+        field:
+          type: string
+          description: The name of the field that caused the validation error.
+          example: email
+        source:
+          type: string
+          description: The request location of the field that caused the validation error. Typically a value such as 'body', 'query', 'path' or 'header'.
+          example: body
+        value:
+          type: string
+          description: The value of the field that caused the validation error.
+          example: testuser
+      description: List of objects providing additional context and detail on sub-reasons for the validation issue or error.
+    ErrorContext:
+      required:
+      - code
+      - message
+      type: object
+      properties:
+        code:
+          type: string
+          description: Short, machine-readable, name of the validation error that occurred. Usage MUST be CAPITAL_SNAKE_CASE.
+          example: INPUT_INVALID
+        message:
+          type: string
+          description: Human-readable details or message specific error about the request failure.
+          example: Attribute 'email' must be a valid email address.
+      description: List of objects providing additional context and detail on sub-reasons for the validation issue or error.
+    InventoryItem:
+      title: InventoryItem
+      required:
+      - availableQuantity
+      - item
+      - lastUpdated
+      - nextAvailableQuantity
+      - onOrderQuantity
+      - partnerId
+      - quantityLastUpdated
+      - spsBuyerOrgId
+      - spsSellerOrgId
+      type: object
+      properties:
+        spsBuyerOrgId:
+          type: string
+          description: Unique identifier for buying organization within SPS Commerce.
+        spsSellerOrgId:
+          type: string
+          description: Unique identifier for selling organization within SPS Commerce.
+        partnerId:
+          type: string
+          description: Value assigned by buyer that uniquely identifies the vendor.
+        availableQuantity:
+          type: integer
+          description: Quantity of current stock that is on hand for sale or use.
+        availableDate:
+          type: string
+          description: The date that the Available Quantity will be available for sale.
+          format: date-time
+        projectedQuantities:
+          type: array
+          description: Quantities that is currently being manufactured and/or shipped and is not available for immediate shipment or stocking.
+          items:
+            $ref: '#/components/schemas/ProjectedQuantity'
+        quantityLastUpdated:
+          type: string
+          description: Date and Time the ItemRegistries was created.
+          format: date-time
+        item:
+          $ref: '#/components/schemas/Item'
+        warehouseLocation:
+          $ref: '#/components/schemas/WarehouseLocation'
+    SpsItemId:
+      type: string
+      description: A unique identifier for an item within SPS Commerce.
+      format: number
+      example: '244302726407736595627334087646402585459'
+    ErrorFieldValidation:
+      allOf:
+      - $ref: '#/components/schemas/ProblemDetails'
+      - type: object
+        properties:
+          context:
+            type: array
+            description: List of objects providing additional context and detail on sub-reasons for the validation issue or error.
+            items:
+              allOf:
+              - $ref: '#/components/schemas/ErrorContext'
+              - $ref: '#/components/schemas/ErrorContextFields'
+    ProblemDetails:
+      required:
+      - requestId
+      - status
+      - title
+      type: object
+      properties:
+        title:
+          type: string
+          description: A short, human-readable summary of the problem type. It SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization (e.g., using proactive content negotiation; see [RFC7231], Section 3.4).
+          example: You do not have enough credit.
+        status:
+          maximum: 599
+          minimum: 400
+          type: integer
+          description: The HTTP status code ([RFC7231], Section 6) generated by the origin server for this occurrence of the problem.
+          format: int32
+          example: 403
+        requestId:
+          type: string
+          description: 'Request ID that correlates original request to response and other events in the API (for example logs).
+
+            Request ID should be carried over from the X-Request-ID header of the request, otherwise, it''s automatically generated GUID value.
+
+            '
+          format: uid
+          example: 979f3d3b-a04a-43d7-b55f-8d5609b48783
+        detail:
+          type: string
+          description: A human-readable explanation specific to this occurrence of the problem.
+          example: Your current balance is 30, but that costs 50.
+        instance:
+          type: string
+          description: 'A URI reference that identifies the specific occurrence of the problem. It may or may not yield further information if dereferenced.
+
+            This may be an absolute or relative URL
+
+            '
+          format: uri
+          example: https://example.com/account/12345/msgs/abc
+        type:
+          type: string
+          description: "A URI reference [RFC3986] that identifies the problem type.  \nThis specification encourages that, when dereferenced, it provide human-readable documentation for the problem type. \nWhen this member is not present, its value is assumed to be \"about:blank\".\n"
+          format: url
+          example: https://example.com/probs/out-of-credit
+      description: Extended Problem Details error model for SPS Commerce, based upon Problem Details for HTTP APIs (https://datatracker.ietf.org/doc/html/rfc7807))
+    Offset:
+      minimum: 0
+      type: integer
+      description: Number of items to skip before including the number of limit results in the request.
+      format: int32
+      example: 20
+      default: 0
+    Item:
+      title: Item
+      required:
+      - buyerPartNumber
+      - spsItemId
+      - vendorPartNumber
+      type: object
+      properties:
+        spsItemId:
+          $ref: '#/components/schemas/SpsItemId'
+        buyerPartNumber:
+          type: string
+          description: Buyer's primary product identifier.
+        vendorPartNumber:
+          type: string
+          description: Vendor's primary product identifier.
+        manufacturerPartNumber:
+          type: string
+          description: Manufacturer's Part Number.
+        upc:
+          type: string
+          description: Consumer level or customer unit product identification number.
+        gtin:
+          type: string
+          description: Global Trade Item Number which is an item identifier that encompasses all product identification numbers such as UPC, EAN, ITF, etc. and can be assigned at various packing levels
+        sku:
+          type: string
+          description: Stock Keeping Unit.
+        ean:
+          type: string
+          description: International Article Number, aka European Article Number, which is the European equivalent of the United States UPC[Universal Product Code].
+        ndc:
+          type: string
+          description: National Drug Code or NDC is a unique, universal product identifier for drugs. Primarily used in the pharmaceutical industry.
+  securitySchemes:
+    SpsBearer:
+      type: http
+      description: 'Bearer authentication specify''s a bearer token in the ''Authorization'' header following the format:
+
+        Authorization: Bearer <token>'
+      scheme: bearer

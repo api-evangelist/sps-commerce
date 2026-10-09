@@ -1,0 +1,14 @@
+name: SPS Commerce Rate Limits
+generated: '2026-10-09'
+method: searched
+source: https://developercenter.spscommerce.com/#/docs/new-authentication-docs/machine2machine-applications
+limit_count: 1
+note: No numeric limits or rate-limit response headers are published. The docs only state that the OAuth token endpoint is rate-limited and that requesting a token per call leads to 429 errors.
+limits:
+- name: OAuth token requests
+  endpoint: POST /oauth/token
+  limit_text: "The number of requests applications can make for these tokens is rate-limited."
+  status_on_exhaustion: 429
+  status_text: "Avoid requesting a new token on every API call to prevent 429 (rate limit) errors."
+  status_source: https://developercenter.spscommerce.com/#/docs/new-authentication-docs/client-updates-for-enhanced-security
+headers: none documented

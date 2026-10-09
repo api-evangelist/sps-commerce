@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sps-commerce/main/json-schema/sps-commerce-inventory-import-request-schema.json",
+  "title": "InventoryImportRequest",
+  "x-generated": "2026-10-09",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sps-commerce-inventory-api-openapi.yml#/components/schemas/InventoryImportRequest",
+  "required": [
+    "fingerprint",
+    "parcelUid"
+  ],
+  "type": "object",
+  "properties": {
+    "parcelUid": {
+      "type": "integer"
+    },
+    "fingerprint": {
+      "type": "string"
+    }
+  }
+}

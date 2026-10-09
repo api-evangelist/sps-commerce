@@ -1,0 +1,49 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://www.stackone.com/api/v1/connectors/",
+      "service-desc": [
+        {
+          "href": "https://www.stackone.com/openapi.json",
+          "type": "application/vnd.oai.openapi+json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://www.stackone.com/docs/api/",
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "anchor": "https://www.stackone.com/api/v1/categories/",
+      "service-desc": [
+        {
+          "href": "https://www.stackone.com/openapi.json",
+          "type": "application/vnd.oai.openapi+json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://www.stackone.com/docs/api/",
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "anchor": "https://www.stackone.com/api/oembed/",
+      "service-desc": [
+        {
+          "href": "https://www.stackone.com/openapi.json",
+          "type": "application/vnd.oai.openapi+json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://www.stackone.com/docs/api/",
+          "type": "text/html"
+        }
+      ]
+    }
+  ]
+}

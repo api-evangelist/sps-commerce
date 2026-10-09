@@ -1,0 +1,175 @@
+generated: '2026-10-09'
+method: derived
+generator: derive-vocabulary.py
+source:
+- openapi/sps-commerce-inventory-api-openapi.yml
+- openapi/sps-commerce-submission-api-openapi.yml
+vocabulary:
+  name: SPS Commerce Domain Vocabulary
+  description: 'Terms declared by SPS Commerce''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-09'
+  terms:
+  - term: Submission
+    definition: Operations with Submission Form entities. Require `Bearer` token authentication
+    tags:
+    - Resource Group
+    source: openapi/sps-commerce-submission-api-openapi.yml
+  - term: SpsItemId
+    definition: A unique identifier for an item within SPS Commerce.
+    tags:
+    - Object
+    source: openapi/sps-commerce-inventory-api-openapi.yml#/components/schemas/SpsItemId
+  - term: SpsLocationId
+    definition: A unique identifier for a location within SPS Commerce.
+    tags:
+    - Object
+    source: openapi/sps-commerce-inventory-api-openapi.yml#/components/schemas/SpsLocationId
+  - term: ProjectedQuantity
+    definition: 'Object declared by the contract with fields: date, quantity.'
+    tags:
+    - Object
+    source: openapi/sps-commerce-inventory-api-openapi.yml#/components/schemas/ProjectedQuantity
+  - term: InventoryItem
+    definition: 'Object declared by the contract with fields: spsBuyerOrgId, spsSellerOrgId, partnerId, availableQuantity, availableDate, projectedQuantities,
+      quantityLastUpdated, item, warehouseLocation.'
+    tags:
+    - Object
+    source: openapi/sps-commerce-inventory-api-openapi.yml#/components/schemas/InventoryItem
+  - term: Item
+    definition: 'Object declared by the contract with fields: spsItemId, buyerPartNumber, vendorPartNumber, manufacturerPartNumber, upc, gtin,
+      sku, ean, ndc.'
+    tags:
+    - Object
+    source: openapi/sps-commerce-inventory-api-openapi.yml#/components/schemas/Item
+  - term: WarehouseLocation
+    definition: 'Object declared by the contract with fields: spsLocationId, locationId, name, address, city, state, postalCode, country.'
+    tags:
+    - Object
+    source: openapi/sps-commerce-inventory-api-openapi.yml#/components/schemas/WarehouseLocation
+  - term: InventoryImportRequest
+    definition: 'Object declared by the contract with fields: parcelUid, fingerprint.'
+    tags:
+    - Object
+    source: openapi/sps-commerce-inventory-api-openapi.yml#/components/schemas/InventoryImportRequest
+  - term: Offset
+    definition: Number of items to skip before including the number of limit results in the request.
+    tags:
+    - Object
+    source: openapi/sps-commerce-inventory-api-openapi.yml#/components/schemas/Offset
+  - term: Limit
+    definition: Number of results requested to be returned.
+    tags:
+    - Object
+    source: openapi/sps-commerce-inventory-api-openapi.yml#/components/schemas/Limit
+  - term: PagingOffset
+    definition: Offset Paging result schema for all collection responses.
+    tags:
+    - Object
+    source: openapi/sps-commerce-inventory-api-openapi.yml#/components/schemas/PagingOffset
+  - term: TotalCount
+    definition: The total count of all unique available records (results) across all paginated queries of the endpoint.
+    tags:
+    - Object
+    source: openapi/sps-commerce-inventory-api-openapi.yml#/components/schemas/TotalCount
+  - term: ProblemDetails
+    definition: Extended Problem Details error model for SPS Commerce, based upon Problem Details for HTTP APIs (https://datatracker.ietf.org/doc/html/rfc7807))
+    tags:
+    - Object
+    source: openapi/sps-commerce-inventory-api-openapi.yml#/components/schemas/ProblemDetails
+  - term: ErrorContext
+    definition: List of objects providing additional context and detail on sub-reasons for the validation issue or error.
+    tags:
+    - Object
+    source: openapi/sps-commerce-inventory-api-openapi.yml#/components/schemas/ErrorContext
+  - term: ErrorContextFields
+    definition: List of objects providing additional context and detail on sub-reasons for the validation issue or error.
+    tags:
+    - Object
+    source: openapi/sps-commerce-inventory-api-openapi.yml#/components/schemas/ErrorContextFields
+  - term: inline_response_200
+    definition: 'Object declared by the contract with fields: results, paging.'
+    tags:
+    - Object
+    source: openapi/sps-commerce-inventory-api-openapi.yml#/components/schemas/inline_response_200
+  - term: AgreementContactDetails
+    definition: Detailed information about agreement contact
+    tags:
+    - Object
+    source: openapi/sps-commerce-submission-api-openapi.yml#/components/schemas/AgreementContactDetails
+  - term: AvailableSubmissionFormFields
+    definition: Details to define the availability of different fields
+    tags:
+    - Object
+    source: openapi/sps-commerce-submission-api-openapi.yml#/components/schemas/AvailableSubmissionFormFields
+  - term: ErrorResponse
+    definition: 'Object declared by the contract with fields: title, status, detail, requestId, context.'
+    tags:
+    - Object
+    source: openapi/sps-commerce-submission-api-openapi.yml#/components/schemas/ErrorResponse
+  - term: FulfillmentModels
+    definition: Describes all of the documents for the chosen order management options. It should include only options and docs from the chosen
+      Submission Form!
+    tags:
+    - Object
+    source: openapi/sps-commerce-submission-api-openapi.yml#/components/schemas/FulfillmentModels
+  - term: IncludedDataExchanges
+    definition: Provides information about included trading partner's data exchanges. It should include only data exchanges from the chosen Submission
+      Form!
+    tags:
+    - Object
+    source: openapi/sps-commerce-submission-api-openapi.yml#/components/schemas/IncludedDataExchanges
+  - term: Pagination
+    definition: 'Object declared by the contract with fields: totalCount, limit, offset.'
+    tags:
+    - Object
+    source: openapi/sps-commerce-submission-api-openapi.yml#/components/schemas/Pagination
+  - term: SfOrderManagementEnum
+    definition: 'Enumeration declared by the contract with values: Consignment, Direct Store Delivery, Imports, Scan-Based Trading, Scan Based
+      Trading/Concessions, Ship Direct to Business, Ship Direct to Customer, Ship to DC, Ship to DC - Cross Dock, Ship to DC/Store, Ship to DC/Store
+      - Blanket and Release, Ship to Multiple Stores. (11 more)'
+    tags:
+    - Enumeration
+    source: openapi/sps-commerce-submission-api-openapi.yml#/components/schemas/SfOrderManagementEnum
+  - term: SubmissionFormOutput
+    definition: 'Object declared by the contract with fields: id, name, description, retailerInstructions, createdDateTime, modifiedDateTime,
+      availableFields, includedSalesDataDataExchange, salesDataCampaignId, salesDataCampaignName, salesDataTradingPartnerSource, salesDataDefaultSelection.
+      (17 more)'
+    tags:
+    - Object
+    source: openapi/sps-commerce-submission-api-openapi.yml#/components/schemas/SubmissionFormOutput
+  - term: SubmissionFormsResponse
+    definition: 'Object declared by the contract with fields: results, paging.'
+    tags:
+    - Object
+    source: openapi/sps-commerce-submission-api-openapi.yml#/components/schemas/SubmissionFormsResponse
+  - term: ThirdPartyInvolvementContact
+    definition: Detailed information about 3rd party involvement contact
+    tags:
+    - Object
+    source: openapi/sps-commerce-submission-api-openapi.yml#/components/schemas/ThirdPartyInvolvementContact
+  - term: ThirdPartyInvolvementTypes
+    definition: 'Enumeration declared by the contract with values: Broker, Agent/Manufacturer''s Rep.'
+    tags:
+    - Enumeration
+    source: openapi/sps-commerce-submission-api-openapi.yml#/components/schemas/ThirdPartyInvolvementTypes
+  - term: TradingPartnerDetails
+    definition: 'Object declared by the contract with fields: solution, id.'
+    tags:
+    - Object
+    source: openapi/sps-commerce-submission-api-openapi.yml#/components/schemas/TradingPartnerDetails
+  - term: TradingPartnerInput
+    definition: Model for the trading partner input payload It includes various validators and processors for fields
+    tags:
+    - Object
+    source: openapi/sps-commerce-submission-api-openapi.yml#/components/schemas/TradingPartnerInput
+  - term: TradingPartnerLocation
+    definition: 'Object declared by the contract with fields: address, city, state, zipCode.'
+    tags:
+    - Object
+    source: openapi/sps-commerce-submission-api-openapi.yml#/components/schemas/TradingPartnerLocation
+  - term: TradingPartnerResponse
+    definition: 'Object declared by the contract with fields: tradingPartnerName, createdTradingPartners.'
+    tags:
+    - Object
+    source: openapi/sps-commerce-submission-api-openapi.yml#/components/schemas/TradingPartnerResponse

@@ -1,0 +1,111 @@
+# SPS Commerce
+
+> SPS Commerce is the world’s most intelligent supply chain network, utilizing agentic AI and a multi-tenant architecture to transform global trading relationships. By processing over 750 million annual transactions, the SPS network provides automated compliance detection, proactive revenue recovery, and agentic reasoning to help 50,000+ customers scale with intelligence.
+
+SupplierWiki is a free community knowledge base that helps suppliers learn, stay current, and improve execution across these workflows.
+
+## Main Site
+
+- [SPS Commerce Homepage](https://www.spscommerce.com/): Overview of SPS Commerce, the intelligent supply chain network, core solutions, customer outcomes, supply chain intelligence resources, and demo options.
+- [Products](https://www.spscommerce.com/products/): Complete suite of SPS Commerce products for fulfillment, analytics, assortment, order management, e-invoicing, revenue recovery, 3PLs, and supply chain performance.
+- [SupplierWiki Home](https://www.spscommerce.com/community/): Main SupplierWiki homepage with featured articles, popular eBooks, and a summary of the free retail supplier knowledge base.
+- [Articles](https://www.spscommerce.com/community/articles): Collection of detailed articles designed to help retail suppliers improve operations, compliance, deductions handling, and supply chain execution.
+
+## Products and Solutions
+
+- [Fulfillment](https://www.spscommerce.com/products/fulfillment/edi/): EDI and order fulfillment solution for managing purchase orders, ASNs, invoices, partner requirements, exceptions, and retail order workflows.
+- [Supply Chain Performance Suite](https://www.spscommerce.com/products/supply-chain-performance-suite/): Tools for improving retail supply chain performance, vendor collaboration, order visibility, and operational execution.
+- [Order Central](https://www.spscommerce.com/products/order-central/): Order management solution for creating and managing digital orders across channels, suppliers, and trading partners.
+- [Analytics](https://www.spscommerce.com/products/analytics/): Retail sales and inventory analytics for suppliers that need insight into product performance, sell-through, inventory, and channel trends.
+- [Assortment](https://www.spscommerce.com/products/assortment/): Product information management solution for sharing complete, accurate item data with retailers and sales channels.
+- [E-Invoicing](https://www.spscommerce.com/products/e-invoicing/): E-invoicing solution for exchanging compliant invoice documents without manually managing varying trading partner, tax, and regulatory requirements.
+- [Revenue Recovery](https://www.spscommerce.com/products/revenue-recovery/): Deduction management and revenue recovery solution for identifying, validating, disputing, and recovering revenue tied to deductions, shortages, fines, and margin loss.
+- [SPS for 3PLs](https://www.spscommerce.com/products/sps-for-3pls/): Solution for third-party logistics providers to standardize and automate customer communications, item data, inventory, orders, delivery, and status information.
+- [EDI Integrations](https://www.spscommerce.com/products/integrations/): Pre-built EDI integrations for ERP, WMS, accounting, and other business systems, including connections for common business platforms.
+
+## Notable Articles
+
+- [How Amazon's Receive Process Impacts Suppliers](https://www.spscommerce.com/community/articles/how-amazon-receive-process-impacts-suppliers): Explains Amazon receiving workflows, Parcel Identifier processes, ASN dependencies, labeling, packaging, chargeback risks, and implications for suppliers.
+- [How Retailers Can Fix Supplier Item Data at the Source](https://www.spscommerce.com/community/articles/how-retailers-can-fix-supplier-item-data-at-the-source): Discusses how retailers can improve supplier item data quality to reduce receiving exceptions, fulfillment errors, and manual work.
+- [Why Supplier Item Data Failures Cascade and What They Cost Retailers](https://www.spscommerce.com/community/articles/why-supplier-item-data-failures-cascade-and-what-they-cost-retailers): Explains the operational costs of inaccurate item records and how item data issues affect broader supply chain systems.
+- [Inventory Management and Accounting](https://www.spscommerce.com/community/articles/inventory-management-and-accounting): Covers inventory classification, shrinkage, phantom inventory, SKU optimization, Walmart replenishment issues, and accounting considerations.
+- [Compliance Apps in Retail Link](https://www.spscommerce.com/community/articles/compliance-apps-in-retail-link): Guides Walmart suppliers through compliance tools in Retail Link, including SQEP and performance monitoring.
+- [Visibility for Suppliers and CPGs](https://www.spscommerce.com/community/articles/visibility-for-suppliers-and-cpgs): Explains supply chain visibility for suppliers and CPG companies, including data, retail insight, and tools.
+- [How to Become a Wholesale Supplier](https://www.spscommerce.com/community/articles/how-to-become-a-wholesale-supplier): Provides best practices for wholesale suppliers, including quality, retailer relationships, compliance, chargebacks, and promotions.
+- [Best Free Tools for CPG Suppliers](https://www.spscommerce.com/community/articles/best-free-tools-for-cpg-suppliers): Highlights free tools and resources for CPG suppliers working on shipping, compliance, operations, and workflow optimization.
+- [What is EDI? A supplier's guide to navigating document exchange](https://www.spscommerce.com/community/articles/what-is-edi/): Explains what EDI is, how document exchange works between trading partners, and what suppliers need to know to get started.
+- [Five top EDI documents to integrate and automate](https://www.spscommerce.com/community/articles/top-edi-documents-integrate-automate-spsa/): Highlights five core EDI documents to integrate and automate to reduce manual work, improve accuracy, and support faster order-to-cash workflows.
+- [The true costs of inefficient supplier and vendor onboarding](https://www.spscommerce.com/community/articles/costs-inefficient-vendor-onboarding-spsc/): Breaks down the operational and financial impacts of slow or manual onboarding, including delays, errors, and downstream compliance risk.
+
+## Business Types
+
+- [Retail and Grocery](https://www.spscommerce.com/audience/retail-grocery/): Solutions for retailers and grocers to automate data exchange, improve supply chain visibility, support vendor compliance, and manage operations across retail channels.
+- [Manufacturing](https://www.spscommerce.com/audience/manufacturing/): Inbound supply chain automation and supplier onboarding solutions for manufacturers managing materials, suppliers, co-manufacturers, and production workflows.
+- [E-Commerce and Marketplace](https://www.spscommerce.com/audience/ecommerce-marketplace/): Omnichannel commerce solutions for managing wholesale, marketplace, ecommerce, advertising, and order workflows.
+- [Streaming Commerce](https://www.spscommerce.com/solutions/streaming-commerce/): Solutions for supporting streaming commerce experiences, connected buying journeys, retail media, product discovery, and digital commerce operations.
+- [International Commerce](https://www.spscommerce.com/solutions/international-commerce/): Solutions for managing international retail operations, global trading partner requirements, cross-border commerce workflows, and supply chain connectivity.
+- [Distribution](https://www.spscommerce.com/audience/distribution/): Supply chain tools for distributors that need replenishment, supplier data, product information, invoice reconciliation, and trading partner connectivity.
+- [Brands](https://www.spscommerce.com/audience/brands/): Solutions for brands and suppliers that need EDI compliance, retail analytics, product data management, revenue recovery, and order fulfillment support.
+- [Third-Party Logistics](https://www.spscommerce.com/audience/3pl/): 3PL integration and management solutions for automating customer and trading partner communications.
+- [AI Commerce](https://www.spscommerce.com/solutions/ai-commerce/): AI-powered commerce solutions for improving automation, retail data workflows, supply chain visibility, and trading partner execution.
+- [Social Commerce](https://www.spscommerce.com/solutions/social-commerce/): Social commerce solutions for managing product data, orders, fulfillment, and connected commerce workflows across social selling channels.
+
+## Network and Partners
+
+- [Find a Retail Partner](https://www.spscommerce.com/network/find-a-partner/): Search SPS Commerce’s retail network to find trading partner connections.
+- [EDI Integrations](https://www.spscommerce.com/products/integrations/): Explore pre-built integrations between SPS Commerce and business systems such as ERP, WMS, and accounting platforms.
+- [Technology Partner Network](https://www.spscommerce.com/partner-community/directory/): View SPS Commerce’s partner directory of technology providers, systems, consultants, 3PLs, carriers, resellers, and integration partners.
+- [Intelligent Supply Chain Network](https://www.spscommerce.com/why-sps/intelligent-supply-chain-network/): Learn how SPS Commerce connects partners, workflows, and supply chain data in one intelligent retail ecosystem.
+- [SPS Network Advantage](https://www.spscommerce.com/why-sps/network-advantage/): Explore the benefits of SPS Commerce’s connected network, built-in supply chain expertise, and trading partner ecosystem.
+
+## Learning Resource Center
+
+- [Case Studies](https://www.spscommerce.com/case-studies/): Customer stories showing how businesses use SPS Commerce to improve EDI, fulfillment, supply chain collaboration, automation, and performance.
+- [What is EDI?](https://www.spscommerce.com/what-is-edi/): Introductory guide explaining electronic data interchange and its role in retail and supply chain operations.
+- [EDI Transactions](https://www.spscommerce.com/resources/edi-documents-transactions/): Reference guide to common EDI transaction types, document codes, and documents used in retail supply chain automation.
+- [What is Retail Analytics?](https://www.spscommerce.com/what-is-retail-analytics/): Guide explaining retail analytics, sales data, inventory data, and how analytics can support retail decision-making.
+- [Common EDI Errors to Avoid](https://www.spscommerce.com/blog/common-edi-errors/): Guide to common EDI mistakes, transaction issues, and best practices for avoiding supply chain disruption.
+- [A Supplier's Guide to Home Improvement Retailers](https://www.spscommerce.com/community/unlock-your/a-suppliers-guide-to-home-improvement-retailers): Guide for selling to Lowe’s and Home Depot, including supplier onboarding, invoicing, deductions, packaging, shipping, returns, and compliance.
+- [Accounting Playbook for CPG Suppliers](https://www.spscommerce.com/community/unlock-your/accounting-playbook-for-cpg-suppliers): Accounting-focused resource for CPG suppliers covering formulas, definitions, best practices, inventory, deductions, accounts receivable, collections, and audits.
+- [Walmart Marketplace Playbook](https://www.spscommerce.com/community/unlock-your/walmart-marketplace-playbook-how-to-sell-on-walmart-com): Quick-start guide for Walmart Marketplace setup, catalog management, inventory, pricing, fulfillment, performance standards, and analytics.
+- [Walmart Post Audit Survival Guide](https://www.spscommerce.com/community/unlock-your/walmart-post-audit-survival-guide): Guide to Walmart post audits, claim packets, prevention, dispute processes, and common causes.
+- [The Basics of Supply Chain Logistics](https://www.spscommerce.com/community/unlock-your/the-basics-of-supply-chain-logistics): Introductory guide to freight shipping, documentation, shipping methods, and logistics terminology.
+- [A Supplier's Guide to Freight, Carriers, and Logistics](https://www.spscommerce.com/community/unlock-your/a-suppliers-guide-to-freight-carriers-and-logistics): Guide to choosing shipping methods, selecting carriers, understanding LTL and FTL, and avoiding non-compliance fines.
+- [The Complete Guide to Vendor Onboarding](https://www.spscommerce.com/community/unlock-your/vendor-onboarding-guide): Resource on supplier onboarding and information exchange.
+- [The Ultimate Guide to OTIF](https://www.spscommerce.com/community/unlock-your/the-ultimate-guide-to-otif): Guide to Walmart OTIF standards, supplier impact, and best practices.
+- [EDI for Retail Supply Chains Cheat Sheet](https://www.spscommerce.com/community/unlock-your/edi-for-retail-supply-chains-cheat-sheet): Cheat sheet explaining common EDI codes used across supply chain functions.
+
+## Company
+
+- [About SPS Commerce](https://www.spscommerce.com/about/): Company story, mission, retail network approach, global locations, and contact information.
+- [Leadership](https://www.spscommerce.com/about/leadership/): SPS Commerce leadership team information and executive bios.
+- [Corporate Responsibility](https://www.spscommerce.com/corporate-responsibility/): Information about SPS Commerce’s social impact, community involvement, and responsible business practices.
+- [Investor Relations](https://investors.spscommerce.com/): Investor news, financial information, corporate governance, events, presentations, press releases, and shareholder resources.
+- [Careers](https://jobs.spscommerce.com/): Job opportunities and career information at SPS Commerce.
+- [Events and Tradeshows](https://www.spscommerce.com/about/events-trade-shows/): Upcoming industry events, webinars, tradeshows, and opportunities to connect with SPS Commerce.
+
+## Customer Hub
+
+- [Login](https://www.spscommerce.com/login/): Access SPS Commerce products and portals, including Fulfillment, Testing, Assortment, Analytics, Payment Portal, and related solutions.
+- [Customer Support](https://www.spscommerce.com/customer-support/support/): SPS Commerce support options, contact information, and help resources for customers.
+- [Training Center](https://trainingcenter.spscommerce.com/): On-demand learning and training resources for SPS Commerce products.
+- [Developer Center](https://developercenter.spscommerce.com/): Developer login and API map authentication resources.
+
+## Legal and Trust
+
+- [Privacy Notice](https://www.spscommerce.com/about/privacy-policy/): Privacy policy and information about SPS Commerce data practices.
+- [Terms of Use](https://www.spscommerce.com/about/terms-of-use/): Terms and conditions governing use of SPS Commerce websites and services.
+- [Security](https://trust.spscommerce.com/): Security, trust, and compliance information for SPS Commerce.
+- [Sub Processor List](https://www.spscommerce.com/about/sub-processor-list/): Information about subprocessors used by SPS Commerce.
+- [Trademark Notice](https://www.spscommerce.com/about/trademark-notice/): Trademark information for SPS Commerce marks.
+- [AODA](https://go.spscommerce.com/aoda/): Accessibility information and AODA-related resources.
+- [AI Responsibility](https://www.spscommerce.com/corporate-responsibility/ai-responsibility/): Information about SPS Commerce’s approach to responsible AI.
+- [SPS Trust Center](https://trust.spscommerce.com/): Security and trust portal with compliance details, security review access, reports, product security controls, data protection practices, infrastructure, network security, application security, and legal trust resources.
+
+## Social and Regional
+
+- [European SPS Commerce Site](https://www.spscommerce.com/eur/): Regional SPS Commerce site for European supply chain and e-invoicing solutions.
+- [Newsletter Signup](https://www.spscommerce.com/): Newsletter signup access from the SPS Commerce website footer.
+- [SPS Commerce Instagram](https://www.instagram.com/spscommerce/): SPS Commerce Instagram profile.
+- [SPS Commerce LinkedIn](https://www.linkedin.com/company/sps-commerce): SPS Commerce LinkedIn company profile.
+- [SPS Commerce YouTube](https://www.youtube.com/user/spscommerce): SPS Commerce YouTube channel.

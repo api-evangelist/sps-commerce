@@ -1,0 +1,12 @@
+name: SPS Commerce Plans
+generated: '2026-10-09'
+method: none
+source: https://developercenter.spscommerce.com/#/docs/transaction-api
+plan_count: 0
+audience: unclear
+pricing_basis: negotiated
+published: false
+delivery:
+  mode: managed
+note: No API pricing or plan page is published. The Dev Center offers a trial account (Sandbox Keys only); "production data will not be available until an agreement with SPS Commerce is in place".
+plans: []

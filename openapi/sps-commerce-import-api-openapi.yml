@@ -1,0 +1,190 @@
+openapi: 3.2.0
+info:
+  title: Inventory Import API
+  description: Process inventory information
+  version: v1
+  x-sps-service-id: 34449785-9875-479a-8771-8dd1a99eb0a8
+servers:
+- url: https://integration.api.spscommerce.com
+  description: integration
+- url: https://api.spscommerce.com
+  description: prod
+security:
+- SpsBearer: []
+tags:
+- name: Import
+paths:
+  /inventory/v1/imports:
+    post:
+      tags:
+      - Import
+      summary: Import Inventory Data|internal
+      description: Import inventory items from ItemRegistry documents.
+      operationId: v1-imports-create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InventoryImportRequest'
+        required: true
+      responses:
+        '201':
+          description: Request was accepted
+        '400':
+          description: Invalid Data
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorFieldValidation'
+              example:
+                title: Invalid Data
+                status: 400
+                requestId: b6d9a290-9f20-465b-bcd3-4a5166eeb3d7
+                detail: Content missing or invalid for required fields.
+                instance: https://example.com/account/12345/resource/23
+                context:
+                - code: INPUT_INVALID
+                  message: Attribute 'email' must be a valid email address.
+                  field: email
+                  source: body
+                  value: testuser
+                - code: INPUT_NOT_NULL
+                  message: Attribute 'reason' must not be null.
+                  field: reason
+                  source: body
+        '500':
+          description: Internal Server Error
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                title: Internal Server Error
+                status: 500
+                requestId: b6d9a290-9f20-465b-bcd3-4a5166eeb3d7
+                detail: Request for resource failed unexpectedly.
+                instance: https://example.com/account/12345/resource/23
+                context:
+                - code: CONNECTION_TIMEOUT
+                  message: A downstream dependency connection timed out.
+      x-internal: true
+components:
+  schemas:
+    Error:
+      allOf:
+      - $ref: '#/components/schemas/ProblemDetails'
+      - type: object
+        properties:
+          context:
+            type: array
+            description: List of objects providing additional context and detail on sub-reasons for the validation issue or error.
+            items:
+              $ref: '#/components/schemas/ErrorContext'
+    ErrorContextFields:
+      type: object
+      properties:
+        field:
+          type: string
+          description: The name of the field that caused the validation error.
+          example: email
+        source:
+          type: string
+          description: The request location of the field that caused the validation error. Typically a value such as 'body', 'query', 'path' or 'header'.
+          example: body
+        value:
+          type: string
+          description: The value of the field that caused the validation error.
+          example: testuser
+      description: List of objects providing additional context and detail on sub-reasons for the validation issue or error.
+    ErrorContext:
+      required:
+      - code
+      - message
+      type: object
+      properties:
+        code:
+          type: string
+          description: Short, machine-readable, name of the validation error that occurred. Usage MUST be CAPITAL_SNAKE_CASE.
+          example: INPUT_INVALID
+        message:
+          type: string
+          description: Human-readable details or message specific error about the request failure.
+          example: Attribute 'email' must be a valid email address.
+      description: List of objects providing additional context and detail on sub-reasons for the validation issue or error.
+    ErrorFieldValidation:
+      allOf:
+      - $ref: '#/components/schemas/ProblemDetails'
+      - type: object
+        properties:
+          context:
+            type: array
+            description: List of objects providing additional context and detail on sub-reasons for the validation issue or error.
+            items:
+              allOf:
+              - $ref: '#/components/schemas/ErrorContext'
+              - $ref: '#/components/schemas/ErrorContextFields'
+    ProblemDetails:
+      required:
+      - requestId
+      - status
+      - title
+      type: object
+      properties:
+        title:
+          type: string
+          description: A short, human-readable summary of the problem type. It SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization (e.g., using proactive content negotiation; see [RFC7231], Section 3.4).
+          example: You do not have enough credit.
+        status:
+          maximum: 599
+          minimum: 400
+          type: integer
+          description: The HTTP status code ([RFC7231], Section 6) generated by the origin server for this occurrence of the problem.
+          format: int32
+          example: 403
+        requestId:
+          type: string
+          description: 'Request ID that correlates original request to response and other events in the API (for example logs).
+
+            Request ID should be carried over from the X-Request-ID header of the request, otherwise, it''s automatically generated GUID value.
+
+            '
+          format: uid
+          example: 979f3d3b-a04a-43d7-b55f-8d5609b48783
+        detail:
+          type: string
+          description: A human-readable explanation specific to this occurrence of the problem.
+          example: Your current balance is 30, but that costs 50.
+        instance:
+          type: string
+          description: 'A URI reference that identifies the specific occurrence of the problem. It may or may not yield further information if dereferenced.
+
+            This may be an absolute or relative URL
+
+            '
+          format: uri
+          example: https://example.com/account/12345/msgs/abc
+        type:
+          type: string
+          description: "A URI reference [RFC3986] that identifies the problem type.  \nThis specification encourages that, when dereferenced, it provide human-readable documentation for the problem type. \nWhen this member is not present, its value is assumed to be \"about:blank\".\n"
+          format: url
+          example: https://example.com/probs/out-of-credit
+      description: Extended Problem Details error model for SPS Commerce, based upon Problem Details for HTTP APIs (https://datatracker.ietf.org/doc/html/rfc7807))
+    InventoryImportRequest:
+      required:
+      - fingerprint
+      - parcelUid
+      type: object
+      properties:
+        parcelUid:
+          type: integer
+          example: 123456
+        fingerprint:
+          type: string
+          example: b94f201d-b589-43ac-aee9-71d0e747d240
+  securitySchemes:
+    SpsBearer:
+      type: http
+      description: 'Bearer authentication specify''s a bearer token in the ''Authorization'' header following the format:
+
+        Authorization: Bearer <token>'
+      scheme: bearer

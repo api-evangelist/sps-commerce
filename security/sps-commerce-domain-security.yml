@@ -1,0 +1,17 @@
+generated: '2026-10-09'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.spscommerce.com
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Oct 31 16:23:15 2026 GMT
+  hsts: true
+  hsts_max_age: 31622400
+domains:
+- domain: spscommerce.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine

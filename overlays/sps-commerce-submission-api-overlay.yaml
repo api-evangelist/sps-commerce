@@ -1,0 +1,31 @@
+overlay: 1.0.0
+info:
+  title: SPS Commerce Community Submission API — API Evangelist overlay
+  version: 1.0.0
+  x-generated: '2026-10-09'
+  x-method: generated
+extends: ../openapi/_original/sps-commerce-submission-api-openapi.json
+actions:
+- target: $.info
+  update:
+    x-api-evangelist:
+      provider: sps-commerce
+      llms: llms/sps-commerce-llms.txt
+      mcp: mcp/sps-commerce-mcp.yml
+      mcp_status: candidate (no official MCP server found)
+- target: $.paths['/v1/forms'].get
+  update:
+    x-agent-tool: list_submission_forms
+    x-pagination:
+      style: offset
+      parameters:
+      - offset
+      - limit
+- target: $.paths['/v1/forms/{id}'].get
+  update:
+    x-agent-tool: get_submission_form
+- target: $.paths['/v1/trading-partners'].post
+  update:
+    x-agent-tool: submit_trading_partner
+    x-idempotent: false
+    x-api-evangelist-note: No idempotency key is documented; avoid blind retries of this POST.

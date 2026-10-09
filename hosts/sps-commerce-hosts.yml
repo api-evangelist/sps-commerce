@@ -1,0 +1,231 @@
+generated: '2026-10-09'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 17
+  own: 12
+  other_domain: 1
+  platform: 4
+  roles:
+  - api
+  - community
+  - other
+  - partner
+  - portal
+  - source
+  - status
+  - website
+hosts:
+- host: api.spscommerce.com
+  found_by:
+  - apis[]
+  - contract-discovery
+  types: []
+  serves:
+  - api
+  registrable_domain: spscommerce.com
+  role: api
+  relation: own
+- host: community.spscommerce.com
+  found_by:
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: spscommerce.com
+  role: community
+  relation: own
+- host: developercenter.spscommerce.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - site-links
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - DeveloperPortal
+  - GettingStarted
+  - SignUp
+  serves:
+  - docs
+  - cdn
+  vendor: cloudfront
+  registrable_domain: spscommerce.com
+  role: portal
+  relation: own
+- host: github.com
+  found_by:
+  - pointer
+  types:
+  - GitHubOrganization
+  serves: []
+  registrable_domain: github.com
+  role: source
+  relation: platform
+- host: go.spscommerce.com
+  found_by:
+  - probed
+  - site-links
+  - docs-index
+  - well-known
+  types: []
+  serves:
+  - docs
+  registrable_domain: spscommerce.com
+  role: other
+  relation: own
+- host: investors.spscommerce.com
+  found_by:
+  - probed
+  - site-links
+  - docs-index
+  - well-known
+  types: []
+  serves:
+  - docs
+  registrable_domain: spscommerce.com
+  role: other
+  relation: own
+- host: jobs.spscommerce.com
+  found_by:
+  - probed
+  - site-links
+  - docs-index
+  - well-known
+  types: []
+  serves:
+  - docs
+  registrable_domain: spscommerce.com
+  role: other
+  relation: own
+- host: partner.spscommerce.com
+  found_by:
+  - probed
+  - site-links
+  - namespace-probe
+  types: []
+  serves: []
+  title: Login Template Title
+  status: 200
+  registrable_domain: spscommerce.com
+  role: partner
+  relation: own
+- host: spscommerce.github.io
+  found_by:
+  - pointer
+  types:
+  - APIStyleGuide
+  serves: []
+  registrable_domain: github.io
+  role: other
+  relation: platform
+- host: status.spscommerce.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - well-known
+  types:
+  - StatusPage
+  serves: []
+  registrable_domain: spscommerce.com
+  role: status
+  relation: own
+- host: supportcenter.spscommerce.com
+  found_by:
+  - probed
+  - site-links
+  types: []
+  serves: []
+  registrable_domain: spscommerce.com
+  role: other
+  relation: own
+- host: trainingcenter.spscommerce.com
+  found_by:
+  - probed
+  - site-links
+  - docs-index
+  types: []
+  serves:
+  - docs
+  registrable_domain: spscommerce.com
+  role: other
+  relation: own
+- host: trust.spscommerce.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - docs-index
+  - contract-discovery
+  - well-known
+  types:
+  - Compliance
+  - TrustCenter
+  serves:
+  - docs
+  platform: app.safebase.io
+  registrable_domain: spscommerce.com
+  role: other
+  relation: own
+- host: www.instagram.com
+  found_by:
+  - docs-index
+  types: []
+  serves:
+  - docs
+  registrable_domain: instagram.com
+  role: other
+  relation: other-domain
+- host: www.linkedin.com
+  found_by:
+  - pointer
+  - docs-index
+  types:
+  - LinkedIn
+  serves:
+  - docs
+  registrable_domain: linkedin.com
+  role: other
+  relation: platform
+- host: www.spscommerce.com
+  found_by:
+  - pointer
+  - probed
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Newsroom
+  - Website
+  - Documentation
+  - Login
+  - Support
+  - Blog
+  - TermsOfService
+  - PrivacyPolicy
+  serves:
+  - docs
+  - cdn
+  vendor: fastly
+  registrable_domain: spscommerce.com
+  role: website
+  relation: own
+- host: www.youtube.com
+  found_by:
+  - pointer
+  - docs-index
+  types:
+  - YouTube
+  serves:
+  - docs
+  registrable_domain: youtube.com
+  role: other
+  relation: platform

@@ -1,0 +1,29 @@
+generated: '2026-10-09'
+method: searched
+source: https://spscommerce.github.io/sps-api-standards/standards/errors.html
+format: application/problem+json (RFC 7807)
+envelope:
+  required: [title, status]
+  fields: [title, status, detail, instance, requestId, context]
+  note: 'Style guide: "An error or validation response MUST include a requestId attribute that is used to correlate requests." Field-level violations are carried in context[] entries with code, message, field, source, value.'
+  observed_in: openapi/sps-commerce-inventory-api-openapi.yml (ErrorFieldValidation, ProblemDetails), openapi/sps-commerce-submission-api-openapi.yml (ErrorResponse)
+context_codes: [INPUT_BLANK, INPUT_EMPTY, INPUT_INVALID, INPUT_MAX_VALUE, INPUT_MIN_VALUE, INPUT_NULL, CONNECTION_TIMEOUT]
+problems:
+- status: 400
+  title: Invalid Data
+  description: Returned by both published contracts for missing or invalid input.
+  remediation: Correct the fields listed in context and resubmit.
+- status: 401
+  title: Unauthorized
+  remediation: Obtain a valid OAuth access token.
+- status: 403
+  title: Forbidden
+  description: Declared by the Submission API; the auth docs also state a redirect_uri mismatch "will result in a 403 status".
+- status: 404
+  title: Not Found
+- status: 429
+  title: Too Many Requests
+  description: "The server MUST return this status code if the rate limit for the user, the application, or the token has exceeded a predefined value."
+  remediation: Retry later (style guide marks it Retriable); cache OAuth tokens instead of requesting one per call.
+- status: 500
+  title: Internal Server Error

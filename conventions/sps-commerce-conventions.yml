@@ -1,0 +1,44 @@
+generated: '2026-10-09'
+method: searched
+source: https://spscommerce.github.io/sps-api-standards/
+note: SPS publishes a public REST API style guide (sps-api-standards) for its APIs. Where it states a convention that the published contracts also show, that is recorded as observed; style-guide-only rules are labelled as guidance.
+auth:
+  style: OAuth 2.0 bearer access token in Authorization header
+  see: authentication/sps-commerce-authentication.yml
+pagination:
+  style: offset
+  params: [offset, limit]
+  observed_in: [v1-items-get, v1-items-get-by-id, get_forms_v1_forms_get]
+  guidance: 'limit "Defaults to API Defined Limit (there must be a max limit value, min limit value is 1)"; the style guide also allows cursor-based paging (cursor param)'
+  source: https://spscommerce.github.io/sps-api-standards/standards/collections.html
+error_envelope:
+  content_type: application/problem+json
+  shape: RFC 7807 problem details (title, status, detail, instance) plus requestId and context extension
+  observed_in: both published contracts
+  see: errors/sps-commerce-problem-types.yml
+request_id:
+  header: X-Request-ID
+  guidance: "If the request includes a request identifier as an X-Request-ID header, it MUST be used as requestId value and X-Request-ID header should be carried over to the response."
+  source: https://spscommerce.github.io/sps-api-standards/standards/errors.html
+idempotency:
+  coverage: none
+  note: The style guide defines an OPTIONAL Sps-Idempotency-Key request header, but neither published contract declares it on any write operation (v1-imports-create, create_lead_v1_trading_partners_post) and the Dev Center docs do not document it.
+  guidance_header: Sps-Idempotency-Key
+  source: https://spscommerce.github.io/sps-api-standards/standards/request-response.html
+versioning:
+  see: lifecycle/sps-commerce-lifecycle.yml
+rate_limit_signaling:
+  status: 429
+  see: rate-limits/sps-commerce-rate-limits.yml
+reversibility:
+  status: none
+  surfaces:
+  - operation: v1-imports-create
+    reversal: none documented
+  - operation: create_lead_v1_trading_partners_post
+    reversal: none documented
+  - operation: Transaction API create transaction (no contract in repo)
+    reversal: "Delete Transaction endpoint — \"Once SPS Commerce processes the file, we delete it. If you'd like to delete it yourself, you can use the Delete Transaction endpoint.\" This removes a file from the folder; no window or undo of already-processed data is stated."
+    window: not stated
+    source: https://developercenter.spscommerce.com/#/docs/transaction-api
+dry_run_mode: none documented

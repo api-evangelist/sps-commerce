@@ -1,0 +1,55 @@
+generated: '2026-10-09'
+method: searched
+source: https://developercenter.spscommerce.com/#/docs/new-authentication-docs/getting-an-access-token
+docs: https://developercenter.spscommerce.com/#/docs/authentication
+docs_pages:
+- https://developercenter.spscommerce.com/#/docs/authentication
+- https://developercenter.spscommerce.com/#/docs/new-authentication-docs/getting-an-access-token
+- https://developercenter.spscommerce.com/#/docs/new-authentication-docs/machine2machine-applications
+- https://developercenter.spscommerce.com/#/docs/new-authentication-docs/using-an-access-token
+- https://developercenter.spscommerce.com/#/docs/new-authentication-docs/refresh-tokens
+- https://developercenter.spscommerce.com/#/docs/new-authentication-docs/authentication-keys
+- https://developercenter.spscommerce.com/#/docs/new-authentication-docs/troubleshooting-common-issues
+- https://developercenter.spscommerce.com/#/docs/new-authentication-docs/client-updates-for-enhanced-security
+summary:
+  types:
+  - http
+  - oauth2
+  note: The OpenAPI contracts declare only HTTP bearer; the Dev Center docs state "Dev Center follows standard OAuth protocols for authenticating and authorizing API requests." Bearer tokens are OAuth 2.0 access tokens issued per Dev Center application.
+schemes:
+- name: SpsBearer
+  type: http
+  scheme: bearer
+  description: |-
+    Bearer authentication specify's a bearer token in the 'Authorization' header following the format:
+    Authorization: Bearer <token>
+  sources:
+  - openapi/sps-commerce-inventory-api-openapi.yml
+  - openapi/sps-commerce-submission-api-openapi.yml
+- name: HTTPBearer
+  type: http
+  scheme: bearer
+  sources:
+  - openapi/sps-commerce-submission-api-openapi.yml
+- name: Dev Center OAuth 2.0
+  type: oauth2
+  description: "The SPS Dev Center follows the OAuth 2.0 industry standard to allow secure authorization in a simple and standard way."
+  application_types:
+  - Web Service Applications (partners should use this type)
+  - Native Applications (authorization code with code verifier / code challenge, PKCE)
+  - Single Page Applications (implicit flow deprecated; must migrate to Authorization Code Flow with PKCE using the Auth0 SPA SDK by July 1st, 2026)
+  - Machine-to-Machine Applications (Client Credentials Grant)
+  flows:
+    clientCredentials:
+      token_endpoint: POST /oauth/token
+      parameters: [audience, client_id, client_secret, grant_type]
+      audience: https://spscommerce.com
+      legacy_audience: api://api.spscommerce.com/
+    authorizationCode:
+      authorize_endpoint: GET /authorize
+      redirect_uri: must exactly match a redirect URL registered for the Dev Center app (mismatch returns 403)
+      pkce: required for Native and Single Page Applications
+  refresh_tokens: "Refresh Tokens enable you to get a new Access Token when the current one has expired. Since they don't expire, handle and store them with great care so they are not compromised."
+  token_check: GET /auth-check returns 204 No Content for a valid bearer token
+  credentials: App ID and App Secret per Dev Center application; separate Sandbox Keys and Production Keys
+  source: https://developercenter.spscommerce.com/#/docs/new-authentication-docs/machine2machine-applications

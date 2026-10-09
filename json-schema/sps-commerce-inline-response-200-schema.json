@@ -1,0 +1,228 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sps-commerce/main/json-schema/sps-commerce-inline-response-200-schema.json",
+  "title": "inline_response_200",
+  "x-generated": "2026-10-09",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sps-commerce-inventory-api-openapi.yml#/components/schemas/inline_response_200",
+  "type": "object",
+  "properties": {
+    "results": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/InventoryItem"
+      },
+      "default": []
+    },
+    "paging": {
+      "$ref": "#/$defs/PagingOffset"
+    }
+  },
+  "$defs": {
+    "InventoryItem": {
+      "title": "InventoryItem",
+      "required": [
+        "availableQuantity",
+        "item",
+        "lastUpdated",
+        "nextAvailableQuantity",
+        "onOrderQuantity",
+        "partnerId",
+        "quantityLastUpdated",
+        "spsBuyerOrgId",
+        "spsSellerOrgId"
+      ],
+      "type": "object",
+      "properties": {
+        "spsBuyerOrgId": {
+          "type": "string",
+          "description": "Unique identifier for buying organization within SPS Commerce."
+        },
+        "spsSellerOrgId": {
+          "type": "string",
+          "description": "Unique identifier for selling organization within SPS Commerce."
+        },
+        "partnerId": {
+          "type": "string",
+          "description": "Value assigned by buyer that uniquely identifies the vendor."
+        },
+        "availableQuantity": {
+          "type": "integer",
+          "description": "Quantity of current stock that is on hand for sale or use."
+        },
+        "availableDate": {
+          "type": "string",
+          "description": "The date that the Available Quantity will be available for sale.",
+          "format": "date-time"
+        },
+        "projectedQuantities": {
+          "type": "array",
+          "description": "Quantities that is currently being manufactured and/or shipped and is not available for immediate shipment or stocking.",
+          "items": {
+            "$ref": "#/$defs/ProjectedQuantity"
+          }
+        },
+        "quantityLastUpdated": {
+          "type": "string",
+          "description": "Date and Time the ItemRegistries was created.",
+          "format": "date-time"
+        },
+        "item": {
+          "$ref": "#/$defs/Item"
+        },
+        "warehouseLocation": {
+          "$ref": "#/$defs/WarehouseLocation"
+        }
+      }
+    },
+    "Item": {
+      "title": "Item",
+      "required": [
+        "buyerPartNumber",
+        "spsItemId",
+        "vendorPartNumber"
+      ],
+      "type": "object",
+      "properties": {
+        "spsItemId": {
+          "$ref": "#/$defs/SpsItemId"
+        },
+        "buyerPartNumber": {
+          "type": "string",
+          "description": "Buyer's primary product identifier."
+        },
+        "vendorPartNumber": {
+          "type": "string",
+          "description": "Vendor's primary product identifier."
+        },
+        "manufacturerPartNumber": {
+          "type": "string",
+          "description": "Manufacturer's Part Number."
+        },
+        "upc": {
+          "type": "string",
+          "description": "Consumer level or customer unit product identification number."
+        },
+        "gtin": {
+          "type": "string",
+          "description": "Global Trade Item Number which is an item identifier that encompasses all product identification numbers such as UPC, EAN, ITF, etc. and can be assigned at various packing levels"
+        },
+        "sku": {
+          "type": "string",
+          "description": "Stock Keeping Unit."
+        },
+        "ean": {
+          "type": "string",
+          "description": "International Article Number, aka European Article Number, which is the European equivalent of the United States UPC[Universal Product Code]."
+        },
+        "ndc": {
+          "type": "string",
+          "description": "National Drug Code or NDC is a unique, universal product identifier for drugs. Primarily used in the pharmaceutical industry."
+        }
+      }
+    },
+    "Limit": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer",
+      "description": "Number of results requested to be returned.",
+      "format": "int32",
+      "default": 20
+    },
+    "Offset": {
+      "minimum": 0,
+      "type": "integer",
+      "description": "Number of items to skip before including the number of limit results in the request.",
+      "format": "int32",
+      "default": 0
+    },
+    "PagingOffset": {
+      "type": "object",
+      "properties": {
+        "totalCount": {
+          "$ref": "#/$defs/TotalCount"
+        },
+        "limit": {
+          "$ref": "#/$defs/Limit"
+        },
+        "offset": {
+          "$ref": "#/$defs/Offset"
+        }
+      },
+      "description": "Offset Paging result schema for all collection responses."
+    },
+    "ProjectedQuantity": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string",
+          "description": "The date that the  projected quantity is expected to be available for immediate shipment or stocking.",
+          "format": "date-time"
+        },
+        "quantity": {
+          "type": "integer",
+          "description": "Quantity that is currently being manufactured and/or shipped and is not available for immediate shipment or stocking."
+        }
+      }
+    },
+    "SpsItemId": {
+      "type": "string",
+      "description": "A unique identifier for an item within SPS Commerce.",
+      "format": "number"
+    },
+    "SpsLocationId": {
+      "type": "string",
+      "description": "A unique identifier for a location within SPS Commerce.",
+      "format": "number"
+    },
+    "TotalCount": {
+      "type": "integer",
+      "description": "The total count of all unique available records (results) across all paginated queries of the endpoint.",
+      "format": "int32"
+    },
+    "WarehouseLocation": {
+      "title": "WarehouseLocation",
+      "required": [
+        "spsLocationId"
+      ],
+      "type": "object",
+      "properties": {
+        "spsLocationId": {
+          "$ref": "#/$defs/SpsLocationId"
+        },
+        "locationId": {
+          "type": "string",
+          "description": "Unique value assigned to identify a location."
+        },
+        "name": {
+          "type": "string",
+          "description": "Primary free-form textual description of a location."
+        },
+        "address": {
+          "type": "array",
+          "description": "Address[1-4] information.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "city": {
+          "type": "string",
+          "description": "Free-form text for city name."
+        },
+        "state": {
+          "type": "string",
+          "description": "Code[Standard State/Province] as defined by appropriate government agency"
+        },
+        "postalCode": {
+          "type": "string",
+          "description": "International postal zone excluding punctuation and blanks[Zip Code for United States]."
+        },
+        "country": {
+          "type": "string",
+          "description": "Human readable description identifying the country."
+        }
+      }
+    }
+  }
+}

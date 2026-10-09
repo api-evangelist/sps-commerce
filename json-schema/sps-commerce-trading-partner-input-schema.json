@@ -1,0 +1,1107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sps-commerce/main/json-schema/sps-commerce-trading-partner-input-schema.json",
+  "title": "TradingPartnerInput",
+  "description": "Model for the trading partner input payload\nIt includes various validators and processors for fields",
+  "x-generated": "2026-10-09",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sps-commerce-submission-api-openapi.yml#/components/schemas/TradingPartnerInput",
+  "properties": {
+    "submissionFormId": {
+      "type": "string",
+      "maxLength": 15,
+      "minLength": 1,
+      "title": "Submission Form ID",
+      "description": "Mandatory identifier of the chosen Submission Form"
+    },
+    "tradingPartnerName": {
+      "type": "string",
+      "maxLength": 75,
+      "minLength": 1,
+      "title": "Trading Partner Name",
+      "description": "Full title of the Trading Partner"
+    },
+    "tradingPartnerId": {
+      "type": "string",
+      "maxLength": 75,
+      "minLength": 1,
+      "title": "Trading Partner ID",
+      "description": "Primary trading partner identifier"
+    },
+    "country": {
+      "type": "string",
+      "maxLength": 3,
+      "minLength": 3,
+      "title": "Country",
+      "description": "Country code according to ISO-3166-alpha-3"
+    },
+    "businessContact": {
+      "$ref": "#/$defs/AgreementContactDetails"
+    },
+    "tpInvolvementContact": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ThirdPartyInvolvementContact"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "tradingPartnerId2": {
+      "anyOf": [
+        {
+          "type": "string",
+          "maxLength": 75,
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Trading Partner ID 2",
+      "description": "Optional trading partner identifier"
+    },
+    "tradingPartnerId3": {
+      "anyOf": [
+        {
+          "type": "string",
+          "maxLength": 75,
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Trading Partner ID 3",
+      "description": "Optional trading partner identifier"
+    },
+    "tradingPartnerId4": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Trading Partner ID 4",
+      "description": "Optional trading partner identifier"
+    },
+    "tradingPartnerId5": {
+      "anyOf": [
+        {
+          "type": "string",
+          "maxLength": 75,
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Trading Partner ID 5",
+      "description": "Optional trading partner identifier"
+    },
+    "tradingPartnerId6": {
+      "anyOf": [
+        {
+          "type": "string",
+          "maxLength": 75,
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Trading Partner ID 6",
+      "description": "Optional trading partner identifier"
+    },
+    "tradingPartnerId7": {
+      "anyOf": [
+        {
+          "type": "string",
+          "maxLength": 75,
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Trading Partner ID 7",
+      "description": "Optional trading partner identifier"
+    },
+    "tradingPartnerId8": {
+      "anyOf": [
+        {
+          "type": "string",
+          "maxLength": 75,
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Trading Partner ID 8",
+      "description": "Optional trading partner identifier"
+    },
+    "tradingPartnerId9": {
+      "anyOf": [
+        {
+          "type": "string",
+          "maxLength": 75,
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Trading Partner ID 9",
+      "description": "Optional trading partner identifier"
+    },
+    "tradingPartnerId10": {
+      "anyOf": [
+        {
+          "type": "string",
+          "maxLength": 75,
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Trading Partner ID 10",
+      "description": "Optional trading partner identifier"
+    },
+    "purchaseOrderDollars": {
+      "anyOf": [
+        {
+          "type": "number",
+          "minimum": 0.0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Annual Purchase Order Volume - Dollars",
+      "description": "Annual volume of purchase orders"
+    },
+    "purchaseOrderCount": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0.0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Annual Purchase Order Volume - Count",
+      "description": "Annual total count of purchase orders"
+    },
+    "existingActiveItemSkuCount": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0.0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Existing Active Item (SKU) Count",
+      "description": "Annual total count of stock keeping units"
+    },
+    "newItemSetupSkuCount": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0.0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "New Item Setup SKU Count",
+      "description": "Annual total count of new item setup stock keeping units"
+    },
+    "buyerName": {
+      "anyOf": [
+        {
+          "type": "string",
+          "maxLength": 75,
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Buyer Name",
+      "description": "Full name of the buyer person"
+    },
+    "buyerEmail": {
+      "anyOf": [
+        {
+          "type": "string",
+          "maxLength": 254,
+          "minLength": 5,
+          "pattern": "(^[a-zA-Z0-9+._-]+@[a-zA-Z0-9._-]+\\.[a-zA-Z0-9_-]+$)"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Buyer Email",
+      "description": "Email address of the buyer person"
+    },
+    "brandDivision": {
+      "anyOf": [
+        {
+          "type": "string",
+          "maxLength": 255,
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Brand / Division",
+      "description": "Descriptive field of the trading partner's brand / division"
+    },
+    "tradingPartnerLocation": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/TradingPartnerLocation"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "anticipatedFirstOrderDate": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Anticipated First Order Date",
+      "description": "Enablement detail of the first anticipated order date"
+    },
+    "commitmentDeadlineDate": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Commitment Deadline Date",
+      "description": "Enablement detail of the commitment deadline date"
+    },
+    "productionReadyDeadlineDate": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Production Ready Deadline Date",
+      "description": "Enablement detail of the production ready deadline date"
+    },
+    "carrierService": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Carrier Service",
+      "description": "Defines if the additional service is required"
+    },
+    "implementationNotes": {
+      "anyOf": [
+        {
+          "type": "string",
+          "maxLength": 32000,
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Implementation Notes",
+      "description": "Plain-text implementation notes related to the Trading Partner"
+    },
+    "generalNotes": {
+      "anyOf": [
+        {
+          "type": "string",
+          "maxLength": 32000,
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "General Notes",
+      "description": "Plain-text general notes related to the Trading Partner"
+    },
+    "includedDataExchanges": {
+      "$ref": "#/$defs/IncludedDataExchanges"
+    },
+    "fulfillmentModels": {
+      "$ref": "#/$defs/FulfillmentModels",
+      "title": "Fulfillment Models"
+    },
+    "vendorSourcedBySps": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Vendor Sourced by SPS",
+      "description": "Defines if trading partner should be marked as sourced by SPS"
+    },
+    "uniqueSupplierGroups": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Unique Supplier Groups",
+      "description": "List of unique supplier groups values"
+    },
+    "sponsoredSolution": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Sponsored Solution",
+      "description": "Defines if the lead source type is Retailer Sponsored"
+    }
+  },
+  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "submissionFormId",
+    "tradingPartnerName",
+    "tradingPartnerId",
+    "country",
+    "businessContact",
+    "includedDataExchanges"
+  ],
+  "$defs": {
+    "AgreementContactDetails": {
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "maxLength": 50,
+          "minLength": 1,
+          "title": "Business Contact - First Name",
+          "description": "Business Contact's first name"
+        },
+        "lastName": {
+          "type": "string",
+          "maxLength": 75,
+          "minLength": 1,
+          "title": "Business Contact - Last Name",
+          "description": "Business Contact's last name"
+        },
+        "email": {
+          "type": "string",
+          "maxLength": 254,
+          "minLength": 5,
+          "pattern": "(^[a-zA-Z0-9+._-]+@[a-zA-Z0-9._-]+\\.[a-zA-Z0-9_-]+$)",
+          "title": "Business Contact - Email Address",
+          "description": "Primary business contact's email address."
+        },
+        "phone": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 40,
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Business Contact - Phone Number",
+          "description": "Primary business contact's phone number."
+        },
+        "title": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 254,
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Business Contact - Title",
+          "description": "Business Contact's title"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "firstName",
+        "lastName",
+        "email"
+      ],
+      "title": "AgreementContactDetails",
+      "description": "Detailed information about agreement contact"
+    },
+    "FulfillmentModels": {
+      "properties": {
+        "consignmentDocs": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Consignment Documents",
+          "description": "Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!"
+        },
+        "directStoreDeliveryDocs": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Direct Store Delivery Documents",
+          "description": "Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!"
+        },
+        "importsDocs": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Imports Documents",
+          "description": "Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!"
+        },
+        "scanBasedTradingDocs": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Scan-Based Trading Documents",
+          "description": "Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!"
+        },
+        "scanBasedTradingConcessionsDocs": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Scan Based Trading/Concessions Documents",
+          "description": "Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!"
+        },
+        "shipDirectToBusinessDocs": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Ship Direct to Business Documents",
+          "description": "Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!"
+        },
+        "shipDirectToConsumerDocs": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Ship Direct to Consumer Documents",
+          "description": "Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!"
+        },
+        "shipToDcDocs": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Ship to DC Documents",
+          "description": "Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!"
+        },
+        "shipToDcCrossDockDocs": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Ship To DC - Cross Dock Documents",
+          "description": "Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!"
+        },
+        "shipToDcStoreDocs": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Ship to DC/Store Documents",
+          "description": "Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!"
+        },
+        "shipToDcStoreBlanketAndReleaseDocs": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Ship to DC/Store - Blanket and Release Documents",
+          "description": "Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!"
+        },
+        "shipToFacilityDocs": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Ship to Facility Documents",
+          "description": "Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!"
+        },
+        "shipToFacilityBlanketAndReleaseDocs": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Ship to Facility - Blanket and Release Documents",
+          "description": "Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!"
+        },
+        "shipToMultipleStoresDocs": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Ship to Multiple Stores Documents",
+          "description": "Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!"
+        },
+        "shipToStoreDocs": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Ship To Store Documents",
+          "description": "Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!"
+        },
+        "supplierDirectToBusinessDocs": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Supplier Direct to Business Documents",
+          "description": "Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!"
+        },
+        "supplierDirectToCustomerDropshipDocs": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Supplier Direct to Customer (Dropship) Documents",
+          "description": "Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!"
+        },
+        "thirdPartyMarketplaceDocs": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Third Party Marketplace Documents",
+          "description": "Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!"
+        },
+        "transportationNorthAmericaCollectDocs": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Transportation - North America Collect Documents",
+          "description": "Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!"
+        },
+        "transportationNorthAmericaPrepaidDocs": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Transportation - North America Prepaid Documents",
+          "description": "Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!"
+        },
+        "vendorManagementInventoryDocs": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Vendor Managed Inventory Documents",
+          "description": "Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!"
+        },
+        "vendorManagementInventoryVmiDocs": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Vendor Managed Inventory (VMI) Documents",
+          "description": "Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!"
+        },
+        "shipTo3PLDocs": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Ship to 3PL Documents",
+          "description": "Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!"
+        },
+        "exemptDocuments": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Exempt Documents",
+          "description": "Defines the list of order management documents for the Trading Partner. Should include only respected documents from the chosen Submission Form!"
+        },
+        "exemptedFulfillmentModels": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/SfOrderManagementEnum"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Exempted Fulfillment Models",
+          "description": "List of next possible models: ['Consignment', 'Direct Store Delivery', 'Imports', 'Scan-Based Trading', 'Scan Based Trading/Concessions', 'Ship Direct to Business', 'Ship Direct to Customer', 'Ship to DC', 'Ship to DC - Cross Dock', 'Ship to DC/Store', 'Ship to DC/Store - Blanket and Release', 'Ship to Multiple Stores', 'Ship to Store', 'Ship to Facility', 'Ship to Facility - Blanket and Release', 'Supplier Direct to Business', 'Supplier Direct to Customer (Dropship)', 'Third Party Marketplace', 'Transportation - North America Collect', 'Transportation - North America Prepaid', 'Vendor Managed Inventory', 'Vendor Managed Inventory (VMI)', 'Ship to 3PL']"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "title": "FulfillmentModels",
+      "description": "Describes all of the documents for the chosen order management options. It should include only options and docs from the chosen Submission Form!"
+    },
+    "IncludedDataExchanges": {
+      "properties": {
+        "salesData": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Sales Data",
+          "description": "Select `Sales Data` as trading partner's data exchange. At least one data exchange should be included!"
+        },
+        "item": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Item",
+          "description": "Select `Item` as trading partner's data exchange. At least one data exchange should be included!"
+        },
+        "order": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Order",
+          "description": "Select `Order` as trading partner's data exchange. At least one data exchange should be included!"
+        },
+        "itemAndOrder": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Item and Order",
+          "description": "Select `Item and Order` as trading partner's data exchange. At least one data exchange should be included!"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "title": "IncludedDataExchanges",
+      "description": "Provides information about included trading partner's data exchanges. It should include only data exchanges from the chosen Submission Form!"
+    },
+    "SfOrderManagementEnum": {
+      "type": "string",
+      "enum": [
+        "Consignment",
+        "Direct Store Delivery",
+        "Imports",
+        "Scan-Based Trading",
+        "Scan Based Trading/Concessions",
+        "Ship Direct to Business",
+        "Ship Direct to Customer",
+        "Ship to DC",
+        "Ship to DC - Cross Dock",
+        "Ship to DC/Store",
+        "Ship to DC/Store - Blanket and Release",
+        "Ship to Multiple Stores",
+        "Ship to Store",
+        "Ship to Facility",
+        "Ship to Facility - Blanket and Release",
+        "Supplier Direct to Business",
+        "Supplier Direct to Customer (Dropship)",
+        "Third Party Marketplace",
+        "Transportation - North America Collect",
+        "Transportation - North America Prepaid",
+        "Vendor Managed Inventory",
+        "Vendor Managed Inventory (VMI)",
+        "Ship to 3PL"
+      ],
+      "title": "SfOrderManagementEnum"
+    },
+    "ThirdPartyInvolvementContact": {
+      "properties": {
+        "tpInvolvementType": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ThirdPartyInvolvementTypes"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Third Party Involvement Type",
+          "description": "Type of the third party involvement"
+        },
+        "tpInvolvementFirstName": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 50,
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "First Name",
+          "description": "Third Party Involvement first name"
+        },
+        "tpInvolvementLastName": {
+          "type": "string",
+          "maxLength": 75,
+          "minLength": 1,
+          "title": "Last Name",
+          "description": "Third Party Involvement last name"
+        },
+        "tpInvolvementEmail": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 254,
+              "minLength": 5,
+              "pattern": "(^[a-zA-Z0-9+._-]+@[a-zA-Z0-9._-]+\\.[a-zA-Z0-9_-]+$)"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Email Address",
+          "description": "Third Party Involvement email"
+        },
+        "tpInvolvementPhone": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 40,
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Phone Number",
+          "description": "Third Party Involvement phone number"
+        },
+        "tpInvolvementCompanyName": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 75,
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Company Name",
+          "description": "Third Party Involvement company name"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "tpInvolvementFirstName",
+        "tpInvolvementLastName"
+      ],
+      "title": "ThirdPartyInvolvementContact",
+      "description": "Detailed information about 3rd party involvement contact"
+    },
+    "ThirdPartyInvolvementTypes": {
+      "type": "string",
+      "enum": [
+        "Broker",
+        "Agent/Manufacturer's Rep"
+      ],
+      "title": "ThirdPartyInvolvementTypes"
+    },
+    "TradingPartnerLocation": {
+      "properties": {
+        "address": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 255,
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Address",
+          "description": "Address[1-4] information"
+        },
+        "city": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 40,
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "City",
+          "description": "Free-form text for city name"
+        },
+        "state": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 50,
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "State",
+          "description": "Code[Standard State/Province] as defined by appropriate government agency"
+        },
+        "zipCode": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 25,
+              "minLength": 4
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "ZIP Code",
+          "description": "International postal zone excluding punctuation and blanks[Zip Code for United States]"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "title": "TradingPartnerLocation"
+    }
+  }
+}

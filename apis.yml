@@ -1,23 +1,232 @@
 aid: sps-commerce
+
 name: SPS Commerce
-description: 'SPS Commerce is a company surfaced via the API Evangelist harvest backlog (source: spectral-ruleset-web)
-  and added to the network as a stub for full-pipeline profiling.'
+
+description: SPS Commerce (Minneapolis, MN) is a retail supply-chain network and cloud services company offering EDI, sales and item data solutions
+  that connect suppliers, retailers, distributors, 3PLs and logistics providers across 300,000+ trading relationships. Its Dev Center (developercenter.spscommerce.com)
+  exposes OAuth-secured API services such as the Transaction API, Shipping Doc API and Trading Partner Submission API, plus MCP documentation,
+  and the company publishes its open SPS API Standards and Spectral ruleset on GitHub.
+
 url: https://raw.githubusercontent.com/api-evangelist/sps-commerce/refs/heads/main/apis.yml
+
+image: https://www.spscommerce.com/wp-content/uploads/2019/03/sps_logo_only.png
+
 x-type: company
+
 x-source: harvest:spectral-ruleset-web
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-10-09 (modular-v1; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-10-09'
+
 modified: '2026-10-09'
+
 tags:
 - Company
-apis: []
+- EDI
+- Retail
+- Supply Chain
+- Commerce
+- Trading Partners
+- API Standards
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
 common:
+- type: AgenticAccess
+  url: agentic-access/sps-commerce-agentic-access.yml
+- type: RateLimits
+  url: rate-limits/sps-commerce-rate-limits.yml
+- type: Spectral
+  url: rules/sps-commerce-rules.yml
+- type: JSONLD
+  url: json-ld/sps-commerce-context.jsonld
+- type: Vocabulary
+  url: vocabulary/sps-commerce-vocabulary.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: DataModel
+  url: data-model/sps-commerce-data-model.yml
+- type: Conventions
+  url: conventions/sps-commerce-conventions.yml
+- type: Sandbox
+  url: sandbox/sps-commerce-sandbox.yml
+- type: Compliance
+  url: https://trust.spscommerce.com/
+- type: Deprecation
+  url: lifecycle/sps-commerce-lifecycle.yml
+- type: Lifecycle
+  url: lifecycle/sps-commerce-lifecycle.yml
+- type: ErrorCatalog
+  url: errors/sps-commerce-problem-types.yml
+- type: Conformance
+  url: conformance/sps-commerce-conformance.yml
+- type: Overlay
+  url: overlays/sps-commerce-inventory-api-overlay.yaml
+- type: LLMsTxt
+  url: llms/sps-commerce-llms.txt
+- type: SecurityTxt
+  url: well-known/sps-commerce-status-security.txt
+- type: WellKnown
+  url: well-known/sps-commerce-well-known.yml
+- type: Hosts
+  url: hosts/sps-commerce-hosts.yml
+- type: Vendors
+  url: vendors/sps-commerce-vendors.yml
+- type: StatusPage
+  url: https://status.spscommerce.com/
+- type: Newsroom
+  url: https://www.spscommerce.com/press/
+- type: Authentication
+  url: authentication/sps-commerce-authentication.yml
+- type: TrustCenter
+  url: security/sps-commerce-trust-center.yml
+- type: DomainSecurity
+  url: security/sps-commerce-domain-security.yml
 - type: Website
+  url: https://www.spscommerce.com/
+- type: DeveloperPortal
+  url: https://developercenter.spscommerce.com/
+- type: GettingStarted
+  url: https://developercenter.spscommerce.com/#/docs/getting-started
+- type: Documentation
+  url: https://www.spscommerce.com/partners/developers/dev-center/
+- type: SignUp
+  url: https://developercenter.spscommerce.com/#/signup
+- type: Login
+  url: https://www.spscommerce.com/login/
+- type: Support
+  url: https://www.spscommerce.com/customer-support/support/
+- type: Blog
+  url: https://www.spscommerce.com/community/articles/
+- type: GitHubOrganization
+  url: https://github.com/SPSCommerce
+- type: APIStyleGuide
   url: https://spscommerce.github.io/sps-api-standards/
+- type: TrustCenter
+  url: https://trust.spscommerce.com/
+- type: TermsOfService
+  url: https://www.spscommerce.com/about/terms-of-use/
+- type: PrivacyPolicy
+  url: https://www.spscommerce.com/about/privacy-policy/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/sps-commerce/
+- type: YouTube
+  url: https://www.youtube.com/user/SPSCommerce
+
+apis:
+- name: SPS Commerce Trading Partner Submission API
+  description: >-
+    The Trading Partner Submission API allows Community Buying Organizations to automate the submission
+    of new vendors to their Community program with SPS Commerce (create trading-partner leads, list and
+    read submission forms). OAuth 2.0 bearer tokens issued through Dev Center.
+  humanURL: https://developercenter.spscommerce.com/#/docs/trading-partner-submission-api
+  baseURL: https://api.spscommerce.com/submissions
+  tags:
+  - Trading Partners
+  - Supplier Onboarding
+  properties:
+  - type: OpenAPI
+    url: openapi/sps-commerce-submission-api-openapi.yml
+  - type: OpenAPI
+    name: OpenAPI (provider-hosted)
+    url: https://api.spscommerce.com/submissions/openapi.json
+  - type: OpenAPI
+    name: OpenAPI (provider-hosted, integration environment)
+    url: https://integration.api.spscommerce.com/submissions/openapi.json
+  - type: Documentation
+    url: https://developercenter.spscommerce.com/#/docs/trading-partner-submission-api
+  - type: JSONSchema
+    url: json-schema/sps-commerce-trading-partner-input-schema.json
+  - type: JSONSchema
+    url: json-schema/sps-commerce-submission-form-output-schema.json
+  - type: JSONSchema
+    url: json-schema/sps-commerce-trading-partner-response-schema.json
+  - type: JSONSchema
+    url: json-schema/sps-commerce-submission-forms-response-schema.json
+  aid: sps-commerce:sps-commerce-trading-partner-submission-api
+- name: SPS Commerce Inventory API
+  description: >-
+    Inventory API for listing and reading items by SPS item ID and creating inventory imports. Its OpenAPI
+    is published on the SPS Dev Center CDN, but the Dev Center service catalog marks the service inactive
+    (active false) and it is not linked from the Dev Center navigation.
+  humanURL: https://developercenter.spscommerce.com/
+  baseURL: https://api.spscommerce.com
+  tags:
+  - Inventory
+  properties:
+  - type: OpenAPI
+    url: openapi/sps-commerce-inventory-api-openapi.yml
+  - type: OpenAPI
+    name: OpenAPI (provider-hosted)
+    url: >-
+      https://cdn.prod.spsc.io/web/inventory-api/api/inventory-api-docs/1.30.0/swaggerhub/openapi.json
+  - type: JSONSchema
+    url: json-schema/sps-commerce-inventory-import-request-schema.json
+  - type: JSONSchema
+    url: json-schema/sps-commerce-inline-response-200-schema.json
+  aid: sps-commerce:sps-commerce-inventory-api
+- name: SPS Commerce Transaction API
+  description: >-
+    Transaction API (v5) for creating, filtering, getting and deleting EDI/XML transaction files and viewing
+    interaction history across the SPS retail network. Documented in Dev Center; no machine-readable contract
+    is published (api.spscommerce.com/transactions/v5/openapi.json answers 401).
+  humanURL: https://developercenter.spscommerce.com/#/docs/transaction-api
+  baseURL: https://api.spscommerce.com/transactions/v5
+  tags:
+  - EDI
+  - Transactions
+  properties:
+  - type: Documentation
+    url: https://developercenter.spscommerce.com/#/docs/transaction-api
+  aid: sps-commerce:sps-commerce-transaction-api
+- name: SPS Commerce Shipping Doc API
+  description: >-
+    Shipping Doc API for retrieving shipping label and packing slip schemas and samples, and rendering
+    labels (PDF/ZPL) and packing slips individually or in batches. Documented in Dev Center; no machine-readable
+    contract is published (api.spscommerce.com/label/v1/openapi.json answers 401).
+  humanURL: https://developercenter.spscommerce.com/#/docs/shipping-doc-api
+  baseURL: https://api.spscommerce.com/label/v1
+  tags:
+  - Shipping
+  - Labels
+  properties:
+  - type: Documentation
+    url: https://developercenter.spscommerce.com/#/docs/shipping-doc-api
+  aid: sps-commerce:sps-commerce-shipping-doc-api
+- aid: sps-commerce:sps-commerce-import-api
+  name: SPS Commerce Import API
+  description: The Import API from SPS Commerce — 1 operation(s) for import.
+  humanURL: https://developercenter.spscommerce.com/#/docs/trading-partner-submission-api
+  baseURL: https://api.spscommerce.com/submissions
+  tags:
+  - Import
+  properties:
+  - type: OpenAPI
+    url: openapi/sps-commerce-import-api-openapi.yml
+x-enrichment:
+  date: '2026-10-09'
+  status: enriched
+  artifacts_added: 41
+  pass: modular-v1
+  engine: identity=anthropic,contract=anthropic,surfaces=anthropic,docs=anthropic,regulatory=anthropic
+x-coverage:
+  state: covered
+  reason: identity-verified
+  detail: 'Enriched 2026-10-09: website and identity verified (resolved) from the provider''s own pages; probed URLs below.'
+  evidence:
+  - url: https://api.github.com/orgs/SPSCommerce
+    status: null
+  - url: https://developercenter.spscommerce.com/#/docs/getting-started
+    status: 200
+  - url: https://trust.spscommerce.com/
+    status: 403
+  - url: https://www.spscommerce.com/blog/
+    status: 200

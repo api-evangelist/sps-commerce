@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sps-commerce/main/json-schema/sps-commerce-trading-partner-response-schema.json",
+  "title": "TradingPartnerResponse",
+  "x-generated": "2026-10-09",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sps-commerce-submission-api-openapi.yml#/components/schemas/TradingPartnerResponse",
+  "properties": {
+    "tradingPartnerName": {
+      "type": "string",
+      "title": "Trading Partner Name",
+      "description": "Name of all created partners"
+    },
+    "createdTradingPartners": {
+      "items": {
+        "$ref": "#/$defs/TradingPartnerDetails"
+      },
+      "type": "array",
+      "title": "Created Trading Partners",
+      "description": "List of identifiers for created entities"
+    }
+  },
+  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "tradingPartnerName",
+    "createdTradingPartners"
+  ],
+  "$defs": {
+    "TradingPartnerDetails": {
+      "properties": {
+        "solution": {
+          "type": "string",
+          "title": "Solution"
+        },
+        "id": {
+          "type": "string",
+          "title": "Id"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "solution",
+        "id"
+      ],
+      "title": "TradingPartnerDetails"
+    }
+  }
+}
