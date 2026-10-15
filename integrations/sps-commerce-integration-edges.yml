@@ -1,6 +1,9 @@
 generated: '2026-10-15'
 method: searched
 checked:
+- https://www.gs1.org/services/gdsn/certified-data-pools-list
+- https://www.gs1us.org/services/find-gs1-us-solution-partner/profiles
+- https://www.spscommerce.com/partner-community/directory/
 - shopify/integrations/shopify-integration-edges.yml
 source:
 - shopify/integrations/shopify-integration-edges.yml
@@ -21,3 +24,356 @@ edges:
   listing_count: 1
   detected: '2026-10-15'
   detected_by: mirror-platform-listings.py
+- partner_name: GS1 US Solution Partner Program
+  partner: gs1
+  partner_match: register
+  type: register
+  direction: partner-built
+  evidence: https://www.gs1us.org/services/find-gs1-us-solution-partner/profiles
+  category: GS1 US Solution Partner
+  channel: standard-directory
+  relationship: standard-participant
+  contract_reference:
+    register: GS1 US Solution Partner profiles (gs1us.org)
+    spec_file: null
+    standard: GS1 standards (GTIN, barcodes, RFID/EPC, traceability)
+    role: gs1-us-solution-partner
+    registered_name: SPS Commerce
+    website: https://www.spscommerce.com/contact/
+    matched_domain: spscommerce.com
+    matched_by: domain
+    solution_areas:
+    - FSMA Rule 204
+    - 2D
+    - DSCSA
+    signal_note: 'participation only: program membership is vetted, not a conformance test; solution_areas are context,
+      never read'
+    detected_by: sweep-consumer-goods.py
+    detected: '2026-10-15'
+  detected_by: sweep-consumer-goods.py
+  first_seen: '2026-10-15'
+- partner_name: Acumatica
+  app: Acumatica
+  partner: acumatica
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.spscommerce.com/partner-community/directory/
+  category: Software Provider
+  partner_url: http://www.acumatica.com/
+  contract_reference:
+    register: SPS Commerce partner community directory
+    spec_file: null
+    registered_name: Acumatica
+    matched_domain: acumatica.com
+    business_types:
+    - Software Provider
+    detected_by: sweep-consumer-goods.py
+    detected: '2026-10-15'
+  detected_by: sweep-consumer-goods.py
+  first_seen: '2026-10-15'
+- partner_name: Cart.com
+  app: Cart.com
+  partner: cart-com
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.spscommerce.com/partner-community/directory/
+  category: Software Provider, Third Party Logistics (3PL), System Integrator (SI)
+  partner_url: https://www.cart.com
+  contract_reference:
+    register: SPS Commerce partner community directory
+    spec_file: null
+    registered_name: Cart.com
+    matched_domain: cart.com
+    business_types:
+    - Software Provider
+    - Third Party Logistics (3PL)
+    - System Integrator (SI)
+    detected_by: sweep-consumer-goods.py
+    detected: '2026-10-15'
+  detected_by: sweep-consumer-goods.py
+  first_seen: '2026-10-15'
+- partner_name: C.H. Robinson
+  app: C.H. Robinson
+  partner: ch-robinson-worldwide
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.spscommerce.com/partner-community/directory/
+  category: Third Party Logistics (3PL)
+  partner_url: https://www.chrobinson.com
+  contract_reference:
+    register: SPS Commerce partner community directory
+    spec_file: null
+    registered_name: C.H. Robinson
+    matched_domain: chrobinson.com
+    business_types:
+    - Third Party Logistics (3PL)
+    detected_by: sweep-consumer-goods.py
+    detected: '2026-10-15'
+  detected_by: sweep-consumer-goods.py
+  first_seen: '2026-10-15'
+- partner_name: Databricks
+  app: Databricks
+  partner: databricks
+  partner_match: domain+name-among-holders
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.spscommerce.com/partner-community/directory/
+  category: Software Provider
+  partner_url: https://www.databricks.com
+  contract_reference:
+    register: SPS Commerce partner community directory
+    spec_file: null
+    registered_name: Databricks
+    matched_domain: databricks.com
+    business_types:
+    - Software Provider
+    detected_by: sweep-consumer-goods.py
+    detected: '2026-10-15'
+  detected_by: sweep-consumer-goods.py
+  first_seen: '2026-10-15'
+- partner_name: Deposco, Inc.
+  app: Deposco, Inc.
+  partner: deposco
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.spscommerce.com/partner-community/directory/
+  category: Software Provider
+  partner_url: http://deposco.com/
+  contract_reference:
+    register: SPS Commerce partner community directory
+    spec_file: null
+    registered_name: Deposco, Inc.
+    matched_domain: deposco.com
+    business_types:
+    - Software Provider
+    detected_by: sweep-consumer-goods.py
+    detected: '2026-10-15'
+  detected_by: sweep-consumer-goods.py
+  first_seen: '2026-10-15'
+- partner_name: Extensiv
+  app: Extensiv
+  partner: extensiv
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.spscommerce.com/partner-community/directory/
+  category: Software Provider
+  partner_url: https://www.extensiv.com/
+  contract_reference:
+    register: SPS Commerce partner community directory
+    spec_file: null
+    registered_name: Extensiv
+    matched_domain: extensiv.com
+    business_types:
+    - Software Provider
+    detected_by: sweep-consumer-goods.py
+    detected: '2026-10-15'
+  detected_by: sweep-consumer-goods.py
+  first_seen: '2026-10-15'
+- partner_name: Logiwa
+  app: Logiwa
+  partner: logiwa
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.spscommerce.com/partner-community/directory/
+  category: Software Provider
+  partner_url: https://www.logiwa.com
+  contract_reference:
+    register: SPS Commerce partner community directory
+    spec_file: null
+    registered_name: Logiwa
+    matched_domain: logiwa.com
+    business_types:
+    - Software Provider
+    detected_by: sweep-consumer-goods.py
+    detected: '2026-10-15'
+  detected_by: sweep-consumer-goods.py
+  first_seen: '2026-10-15'
+- partner_name: MYOB
+  app: MYOB
+  partner: myob
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.spscommerce.com/partner-community/directory/
+  category: Software Provider
+  partner_url: https://www.myob.com/au
+  contract_reference:
+    register: SPS Commerce partner community directory
+    spec_file: null
+    registered_name: MYOB
+    matched_domain: myob.com
+    business_types:
+    - Software Provider
+    detected_by: sweep-consumer-goods.py
+    detected: '2026-10-15'
+  detected_by: sweep-consumer-goods.py
+  first_seen: '2026-10-15'
+- partner_name: NetSuite
+  app: NetSuite
+  partner: netsuite
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.spscommerce.com/partner-community/directory/
+  category: Software Provider
+  partner_url: http://www.netsuite.com/portal/home.shtml
+  contract_reference:
+    register: SPS Commerce partner community directory
+    spec_file: null
+    registered_name: NetSuite
+    matched_domain: netsuite.com
+    business_types:
+    - Software Provider
+    detected_by: sweep-consumer-goods.py
+    detected: '2026-10-15'
+  detected_by: sweep-consumer-goods.py
+  first_seen: '2026-10-15'
+- partner_name: Odoo
+  app: Odoo
+  partner: odoo
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.spscommerce.com/partner-community/directory/
+  category: Software Provider
+  partner_url: https://www.odoo.com
+  contract_reference:
+    register: SPS Commerce partner community directory
+    spec_file: null
+    registered_name: Odoo
+    matched_domain: odoo.com
+    business_types:
+    - Software Provider
+    detected_by: sweep-consumer-goods.py
+    detected: '2026-10-15'
+  detected_by: sweep-consumer-goods.py
+  first_seen: '2026-10-15'
+- partner_name: ShipHero
+  app: ShipHero
+  partner: shiphero
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.spscommerce.com/partner-community/directory/
+  category: Software Provider, Third Party Logistics (3PL)
+  partner_url: https://.shiphero.com
+  contract_reference:
+    register: SPS Commerce partner community directory
+    spec_file: null
+    registered_name: ShipHero
+    matched_domain: shiphero.com
+    business_types:
+    - Software Provider
+    - Third Party Logistics (3PL)
+    detected_by: sweep-consumer-goods.py
+    detected: '2026-10-15'
+  detected_by: sweep-consumer-goods.py
+  first_seen: '2026-10-15'
+- partner_name: ShipStation
+  app: ShipStation
+  partner: shipstation
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.spscommerce.com/partner-community/directory/
+  category: Software Provider
+  partner_url: https://www.shipstation.com/
+  contract_reference:
+    register: SPS Commerce partner community directory
+    spec_file: null
+    registered_name: ShipStation
+    matched_domain: shipstation.com
+    business_types:
+    - Software Provider
+    detected_by: sweep-consumer-goods.py
+    detected: '2026-10-15'
+  detected_by: sweep-consumer-goods.py
+  first_seen: '2026-10-15'
+- partner_name: Snowflake Inc.
+  app: Snowflake Inc.
+  partner: snowflake
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.spscommerce.com/partner-community/directory/
+  category: Software Provider
+  partner_url: https://www.snowflake.com/
+  contract_reference:
+    register: SPS Commerce partner community directory
+    spec_file: null
+    registered_name: Snowflake Inc.
+    matched_domain: snowflake.com
+    business_types:
+    - Software Provider
+    detected_by: sweep-consumer-goods.py
+    detected: '2026-10-15'
+  detected_by: sweep-consumer-goods.py
+  first_seen: '2026-10-15'
+- partner_name: Zoho Inventory
+  app: Zoho Inventory
+  partner: zoho-inventory
+  partner_match: domain+name-among-holders
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.spscommerce.com/partner-community/directory/
+  category: Software Provider
+  partner_url: https://www.zoho.com/inventory
+  contract_reference:
+    register: SPS Commerce partner community directory
+    spec_file: null
+    registered_name: Zoho Inventory
+    matched_domain: zoho.com
+    business_types:
+    - Software Provider
+    detected_by: sweep-consumer-goods.py
+    detected: '2026-10-15'
+  detected_by: sweep-consumer-goods.py
+  first_seen: '2026-10-15'

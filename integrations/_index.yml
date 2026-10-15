@@ -15,3 +15,343 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
+- slug: sps-commerce-gs1-us-solution-partner-program
+  label: GS1 US Solution Partner Program
+  partner: gs1
+  partner_name: GS1 US Solution Partner Program
+  category: GS1 US Solution Partner
+  type: register
+  channel: standard-directory
+  evidence: https://www.gs1us.org/services/find-gs1-us-solution-partner/profiles
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: GS1 US Solution Partner profiles (gs1us.org)
+    spec_file: null
+    standard: GS1 standards (GTIN, barcodes, RFID/EPC, traceability)
+    role: gs1-us-solution-partner
+    registered_name: SPS Commerce
+    website: https://www.spscommerce.com/contact/
+    matched_domain: spscommerce.com
+    matched_by: domain
+    solution_areas:
+    - FSMA Rule 204
+    - 2D
+    - DSCSA
+    signal_note: 'participation only: program membership is vetted, not a conformance test; solution_areas are context,
+      never read'
+    detected_by: sweep-consumer-goods.py
+    detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
+- slug: sps-commerce-acumatica
+  label: Acumatica
+  partner: acumatica
+  partner_name: Acumatica
+  category: Software Provider
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.spscommerce.com/partner-community/directory/
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: SPS Commerce partner community directory
+    spec_file: null
+    registered_name: Acumatica
+    matched_domain: acumatica.com
+    business_types:
+    - Software Provider
+    detected_by: sweep-consumer-goods.py
+    detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
+- slug: sps-commerce-cart-com
+  label: Cart.com
+  partner: cart-com
+  partner_name: Cart.com
+  category: Software Provider, Third Party Logistics (3PL), System Integrator (SI)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.spscommerce.com/partner-community/directory/
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: SPS Commerce partner community directory
+    spec_file: null
+    registered_name: Cart.com
+    matched_domain: cart.com
+    business_types:
+    - Software Provider
+    - Third Party Logistics (3PL)
+    - System Integrator (SI)
+    detected_by: sweep-consumer-goods.py
+    detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
+- slug: sps-commerce-c-h-robinson
+  label: C.H. Robinson
+  partner: ch-robinson-worldwide
+  partner_name: C.H. Robinson
+  category: Third Party Logistics (3PL)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.spscommerce.com/partner-community/directory/
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: SPS Commerce partner community directory
+    spec_file: null
+    registered_name: C.H. Robinson
+    matched_domain: chrobinson.com
+    business_types:
+    - Third Party Logistics (3PL)
+    detected_by: sweep-consumer-goods.py
+    detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
+- slug: sps-commerce-databricks
+  label: Databricks
+  partner: databricks
+  partner_name: Databricks
+  category: Software Provider
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.spscommerce.com/partner-community/directory/
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: SPS Commerce partner community directory
+    spec_file: null
+    registered_name: Databricks
+    matched_domain: databricks.com
+    business_types:
+    - Software Provider
+    detected_by: sweep-consumer-goods.py
+    detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
+- slug: sps-commerce-deposco-inc
+  label: Deposco, Inc.
+  partner: deposco
+  partner_name: Deposco, Inc.
+  category: Software Provider
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.spscommerce.com/partner-community/directory/
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: SPS Commerce partner community directory
+    spec_file: null
+    registered_name: Deposco, Inc.
+    matched_domain: deposco.com
+    business_types:
+    - Software Provider
+    detected_by: sweep-consumer-goods.py
+    detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
+- slug: sps-commerce-extensiv
+  label: Extensiv
+  partner: extensiv
+  partner_name: Extensiv
+  category: Software Provider
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.spscommerce.com/partner-community/directory/
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: SPS Commerce partner community directory
+    spec_file: null
+    registered_name: Extensiv
+    matched_domain: extensiv.com
+    business_types:
+    - Software Provider
+    detected_by: sweep-consumer-goods.py
+    detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
+- slug: sps-commerce-logiwa
+  label: Logiwa
+  partner: logiwa
+  partner_name: Logiwa
+  category: Software Provider
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.spscommerce.com/partner-community/directory/
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: SPS Commerce partner community directory
+    spec_file: null
+    registered_name: Logiwa
+    matched_domain: logiwa.com
+    business_types:
+    - Software Provider
+    detected_by: sweep-consumer-goods.py
+    detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
+- slug: sps-commerce-myob
+  label: MYOB
+  partner: myob
+  partner_name: MYOB
+  category: Software Provider
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.spscommerce.com/partner-community/directory/
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: SPS Commerce partner community directory
+    spec_file: null
+    registered_name: MYOB
+    matched_domain: myob.com
+    business_types:
+    - Software Provider
+    detected_by: sweep-consumer-goods.py
+    detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
+- slug: sps-commerce-netsuite
+  label: NetSuite
+  partner: netsuite
+  partner_name: NetSuite
+  category: Software Provider
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.spscommerce.com/partner-community/directory/
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: SPS Commerce partner community directory
+    spec_file: null
+    registered_name: NetSuite
+    matched_domain: netsuite.com
+    business_types:
+    - Software Provider
+    detected_by: sweep-consumer-goods.py
+    detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
+- slug: sps-commerce-odoo
+  label: Odoo
+  partner: odoo
+  partner_name: Odoo
+  category: Software Provider
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.spscommerce.com/partner-community/directory/
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: SPS Commerce partner community directory
+    spec_file: null
+    registered_name: Odoo
+    matched_domain: odoo.com
+    business_types:
+    - Software Provider
+    detected_by: sweep-consumer-goods.py
+    detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
+- slug: sps-commerce-shiphero
+  label: ShipHero
+  partner: shiphero
+  partner_name: ShipHero
+  category: Software Provider, Third Party Logistics (3PL)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.spscommerce.com/partner-community/directory/
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: SPS Commerce partner community directory
+    spec_file: null
+    registered_name: ShipHero
+    matched_domain: shiphero.com
+    business_types:
+    - Software Provider
+    - Third Party Logistics (3PL)
+    detected_by: sweep-consumer-goods.py
+    detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
+- slug: sps-commerce-shipstation
+  label: ShipStation
+  partner: shipstation
+  partner_name: ShipStation
+  category: Software Provider
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.spscommerce.com/partner-community/directory/
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: SPS Commerce partner community directory
+    spec_file: null
+    registered_name: ShipStation
+    matched_domain: shipstation.com
+    business_types:
+    - Software Provider
+    detected_by: sweep-consumer-goods.py
+    detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
+- slug: sps-commerce-snowflake-inc
+  label: Snowflake Inc.
+  partner: snowflake
+  partner_name: Snowflake Inc.
+  category: Software Provider
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.spscommerce.com/partner-community/directory/
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: SPS Commerce partner community directory
+    spec_file: null
+    registered_name: Snowflake Inc.
+    matched_domain: snowflake.com
+    business_types:
+    - Software Provider
+    detected_by: sweep-consumer-goods.py
+    detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
+- slug: sps-commerce-zoho-inventory
+  label: Zoho Inventory
+  partner: zoho-inventory
+  partner_name: Zoho Inventory
+  category: Software Provider
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.spscommerce.com/partner-community/directory/
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: SPS Commerce partner community directory
+    spec_file: null
+    registered_name: Zoho Inventory
+    matched_domain: zoho.com
+    business_types:
+    - Software Provider
+    detected_by: sweep-consumer-goods.py
+    detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
