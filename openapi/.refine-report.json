@@ -16,9 +16,10 @@
     "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "sps-commerce-inventory-api-openapi.json: upgraded openapi 3.0.2 -> OpenAPI 3.2.0",
     "sps-commerce-submission-api-openapi.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "apis.yml register: written (+1 apis, 5 total)"
+    "apis.yml register: already-registered"
   ],
   "skipped": [
+    "sps-commerce-import-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sps-commerce-inventory-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sps-commerce-submission-api-openapi.yml: previously refined output, superseded by openapi/_original/"
   ]

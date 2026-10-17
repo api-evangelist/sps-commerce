@@ -70,59 +70,6 @@ paths:
       x-internal: true
 components:
   schemas:
-    Error:
-      allOf:
-      - $ref: '#/components/schemas/ProblemDetails'
-      - type: object
-        properties:
-          context:
-            type: array
-            description: List of objects providing additional context and detail on sub-reasons for the validation issue or error.
-            items:
-              $ref: '#/components/schemas/ErrorContext'
-    ErrorContextFields:
-      type: object
-      properties:
-        field:
-          type: string
-          description: The name of the field that caused the validation error.
-          example: email
-        source:
-          type: string
-          description: The request location of the field that caused the validation error. Typically a value such as 'body', 'query', 'path' or 'header'.
-          example: body
-        value:
-          type: string
-          description: The value of the field that caused the validation error.
-          example: testuser
-      description: List of objects providing additional context and detail on sub-reasons for the validation issue or error.
-    ErrorContext:
-      required:
-      - code
-      - message
-      type: object
-      properties:
-        code:
-          type: string
-          description: Short, machine-readable, name of the validation error that occurred. Usage MUST be CAPITAL_SNAKE_CASE.
-          example: INPUT_INVALID
-        message:
-          type: string
-          description: Human-readable details or message specific error about the request failure.
-          example: Attribute 'email' must be a valid email address.
-      description: List of objects providing additional context and detail on sub-reasons for the validation issue or error.
-    ErrorFieldValidation:
-      allOf:
-      - $ref: '#/components/schemas/ProblemDetails'
-      - type: object
-        properties:
-          context:
-            type: array
-            description: List of objects providing additional context and detail on sub-reasons for the validation issue or error.
-            items:
-              allOf:
-              - $ref: '#/components/schemas/ErrorContext'
-              - $ref: '#/components/schemas/ErrorContextFields'
     ProblemDetails:
       required:
       - requestId
@@ -169,6 +116,21 @@ components:
           format: url
           example: https://example.com/probs/out-of-credit
       description: Extended Problem Details error model for SPS Commerce, based upon Problem Details for HTTP APIs (https://datatracker.ietf.org/doc/html/rfc7807))
+    ErrorContext:
+      required:
+      - code
+      - message
+      type: object
+      properties:
+        code:
+          type: string
+          description: Short, machine-readable, name of the validation error that occurred. Usage MUST be CAPITAL_SNAKE_CASE.
+          example: INPUT_INVALID
+        message:
+          type: string
+          description: Human-readable details or message specific error about the request failure.
+          example: Attribute 'email' must be a valid email address.
+      description: List of objects providing additional context and detail on sub-reasons for the validation issue or error.
     InventoryImportRequest:
       required:
       - fingerprint
@@ -181,6 +143,44 @@ components:
         fingerprint:
           type: string
           example: b94f201d-b589-43ac-aee9-71d0e747d240
+    Error:
+      allOf:
+      - $ref: '#/components/schemas/ProblemDetails'
+      - type: object
+        properties:
+          context:
+            type: array
+            description: List of objects providing additional context and detail on sub-reasons for the validation issue or error.
+            items:
+              $ref: '#/components/schemas/ErrorContext'
+    ErrorFieldValidation:
+      allOf:
+      - $ref: '#/components/schemas/ProblemDetails'
+      - type: object
+        properties:
+          context:
+            type: array
+            description: List of objects providing additional context and detail on sub-reasons for the validation issue or error.
+            items:
+              allOf:
+              - $ref: '#/components/schemas/ErrorContext'
+              - $ref: '#/components/schemas/ErrorContextFields'
+    ErrorContextFields:
+      type: object
+      properties:
+        field:
+          type: string
+          description: The name of the field that caused the validation error.
+          example: email
+        source:
+          type: string
+          description: The request location of the field that caused the validation error. Typically a value such as 'body', 'query', 'path' or 'header'.
+          example: body
+        value:
+          type: string
+          description: The value of the field that caused the validation error.
+          example: testuser
+      description: List of objects providing additional context and detail on sub-reasons for the validation issue or error.
   securitySchemes:
     SpsBearer:
       type: http

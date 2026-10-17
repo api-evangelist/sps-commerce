@@ -273,180 +273,18 @@ components:
           default: []
         paging:
           $ref: '#/components/schemas/PagingOffset'
-    Error:
-      allOf:
-      - $ref: '#/components/schemas/ProblemDetails'
-      - type: object
-        properties:
-          context:
-            type: array
-            description: List of objects providing additional context and detail on sub-reasons for the validation issue or error.
-            items:
-              $ref: '#/components/schemas/ErrorContext'
-    WarehouseLocation:
-      title: WarehouseLocation
-      required:
-      - spsLocationId
-      type: object
-      properties:
-        spsLocationId:
-          $ref: '#/components/schemas/SpsLocationId'
-        locationId:
-          type: string
-          description: Unique value assigned to identify a location.
-        name:
-          type: string
-          description: Primary free-form textual description of a location.
-        address:
-          type: array
-          description: Address[1-4] information.
-          items:
-            type: string
-        city:
-          type: string
-          description: Free-form text for city name.
-        state:
-          type: string
-          description: Code[Standard State/Province] as defined by appropriate government agency
-        postalCode:
-          type: string
-          description: International postal zone excluding punctuation and blanks[Zip Code for United States].
-        country:
-          type: string
-          description: Human readable description identifying the country.
-    Limit:
-      maximum: 100
-      minimum: 1
+    Offset:
+      minimum: 0
       type: integer
-      description: Number of results requested to be returned.
+      description: Number of items to skip before including the number of limit results in the request.
       format: int32
       example: 20
-      default: 20
-    PagingOffset:
-      type: object
-      properties:
-        totalCount:
-          $ref: '#/components/schemas/TotalCount'
-        limit:
-          $ref: '#/components/schemas/Limit'
-        offset:
-          $ref: '#/components/schemas/Offset'
-      description: Offset Paging result schema for all collection responses.
-      example:
-        totalCount: 100
-        limit: 20
-        offset: 0
+      default: 0
     TotalCount:
       type: integer
       description: The total count of all unique available records (results) across all paginated queries of the endpoint.
       format: int32
       example: 124
-    ProjectedQuantity:
-      type: object
-      properties:
-        date:
-          type: string
-          description: The date that the  projected quantity is expected to be available for immediate shipment or stocking.
-          format: date-time
-        quantity:
-          type: integer
-          description: Quantity that is currently being manufactured and/or shipped and is not available for immediate shipment or stocking.
-    SpsLocationId:
-      type: string
-      description: A unique identifier for a location within SPS Commerce.
-      format: number
-      example: '244302726407736595627334087646402585459'
-    ErrorContextFields:
-      type: object
-      properties:
-        field:
-          type: string
-          description: The name of the field that caused the validation error.
-          example: email
-        source:
-          type: string
-          description: The request location of the field that caused the validation error. Typically a value such as 'body', 'query', 'path' or 'header'.
-          example: body
-        value:
-          type: string
-          description: The value of the field that caused the validation error.
-          example: testuser
-      description: List of objects providing additional context and detail on sub-reasons for the validation issue or error.
-    ErrorContext:
-      required:
-      - code
-      - message
-      type: object
-      properties:
-        code:
-          type: string
-          description: Short, machine-readable, name of the validation error that occurred. Usage MUST be CAPITAL_SNAKE_CASE.
-          example: INPUT_INVALID
-        message:
-          type: string
-          description: Human-readable details or message specific error about the request failure.
-          example: Attribute 'email' must be a valid email address.
-      description: List of objects providing additional context and detail on sub-reasons for the validation issue or error.
-    InventoryItem:
-      title: InventoryItem
-      required:
-      - availableQuantity
-      - item
-      - lastUpdated
-      - nextAvailableQuantity
-      - onOrderQuantity
-      - partnerId
-      - quantityLastUpdated
-      - spsBuyerOrgId
-      - spsSellerOrgId
-      type: object
-      properties:
-        spsBuyerOrgId:
-          type: string
-          description: Unique identifier for buying organization within SPS Commerce.
-        spsSellerOrgId:
-          type: string
-          description: Unique identifier for selling organization within SPS Commerce.
-        partnerId:
-          type: string
-          description: Value assigned by buyer that uniquely identifies the vendor.
-        availableQuantity:
-          type: integer
-          description: Quantity of current stock that is on hand for sale or use.
-        availableDate:
-          type: string
-          description: The date that the Available Quantity will be available for sale.
-          format: date-time
-        projectedQuantities:
-          type: array
-          description: Quantities that is currently being manufactured and/or shipped and is not available for immediate shipment or stocking.
-          items:
-            $ref: '#/components/schemas/ProjectedQuantity'
-        quantityLastUpdated:
-          type: string
-          description: Date and Time the ItemRegistries was created.
-          format: date-time
-        item:
-          $ref: '#/components/schemas/Item'
-        warehouseLocation:
-          $ref: '#/components/schemas/WarehouseLocation'
-    SpsItemId:
-      type: string
-      description: A unique identifier for an item within SPS Commerce.
-      format: number
-      example: '244302726407736595627334087646402585459'
-    ErrorFieldValidation:
-      allOf:
-      - $ref: '#/components/schemas/ProblemDetails'
-      - type: object
-        properties:
-          context:
-            type: array
-            description: List of objects providing additional context and detail on sub-reasons for the validation issue or error.
-            items:
-              allOf:
-              - $ref: '#/components/schemas/ErrorContext'
-              - $ref: '#/components/schemas/ErrorContextFields'
     ProblemDetails:
       required:
       - requestId
@@ -493,13 +331,49 @@ components:
           format: url
           example: https://example.com/probs/out-of-credit
       description: Extended Problem Details error model for SPS Commerce, based upon Problem Details for HTTP APIs (https://datatracker.ietf.org/doc/html/rfc7807))
-    Offset:
-      minimum: 0
-      type: integer
-      description: Number of items to skip before including the number of limit results in the request.
-      format: int32
-      example: 20
-      default: 0
+    InventoryItem:
+      title: InventoryItem
+      required:
+      - availableQuantity
+      - item
+      - lastUpdated
+      - nextAvailableQuantity
+      - onOrderQuantity
+      - partnerId
+      - quantityLastUpdated
+      - spsBuyerOrgId
+      - spsSellerOrgId
+      type: object
+      properties:
+        spsBuyerOrgId:
+          type: string
+          description: Unique identifier for buying organization within SPS Commerce.
+        spsSellerOrgId:
+          type: string
+          description: Unique identifier for selling organization within SPS Commerce.
+        partnerId:
+          type: string
+          description: Value assigned by buyer that uniquely identifies the vendor.
+        availableQuantity:
+          type: integer
+          description: Quantity of current stock that is on hand for sale or use.
+        availableDate:
+          type: string
+          description: The date that the Available Quantity will be available for sale.
+          format: date-time
+        projectedQuantities:
+          type: array
+          description: Quantities that is currently being manufactured and/or shipped and is not available for immediate shipment or stocking.
+          items:
+            $ref: '#/components/schemas/ProjectedQuantity'
+        quantityLastUpdated:
+          type: string
+          description: Date and Time the ItemRegistries was created.
+          format: date-time
+        item:
+          $ref: '#/components/schemas/Item'
+        warehouseLocation:
+          $ref: '#/components/schemas/WarehouseLocation'
     Item:
       title: Item
       required:
@@ -534,6 +408,132 @@ components:
         ndc:
           type: string
           description: National Drug Code or NDC is a unique, universal product identifier for drugs. Primarily used in the pharmaceutical industry.
+    ErrorContext:
+      required:
+      - code
+      - message
+      type: object
+      properties:
+        code:
+          type: string
+          description: Short, machine-readable, name of the validation error that occurred. Usage MUST be CAPITAL_SNAKE_CASE.
+          example: INPUT_INVALID
+        message:
+          type: string
+          description: Human-readable details or message specific error about the request failure.
+          example: Attribute 'email' must be a valid email address.
+      description: List of objects providing additional context and detail on sub-reasons for the validation issue or error.
+    Limit:
+      maximum: 100
+      minimum: 1
+      type: integer
+      description: Number of results requested to be returned.
+      format: int32
+      example: 20
+      default: 20
+    ProjectedQuantity:
+      type: object
+      properties:
+        date:
+          type: string
+          description: The date that the  projected quantity is expected to be available for immediate shipment or stocking.
+          format: date-time
+        quantity:
+          type: integer
+          description: Quantity that is currently being manufactured and/or shipped and is not available for immediate shipment or stocking.
+    PagingOffset:
+      type: object
+      properties:
+        totalCount:
+          $ref: '#/components/schemas/TotalCount'
+        limit:
+          $ref: '#/components/schemas/Limit'
+        offset:
+          $ref: '#/components/schemas/Offset'
+      description: Offset Paging result schema for all collection responses.
+      example:
+        totalCount: 100
+        limit: 20
+        offset: 0
+    Error:
+      allOf:
+      - $ref: '#/components/schemas/ProblemDetails'
+      - type: object
+        properties:
+          context:
+            type: array
+            description: List of objects providing additional context and detail on sub-reasons for the validation issue or error.
+            items:
+              $ref: '#/components/schemas/ErrorContext'
+    ErrorFieldValidation:
+      allOf:
+      - $ref: '#/components/schemas/ProblemDetails'
+      - type: object
+        properties:
+          context:
+            type: array
+            description: List of objects providing additional context and detail on sub-reasons for the validation issue or error.
+            items:
+              allOf:
+              - $ref: '#/components/schemas/ErrorContext'
+              - $ref: '#/components/schemas/ErrorContextFields'
+    WarehouseLocation:
+      title: WarehouseLocation
+      required:
+      - spsLocationId
+      type: object
+      properties:
+        spsLocationId:
+          $ref: '#/components/schemas/SpsLocationId'
+        locationId:
+          type: string
+          description: Unique value assigned to identify a location.
+        name:
+          type: string
+          description: Primary free-form textual description of a location.
+        address:
+          type: array
+          description: Address[1-4] information.
+          items:
+            type: string
+        city:
+          type: string
+          description: Free-form text for city name.
+        state:
+          type: string
+          description: Code[Standard State/Province] as defined by appropriate government agency
+        postalCode:
+          type: string
+          description: International postal zone excluding punctuation and blanks[Zip Code for United States].
+        country:
+          type: string
+          description: Human readable description identifying the country.
+    ErrorContextFields:
+      type: object
+      properties:
+        field:
+          type: string
+          description: The name of the field that caused the validation error.
+          example: email
+        source:
+          type: string
+          description: The request location of the field that caused the validation error. Typically a value such as 'body', 'query', 'path' or 'header'.
+          example: body
+        value:
+          type: string
+          description: The value of the field that caused the validation error.
+          example: testuser
+      description: List of objects providing additional context and detail on sub-reasons for the validation issue or error.
+    SpsItemId:
+      type: string
+      description: A unique identifier for an item within SPS Commerce.
+      format: number
+      example: '244302726407736595627334087646402585459'
+    SpsLocationId:
+      type: string
+      description: A unique identifier for a location within SPS Commerce.
+      format: number
+      example: '244302726407736595627334087646402585459'
   securitySchemes:
     SpsBearer:
       type: http
