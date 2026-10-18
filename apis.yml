@@ -182,6 +182,9 @@ apis:
   baseURL: https://api.spscommerce.com/transactions/v5
   tags:
   - EDI
+  - Transaction
+  tags_raw:
+  - EDI
   - Transactions
   properties:
   - type: Documentation
