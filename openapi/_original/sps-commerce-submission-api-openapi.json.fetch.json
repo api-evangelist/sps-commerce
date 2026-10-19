@@ -1,0 +1,12 @@
+{
+ "url": "https://integration.api.spscommerce.com/submissions/openapi.json",
+ "requested_url": "https://integration.api.spscommerce.com/submissions/openapi.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 38928,
+ "sha256": "058e3e38ef4d52a38d974ea81f6fcd3b60dd5d5f97e1539447d93d798349e716",
+ "fetched_at": "2026-10-19",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
