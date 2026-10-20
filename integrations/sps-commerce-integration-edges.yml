@@ -1,12 +1,22 @@
-generated: '2026-10-15'
+generated: '2026-10-20'
 method: searched
+source:
+- shopify/integrations/shopify-integration-edges.yml
+- https://zapier.com/apps/sps-commerce/integrations
+- https://n8n.io/integrations/sps-commerce/
+- https://composio.dev/toolkits/sps-commerce
+- https://monid.ai/tools/sps-commerce
 checked:
 - https://www.gs1.org/services/gdsn/certified-data-pools-list
 - https://www.gs1us.org/services/find-gs1-us-solution-partner/profiles
 - https://www.spscommerce.com/partner-community/directory/
 - shopify/integrations/shopify-integration-edges.yml
-source:
-- shopify/integrations/shopify-integration-edges.yml
+- https://composio.dev/toolkits/sps-commerce
+- https://monid.ai/tools/sps-commerce
+- https://n8n.io/integrations/sps-commerce/
+- https://zapier.com/apps/sps-commerce/integrations
+summary: null
+marketplace_apps: []
 edges:
 - partner_name: Shopify (own)
   partner: shopify
@@ -49,7 +59,7 @@ edges:
     signal_note: 'participation only: program membership is vetted, not a conformance test; solution_areas are context,
       never read'
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-consumer-goods.py
   first_seen: '2026-10-15'
 - partner_name: Acumatica
@@ -72,7 +82,7 @@ edges:
     business_types:
     - Software Provider
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-consumer-goods.py
   first_seen: '2026-10-15'
 - partner_name: Cart.com
@@ -97,7 +107,7 @@ edges:
     - Third Party Logistics (3PL)
     - System Integrator (SI)
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-consumer-goods.py
   first_seen: '2026-10-15'
 - partner_name: C.H. Robinson
@@ -120,7 +130,7 @@ edges:
     business_types:
     - Third Party Logistics (3PL)
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-consumer-goods.py
   first_seen: '2026-10-15'
 - partner_name: Databricks
@@ -143,7 +153,7 @@ edges:
     business_types:
     - Software Provider
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-consumer-goods.py
   first_seen: '2026-10-15'
 - partner_name: Deposco, Inc.
@@ -166,7 +176,7 @@ edges:
     business_types:
     - Software Provider
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-consumer-goods.py
   first_seen: '2026-10-15'
 - partner_name: Extensiv
@@ -189,7 +199,7 @@ edges:
     business_types:
     - Software Provider
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-consumer-goods.py
   first_seen: '2026-10-15'
 - partner_name: Logiwa
@@ -212,7 +222,7 @@ edges:
     business_types:
     - Software Provider
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-consumer-goods.py
   first_seen: '2026-10-15'
 - partner_name: MYOB
@@ -235,7 +245,7 @@ edges:
     business_types:
     - Software Provider
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-consumer-goods.py
   first_seen: '2026-10-15'
 - partner_name: NetSuite
@@ -258,7 +268,7 @@ edges:
     business_types:
     - Software Provider
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-consumer-goods.py
   first_seen: '2026-10-15'
 - partner_name: Odoo
@@ -281,7 +291,7 @@ edges:
     business_types:
     - Software Provider
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-consumer-goods.py
   first_seen: '2026-10-15'
 - partner_name: ShipHero
@@ -305,7 +315,7 @@ edges:
     - Software Provider
     - Third Party Logistics (3PL)
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-consumer-goods.py
   first_seen: '2026-10-15'
 - partner_name: ShipStation
@@ -328,7 +338,7 @@ edges:
     business_types:
     - Software Provider
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-consumer-goods.py
   first_seen: '2026-10-15'
 - partner_name: Snowflake Inc.
@@ -351,7 +361,7 @@ edges:
     business_types:
     - Software Provider
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-consumer-goods.py
   first_seen: '2026-10-15'
 - partner_name: Zoho Inventory
@@ -374,6 +384,7 @@ edges:
     business_types:
     - Software Provider
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-consumer-goods.py
   first_seen: '2026-10-15'
+templates: []

@@ -41,7 +41,7 @@
     signal_note: 'participation only: program membership is vetted, not a conformance test; solution_areas are context,
       never read'
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   status: not-a-workflow
   arazzo: null
 - slug: sps-commerce-acumatica
@@ -63,7 +63,7 @@
     business_types:
     - Software Provider
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   status: not-a-workflow
   arazzo: null
 - slug: sps-commerce-cart-com
@@ -87,7 +87,7 @@
     - Third Party Logistics (3PL)
     - System Integrator (SI)
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   status: not-a-workflow
   arazzo: null
 - slug: sps-commerce-c-h-robinson
@@ -109,7 +109,7 @@
     business_types:
     - Third Party Logistics (3PL)
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   status: not-a-workflow
   arazzo: null
 - slug: sps-commerce-databricks
@@ -131,7 +131,7 @@
     business_types:
     - Software Provider
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   status: not-a-workflow
   arazzo: null
 - slug: sps-commerce-deposco-inc
@@ -153,7 +153,7 @@
     business_types:
     - Software Provider
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   status: not-a-workflow
   arazzo: null
 - slug: sps-commerce-extensiv
@@ -175,7 +175,7 @@
     business_types:
     - Software Provider
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   status: not-a-workflow
   arazzo: null
 - slug: sps-commerce-logiwa
@@ -197,7 +197,7 @@
     business_types:
     - Software Provider
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   status: not-a-workflow
   arazzo: null
 - slug: sps-commerce-myob
@@ -219,7 +219,7 @@
     business_types:
     - Software Provider
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   status: not-a-workflow
   arazzo: null
 - slug: sps-commerce-netsuite
@@ -241,7 +241,7 @@
     business_types:
     - Software Provider
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   status: not-a-workflow
   arazzo: null
 - slug: sps-commerce-odoo
@@ -263,7 +263,7 @@
     business_types:
     - Software Provider
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   status: not-a-workflow
   arazzo: null
 - slug: sps-commerce-shiphero
@@ -286,7 +286,7 @@
     - Software Provider
     - Third Party Logistics (3PL)
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   status: not-a-workflow
   arazzo: null
 - slug: sps-commerce-shipstation
@@ -308,7 +308,7 @@
     business_types:
     - Software Provider
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   status: not-a-workflow
   arazzo: null
 - slug: sps-commerce-snowflake-inc
@@ -330,7 +330,7 @@
     business_types:
     - Software Provider
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   status: not-a-workflow
   arazzo: null
 - slug: sps-commerce-zoho-inventory
@@ -352,6 +352,6 @@
     business_types:
     - Software Provider
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   status: not-a-workflow
   arazzo: null
