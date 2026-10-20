@@ -355,3 +355,29 @@
     detected: '2026-10-19'
   status: not-a-workflow
   arazzo: null
+- slug: sps-commerce-databricks-marketplace
+  label: Databricks Marketplace
+  partner: databricks
+  partner_name: Databricks Marketplace
+  category: data product listing
+  type: marketplace
+  marketplace: databricks-marketplace
+  channel: distribution
+  evidence: https://marketplace.databricks.com/provider/556f3406-c4ae-4143-b7f7-030038eded21
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: Databricks Marketplace (marketplace.databricks.com/api/2.0/public-marketplace-providers + public-marketplace-listings)
+    spec_file: null
+    role: data-marketplace-seller
+    registered_name: SPS Commerce
+    matched_domain: spscommerce.com
+    matched_by: domain
+    listings: 1
+    sample_listings:
+    - Sales and Inventory Data for Retail Business Intelligence
+    signal_note: 'participation: the provider lists data products on this marketplace; counts are context'
+    detected_by: sweep-data-marketplaces.py
+    detected: '2026-10-20'
+  status: not-a-workflow
+  arazzo: null
